@@ -1,21 +1,20 @@
-# Cancellation Pattern Constitution
+# Конституция паттерна «Отмена»
 
-## Scope
+## Охват
 
-Use for hard cancellation, asymmetry between signup and cancellation, refund obstruction, post-cancellation billing, retention loops, or channel mismatch.
+Используйте для затруднённой отмены, асимметрии между оформлением и отменой, препятствования возврату, списаний после отмены, удерживающих циклов или несовпадения каналов.
 
-## Detect
+## Обнаружение
 
-- Cancellation requires more steps, channels, or friction than signup.
-- User is pushed through retention offers, surveys, or confusing confirmations before cancellation.
-- Cancellation method is hidden, delayed, unavailable, or different from the enrollment channel without justification.
-- Billing continues after cancellation or refund path is obstructed.
+- Отмена требует больше шагов, каналов или усилий, чем оформление.
+- Пользователя проводят через удерживающие предложения, опросы или запутанные подтверждения перед отменой.
+- Способ отмены скрыт, отложен, недоступен или без обоснования отличается от канала подключения.
+- Списания продолжаются после отмены, или путь возврата затруднён.
 
-## False-Positive Guardrails
+## Защита от ложных срабатываний
 
-Do not flag ordinary confirmation steps when cancellation remains simple, direct, and available through the promised channel. A brief optional pause/retention offer is not enough by itself.
+Не отмечайте обычные шаги подтверждения, когда отмена остаётся простой, прямой и доступной через обещанный канал. Краткого необязательного предложения паузы/удержания самого по себе недостаточно.
 
-## Citation
+## Цитирование
 
-Cancellation findings need a supported material norm for the explicitly supplied jurisdiction and a local case/source anchor after actor, transaction, factual-trigger, effective-date, and availability gates pass. A declared procedural norm may accompany, but never replace or precede, the material norm. If the screenshot is only a signup screen, state that cancellation risk cannot be assessed from the screenshot alone.
-
+Находкам об отмене нужны подтверждённая материальная норма для явно указанной юрисдикции и локальный якорь кейса/источника после прохождения гейтов субъекта, сделки, фактического триггера, даты вступления в силу и доступности. Заявленная процедурная норма может сопровождать материальную, но никогда не заменяет её и не предшествует ей. Если на скриншоте только экран оформления, укажите, что риск отмены нельзя оценить по одному скриншоту.

@@ -1,27 +1,27 @@
-# Clean Benchmark Authoring
+# Авторинг clean-бенчмарков
 
-Clean benchmarks reduce false positives. They should be real or source-backed low-risk checkout examples, not invented "green" stories.
+Clean-бенчмарки снижают число ложных срабатываний. Это должны быть реальные или подкреплённые источником низкорисковые примеры чекаута, а не выдуманные «зелёные» истории.
 
-## What Counts
+## Что считается
 
-A clean benchmark should show:
+Clean-бенчмарк должен показывать:
 
-- Material price and renewal terms before payment.
-- Clear cancellation information where relevant.
-- Active consent when an add-on, subscription, trial, or negative option exists.
-- No preselected paid extras.
-- No misleading urgency or scarcity.
-- Low-risk explanation tied to visible evidence.
+- Существенные условия цены и продления до оплаты.
+- Ясную информацию об отмене, где это уместно.
+- Активное согласие, когда есть допуслуга, подписка, пробный период или негативный опцион (автоподключение).
+- Отсутствие предвыбранных платных допуслуг.
+- Отсутствие вводящей в заблуждение срочности или дефицита.
+- Объяснение низкого риска, привязанное к видимым уликам.
 
-## Fields
+## Поля
 
-Use `benchmarks/clean/_template.md` as the starting shape. Fill the evidence source and, for canonical maintenance, any available asset field. Every benchmark must resolve one source capsule and at least one local anchor; multi-page benchmarks may resolve several anchors. Never rely on a URL, filename, digest, page, or optional image identifier alone.
+Используйте `benchmarks/clean/_template.md` как исходную форму. Заполните источник улик и, для канонического сопровождения, доступное поле актива. Названия секций тела остаются английскими: `VISIBLE EVIDENCE` (видимые улики), `WHY LOW RISK` (почему низкий риск), `NOT A VIOLATION BECAUSE` (не нарушение, потому что), `LIMITATIONS` (ограничения). Каждый бенчмарк должен разрешать одну капсулу источника и как минимум один локальный якорь; многостраничные бенчмарки могут разрешать несколько якорей. Никогда не полагайтесь только на URL, имя файла, дайджест, страницу или идентификатор необязательного изображения.
 
-Portable-core copies carry direct `source_id` and `source_anchor_ids`, omit `asset` frontmatter, and remain valid without a shareable image. Record the absent-image limitation and use capsule evidence. Do not claim that extracted text or semantic summaries preserve color, contrast, relative prominence, spacing, or location.
+Копии portable-core несут прямые `source_id` и `source_anchor_ids`, опускают frontmatter `asset` и остаются действительными без изображения, пригодного для распространения. Зафиксируйте ограничение об отсутствующем изображении и используйте улики капсулы. Не заявляйте, что извлечённый текст или семантические сводки сохраняют цвет, контраст, относительную заметность, интервалы или расположение.
 
-## False-Positive Trap Coverage
+## Покрытие ловушек ложного срабатывания
 
-Map the benchmark to traps it protects against, such as:
+Сопоставьте бенчмарк с ловушками, от которых он защищает, например:
 
 - `clear-renewal-disclosure-before-payment`
 - `optional-unselected-addon`
@@ -29,11 +29,10 @@ Map the benchmark to traps it protects against, such as:
 - `non-deceptive-progress-indicator`
 - `genuine-limited-time-offer-with-support`
 
-## Validation
+## Валидация
 
-Run:
+Запустите:
 
 `python -B scripts/validate_benchmarks.py --kb <kb-root>`
 
-Use `--min-count 15` for readiness checks that require the complete clean-benchmark floor.
-
+Используйте `--min-count 15` для проверок готовности, требующих полного минимального набора clean-бенчмарков.

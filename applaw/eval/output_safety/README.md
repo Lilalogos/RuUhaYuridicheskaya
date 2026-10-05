@@ -1,3 +1,3 @@
-# Output-Safety Fixtures
+# Фикстуры безопасности вывода
 
-`cases.json` contains isolated public-output scanner cases. Unsafe strings live only in the fixture data and must be rejected by `validate_output_safety.py`; they are not approved report wording.
+`cases.json` содержит изолированные кейсы для сканера публичного вывода. Небезопасные строки существуют только в данных фикстур и должны отклоняться `validate_output_safety.py`; они не являются одобренными формулировками для отчёта.

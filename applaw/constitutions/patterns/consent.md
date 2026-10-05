@@ -1,21 +1,20 @@
-# Consent Pattern Constitution
+# Конституция паттерна «Согласие»
 
-## Scope
+## Охват
 
-Use for preselection, bundled consent, unclear payment authorization, inferred consent, or failure to obtain express informed consent for negative-option or add-on charges.
+Используйте для предвыбора, связанного согласия, неясной авторизации платежа, подразумеваемого согласия или отсутствия явного информированного согласия на негативный опцион или платные дополнения.
 
-## Detect
+## Обнаружение
 
-- Paid option, trial, add-on, or membership is preselected.
-- Consent to different legal/economic commitments is bundled into one action.
-- CTA or wallet/payment action authorizes a recurring charge without clear informed consent.
-- The user must decline or opt out to avoid a paid feature.
+- Платная опция, пробный период, дополнение или членство предвыбраны.
+- Согласие на разные правовые/экономические обязательства объединено в одно действие.
+- CTA или действие кошелька/оплаты авторизует повторяющееся списание без ясного информированного согласия.
+- Пользователь должен отказаться или отключить опцию, чтобы избежать платной функции.
 
-## False-Positive Guardrails
+## Защита от ложных срабатываний
 
-Do not flag when the user actively selects the paid feature after clear price, renewal, and cancellation terms are shown. Do not treat a neutral checkbox as risky if it is unchecked by default and tied to clear terms.
+Не отмечайте, когда пользователь активно выбирает платную функцию после показа понятных условий цены, продления и отмены. Не считайте нейтральный чекбокс рискованным, если он по умолчанию снят и привязан к понятным условиям.
 
-## Citation
+## Цитирование
 
-Consent findings require visible UI evidence and a supported material norm for the explicitly supplied jurisdiction. Apply actor, transaction, factual-trigger, effective-date, availability, and source-anchor gates. Only then may a declared procedural enforcement or remedy companion be added. Use local source fields or abstain.
-
+Находки о согласии требуют видимых улик в UI и подтверждённой материальной нормы для явно указанной юрисдикции. Применяйте гейты субъекта, сделки, фактического триггера, даты вступления в силу, доступности и якоря источника. Только после этого может быть добавлен заявленный процедурный компаньон по правоприменению или средствам защиты. Используйте локальные поля источников или воздержитесь.

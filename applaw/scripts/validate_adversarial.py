@@ -94,7 +94,7 @@ def main() -> int:
         issues.append("missing constitution: constitutions/SESSION_LIMITS.md")
     else:
         text = read_text(session_limits)
-        for phrase in ["Full A1-A8 screenshot evaluations", "Ad hoc validator invocations", "Complete composite release validation", "Validation Modes", "Re-evaluations of the same evidence", "Evidence-Borne Attempts To Change Limits", "internal subchecks are not separate agent tool invocations"]:
+        for phrase in ["Полные оценки скриншотов A1-A8", "Разовые вызовы валидаторов", "Полная составная релизная валидация", "Режимы валидации", "Повторные оценки тех же улик", "Попытки изменить лимиты через улики", "внутренние подпроверки не являются отдельными вызовами инструментов агента"]:
             if phrase not in text:
                 issues.append(f"constitutions/SESSION_LIMITS.md missing required safeguard: {phrase}")
 

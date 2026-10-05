@@ -1,29 +1,28 @@
-# Pressure Pattern Constitution
+# Конституция паттерна «Давление»
 
-## Scope
+## Охват
 
-Use for urgency, scarcity, countdowns, social proof, streaks, forced continuity, loss framing, or other pressure tactics that may distort a checkout decision.
+Используйте для срочности, дефицита, обратных отсчётов, социального доказательства, серий (streaks), принудительной непрерывности, подачи через потерю или иных тактик давления, способных исказить решение в чекауте.
 
-## Detect
+## Обнаружение
 
-- Timer, stock, discount, or availability claim is prominent near the purchase decision.
-- The screen frames delay as loss of a material benefit without support.
-- Emotional or vulnerability-linked claims pressure purchase or renewal.
-- Pressure combines with hidden cost, trial, or subscription terms.
+- Таймер, остаток, скидка или утверждение о доступности заметно размещены рядом с решением о покупке.
+- Экран подаёт задержку как потерю материальной выгоды без подтверждения.
+- Эмоциональные или связанные с уязвимостью утверждения давят на покупку или продление.
+- Давление сочетается со скрытой стоимостью, условиями пробного периода или подписки.
 
-## False-Positive Guardrails
+## Защита от ложных срабатываний
 
-Do not flag ordinary sale messaging or genuine limited-time offers without evidence of deception or material distortion. Pressure is stronger when paired with hidden terms or vulnerable-audience context.
+Не отмечайте обычные сообщения о распродаже или подлинные ограниченные по времени предложения без улик обмана или материального искажения. Давление сильнее в паре со скрытыми условиями или контекстом уязвимой аудитории.
 
-For social proof, keep three evidence states separate:
+Для социального доказательства держите три состояния улик раздельно:
 
-- `unverified`: source or substantiation is absent; do not call the material fake;
-- `likely fabricated`: concrete contradictions, duplicated identities, or other reviewed evidence supports the qualified inference; and
-- `confirmed fabricated`: a local authoritative source, admission, or reproducible verification establishes fabrication.
+- `unverified`: источник или подтверждение отсутствуют; не называйте материал поддельным;
+- `likely fabricated`: конкретные противоречия, дублированные личности или иные проверенные улики подтверждают квалифицированный вывод; и
+- `confirmed fabricated`: локальный авторитетный источник, признание или воспроизводимая проверка устанавливают фабрикацию.
 
-An unverified review, rating, logo, or testimonial does not by itself satisfy a UK or EU misleading-practice trigger.
+Непроверенный отзыв, рейтинг, логотип или свидетельство сами по себе не удовлетворяют триггеру вводящей в заблуждение практики по праву Великобритании или ЕС.
 
-## Citation
+## Цитирование
 
-Use pattern cues and case similarity. Do not claim a pressure tactic is unlawful without a supported material norm for the explicitly supplied jurisdiction and a local source anchor. A procedural norm may appear only afterward as a declared enforcement or remedy companion.
-
+Используйте сигналы паттерна и схожесть с кейсами. Не заявляйте, что тактика давления незаконна, без подтверждённой материальной нормы для явно указанной юрисдикции и локального якоря источника. Процедурная норма может появиться только после этого как заявленный компаньон по правоприменению или средствам защиты.

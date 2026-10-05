@@ -1,360 +1,360 @@
-# ru-only fork: RU gates plus the universal gates the RU routes consume.
-# English wording is rendered to the Examiner verbatim.
+# ru-only форк: RU-гейты плюс универсальные гейты, которые используют RU-маршруты.
+# Формулировки сигналов передаются Экзаменатору дословно.
 
 - id: post-contract-cancellation
   name: "Cancellation after the contract exists"
   detect:
-    - "The screen concerns ending an existing subscription: a cancel flow, a retention or downgrade offer, a manage-subscription page, or a confirmation that the plan is active."
+    - "Экран касается прекращения уже действующей подписки: флоу отмены, удерживающее предложение или предложение понизить тариф, страница управления подпиской либо подтверждение, что тариф активен."
   avoid:
-    - "A pre-purchase screen, and a refund request for a one-off purchase with no subscription behind it."
+    - "Экран до покупки, а также запрос возврата по разовой покупке, за которой не стоит подписка."
 
 - id: material-pricing-term-omitted-or-subordinated-at-invitation
   name: "Material pricing term missing or subordinated at the offer"
   detect:
-    - "The total price, the renewal price, the billing cadence or the trial-conversion terms are absent, below the fold, behind a link, or materially less prominent than the promoted price on the screen that invites the purchase."
+    - "Итоговая цена, цена продления, периодичность списаний или условия перехода с пробного периода на платный отсутствуют, находятся ниже первого экрана, спрятаны за ссылкой или заметно менее выделены, чем продвигаемая цена, на экране, который приглашает к покупке."
   avoid:
-    - "All of those terms present and legible next to the promoted price."
+    - "Все эти условия присутствуют и читаемы рядом с продвигаемой ценой."
 
 - id: express-opt-in-action-required
   name: "Express opt-in required for the extra"
   detect:
-    - "The consumer must take a separate affirmative action to add the extra: an unticked box, an explicit add button, a deliberate choice with no default."
+    - "Потребитель должен совершить отдельное утвердительное действие, чтобы добавить допуслугу: неотмеченная галочка, явная кнопка «добавить», осознанный выбор без значения по умолчанию."
   avoid:
-    - "A pre-ticked box, a preselected bundle, or an extra included by default."
+    - "Предотмеченная галочка, предвыбранный пакет или допуслуга, включённая по умолчанию."
 
 - id: minor-neutral-confirmation-steps-only
   name: "Only minor neutral confirmation steps"
   detect:
-    - "The cancel path adds no more than a neutral confirmation: a single 'are you sure', or one plainly worded summary of what ending the plan means."
+    - "Путь отмены добавляет не более нейтрального подтверждения: одно «вы уверены?» или одно ясно сформулированное резюме того, что означает прекращение тарифа."
   avoid:
-    - "Repeated confirmations, retention offers the consumer must refuse more than once, and emotionally loaded wording."
+    - "Повторные подтверждения, удерживающие предложения, от которых потребитель должен отказываться более одного раза, и эмоционально окрашенные формулировки."
 
 - id: material-cancellation-obstruction
   name: "Material obstruction to cancelling"
   detect:
-    - "Something on the screen materially impedes cancelling: the option is hidden, several layers deep, in a different channel from sign-up, or the flow ends without confirming the cancellation took effect."
+    - "Что-то на экране существенно мешает отмене: опция скрыта, спрятана на несколько уровней вглубь, доступна только через другой канал, чем оформление, либо флоу завершается без подтверждения, что отмена вступила в силу."
   avoid:
-    - "A visible cancel option reachable in about as many steps as joining took."
+    - "Видимая опция отмены, достижимая примерно за столько же шагов, сколько потребовалось для подключения."
 
 - id: ru-consumer-b2c-transaction
   name: "Offer addressed to a Russian consumer for personal needs"
   detect:
-    - "The reviewed flow sells goods or services to a natural person for personal, family, or household use: retail product wording, a personal account, consumer pricing, individual checkout fields such as name, phone, personal email, or delivery address."
-    - "Russian-language consumer cues on screen such as «покупатель», «потребитель», «доставка», «личный кабинет», «для личного пользования», or an ordinary retail storefront aimed at individuals."
+    - "Проверяемый флоу продаёт товары или услуги физическому лицу для личных, семейных или домашних нужд: розничные формулировки о товаре, личный аккаунт, потребительские цены, индивидуальные поля чекаута — имя, телефон, личный email, адрес доставки."
+    - "Русскоязычные потребительские сигналы на экране — «покупатель», «потребитель», «доставка», «личный кабинет», «для личного пользования» — либо обычная розничная витрина, адресованная частным лицам."
   avoid:
-    - "An offer explicitly directed at businesses: mandatory legal-entity or ИНН/ОГРН company fields, «для юридических лиц», «для бизнеса», a closed B2B cabinet, or wholesale terms. An unknown buyer type stays unknown; it is not confirmed by Russian language, ruble prices, or a .ru domain alone."
+    - "Предложение, явно адресованное бизнесу: обязательные поля юрлица или ИНН/ОГРН, «для юридических лиц», «для бизнеса», закрытый B2B-кабинет или оптовые условия. Неизвестный тип покупателя остаётся неизвестным; сами по себе русский язык, цены в рублях или домен .ru его не подтверждают."
 
 - id: ru-recurring-charge-enabled
   name: "The flow enables recurring charges from saved payment credentials"
   detect:
-    - "The step activates a subscription, auto-renewal, or repeat billing from a saved card or stored credentials, or saves payment details for future charges."
-    - "Russian-language cues such as «подписка», «автопродление», «спишем», «ежемесячно», «далее … ₽/мес», «сохранить карту», «привязать карту»."
+    - "Шаг активирует подписку, автопродление или повторные списания с сохранённой карты или сохранённых платёжных данных либо сохраняет платёжные данные для будущих списаний."
+    - "Русскоязычные сигналы: «подписка», «автопродление», «спишем», «ежемесячно», «далее … ₽/мес», «сохранить карту», «привязать карту»."
   avoid:
-    - "A one-time payment where no credentials are stored and no renewal or repeat charge is enabled."
+    - "Разовый платёж, при котором платёжные данные не сохраняются и ни продление, ни повторное списание не включаются."
 
 - id: ru-electronic-refusal-path-absent
   name: "No in-product electronic path to refuse saved credentials or stop auto-renewal"
   detect:
-    - "The account or cancellation area offers no working self-service control to view saved cards, delete a card, refuse further use of saved payment credentials, or switch off auto-renewal; the only stated route is a phone call, letter, agent chat, or support ticket."
-    - "Russian-language cues such as «позвоните в поддержку», «напишите нам письмо», «обратитесь к оператору», or a card shown as removed while a next charge is still announced."
+    - "В аккаунте или разделе отмены нет работающего инструмента самообслуживания, чтобы посмотреть сохранённые карты, удалить карту, отказаться от дальнейшего использования сохранённых платёжных данных или отключить автопродление; единственный заявленный маршрут — звонок, письмо, чат с оператором или обращение в поддержку."
+    - "Русскоязычные сигналы: «позвоните в поддержку», «напишите нам письмо», «обратитесь к оператору», либо карта показана как удалённая, хотя следующее списание по-прежнему анонсировано."
   avoid:
-    - "A visible, working self-service control in the account — «Удалить карту», «Отключить автопродление», «Отменить подписку» — that acts electronically without contacting support."
+    - "Видимый работающий инструмент самообслуживания в аккаунте — «Удалить карту», «Отключить автопродление», «Отменить подписку», — который действует электронно, без обращения в поддержку."
 
 - id: ru-total-price-displayed-before-payment
   name: "The full final price in rubles is shown before the payment action"
   detect:
-    - "Before the consumer confirms payment, the screen states the total amount payable in rubles including every mandatory charge, together with payment terms, so no obligatory cost first appears at or after the payment step."
+    - "До того как потребитель подтверждает оплату, экран указывает итоговую сумму к оплате в рублях с учётом каждого обязательного платежа вместе с условиями оплаты, так что ни одна обязательная стоимость не появляется впервые на шаге оплаты или после него."
   avoid:
-    - "A headline or plan price that excludes a mandatory fee, tax, or service charge which is added only at a later step, the «Итого» line, or the receipt."
+    - "Заявленная цена или цена тарифа, не включающая обязательный сбор, налог или сервисный сбор, который добавляется только на более позднем шаге, в строке «Итого» или в чеке."
 
 - id: ru-additional-paid-service-preselected
   name: "A paid add-on service is preselected or already in the order"
   detect:
-    - "A paid extra — insurance, purchase protection, SMS notifications, extended warranty, priority support — is pre-ticked, toggled on by default, or already added to the cart or order total without a separate affirmative choice."
-    - "Russian-language add-on cues such as «Защита покупки», «Страхование заказа», «СМС-информирование», «Гарантия+» shown in an enabled state by default."
+    - "Платная допуслуга — страховка, защита покупки, СМС-уведомления, расширенная гарантия, приоритетная поддержка — предотмечена, включена переключателем по умолчанию или уже добавлена в корзину или в итог заказа без отдельного утвердительного выбора."
+    - "Русскоязычные сигналы допуслуг: «Защита покупки», «Страхование заказа», «СМС-информирование», «Гарантия+», показанные во включённом состоянии по умолчанию."
   avoid:
-    - "An optional paid extra presented unticked, with its own visible price, that requires an explicit opt-in action."
+    - "Необязательная платная допуслуга, показанная неотмеченной, со своей видимой ценой и требующая явного действия активного выбора."
 
 - id: ru-decline-addon-blocks-primary-purchase
   name: "Declining the paid add-on blocks or degrades the primary purchase"
   detect:
-    - "Refusing the additional paid service prevents completing the main order: the continue or pay control stays disabled, the flow loops back, or the screen states the order cannot proceed without the add-on."
+    - "Отказ от дополнительной платной услуги не даёт завершить основной заказ: кнопка «продолжить» или «оплатить» остаётся неактивной, флоу возвращает назад, либо экран сообщает, что заказ нельзя оформить без допуслуги."
   avoid:
-    - "The main purchase completes normally on the same terms after the add-on is declined."
+    - "Основная покупка завершается нормально на тех же условиях после отказа от допуслуги."
 
 - id: ru-paid-service-subscription-contract
   name: "The offer is a paid consumer service, not a plain goods sale"
   detect:
-    - "The consumer pays for a service or ongoing access — a subscription, course, app plan, membership, or digital service — rather than a one-off purchase of goods."
+    - "Потребитель платит за услугу или постоянный доступ — подписку, курс, тариф приложения, членство или цифровой сервис, — а не за разовую покупку товара."
   avoid:
-    - "A plain goods purchase with delivery and no service or access component."
+    - "Обычная покупка товара с доставкой без услуги или компонента доступа."
 - id: ru-advertising-or-promo-claim-present
   name: "An advertising or promotional claim is visible in the flow"
   detect:
-    - "The screen carries a promotional assertion aimed at the purchase decision: a superlative («Лучший», «№ 1», «самый выгодный»), a scarcity or countdown element («осталось 2 штуки», a ticking timer), a testimonial or review module used as promotion, an award badge, media or expert endorsement, or a results promise."
+    - "На экране есть рекламное утверждение, направленное на решение о покупке: превосходная степень («Лучший», «№ 1», «самый выгодный»), элемент дефицита или обратного отсчёта («осталось 2 штуки», тикающий таймер), отзыв или модуль отзывов, используемый как реклама, значок награды, одобрение СМИ или эксперта либо обещание результата."
   avoid:
-    - "Plain descriptive product facts (size, composition, delivery dates) with no promotional assertion, scarcity device, or endorsement."
+    - "Простые описательные факты о товаре (размер, состав, сроки доставки) без рекламного утверждения, приёма дефицита или одобрения."
 
-# ru content-domain gates (wave 1): the survey's own exceptions and the facts
-# a screen cannot show by itself.
+# ru-гейты контентных доменов (волна 1): собственные исключения обзорного PDF и факты,
+# которые экран сам по себе показать не может.
 - id: condemning-historical-context-present
   name: "Clearly condemning historical context frames the symbol"
   detect:
-    - "The symbol appears inside explicitly condemning historical framing — the survey names games and encyclopedias — where the surrounding text or setting denounces it rather than displays it neutrally or decoratively."
+    - "Символ появляется внутри явно осуждающего исторического контекста — обзорный PDF называет игры и энциклопедии, — где окружающий текст или обстановка осуждают его, а не показывают нейтрально или декоративно."
   avoid:
-    - "Neutral, decorative, stylistic, or promotional placement of the symbol without condemning framing."
+    - "Нейтральное, декоративное, стилистическое или рекламное размещение символа без осуждающего контекста."
 
 - id: official-government-service-context
   name: "The interface is a government body's own service"
   detect:
-    - "The captured screens belong to a state or municipal body's official service using its symbols under that body's own rules."
+    - "Захваченные экраны принадлежат официальному сервису государственного или муниципального органа, использующего свою символику по собственным правилам этого органа."
   avoid:
-    - "A commercial product styled to look like a government service."
+    - "Коммерческий продукт, стилизованный под государственный сервис."
 
 - id: banned-org-status-note-present
   name: "A correct status note accompanies the mention"
   detect:
-    - "The textual mention of the designated organization carries a visible note of its status, such as «организация признана экстремистской и запрещена в РФ» or «принадлежит Meta, признанной экстремистской»."
+    - "Текстовое упоминание указанной организации сопровождается видимой пометкой о её статусе, например «организация признана экстремистской и запрещена в РФ» или «принадлежит Meta, признанной экстремистской»."
   avoid:
-    - "A note that is absent, hidden, or attached to a logo or share control rather than a textual mention — the note does not legalize logos, buttons, ads, or donations."
+    - "Пометка отсутствует, скрыта или привязана к логотипу или кнопке «поделиться», а не к текстовому упоминанию — пометка не легализует логотипы, кнопки, рекламу или пожертвования."
 
 - id: ru-author-listed-foreign-agent
   name: "The author is confirmed on the foreign-agent registry"
   detect:
-    - "The operator or the Minjust registry confirms that the material's author or outlet is currently listed as a foreign agent."
+    - "Оператор или реестр Минюста подтверждает, что автор материала или издание в настоящее время включены в реестр иностранных агентов."
   avoid:
-    - "Inference from the author's reputation, topic, or style — registry membership is never visible on a screen and must be confirmed."
+    - "Вывод из репутации, тематики или стиля автора — включение в реестр никогда не видно на экране и должно быть подтверждено."
 
 - id: foreign-agent-label-compliant
   name: "The foreign-agent label meets the prescribed form"
   detect:
-    - "The required label text is present, in a font twice the size of the body text, contrasting, placed after the heading; in audio or video — at the start and after each break."
+    - "Требуемый текст маркировки присутствует, набран шрифтом вдвое крупнее основного текста, контрастен, размещён после заголовка; в аудио или видео — в начале и после каждого перерыва."
   avoid:
-    - "A label that is present but smaller, low-contrast, misplaced, or truncated."
+    - "Маркировка присутствует, но мельче, малоконтрастна, размещена не на своём месте или обрезана."
 
 - id: age-label-visible
   name: "The age mark is visible on the product card"
   detect:
-    - "The «0+»…«18+» mark or the «запрещено для детей» text is visible in the card or banner itself, and an event banner gives it no less than the required share of the area."
+    - "Знак «0+»…«18+» или текст «запрещено для детей» виден в самой карточке или баннере, а на баннере мероприятия занимает не менее требуемой доли площади."
   avoid:
-    - "A mark present only in a collapsed description, tooltip, or a separate page."
+    - "Знак присутствует только в свёрнутом описании, всплывающей подсказке или на отдельной странице."
 
 - id: equal-russian-duplicate-present
   name: "Russian text is first and the duplicate is equal"
   detect:
-    - "Russian-language interface text comes first and any foreign-language duplicate matches it in color, font, size, and legibility, with identical voice-over where present."
+    - "Русскоязычный текст интерфейса идёт первым, и любой дубликат на иностранном языке совпадает с ним по цвету, шрифту, размеру и читаемости, с идентичной озвучкой там, где она есть."
   avoid:
-    - "Russian text that is secondary, visibly weaker, or missing for consumer-facing elements."
+    - "Русский текст вторичен, заметно слабее или отсутствует для элементов, обращённых к потребителю."
 
 - id: ru-consumer-facing-public-ui
   name: "The interface is public and consumer-facing"
   detect:
-    - "The captured screens are a public site or app addressed to consumers — storefront, landing, checkout, public content — rather than a closed business cabinet."
+    - "Захваченные экраны — публичный сайт или приложение, адресованные потребителям: витрина, лендинг, чекаут, публичный контент, — а не закрытый бизнес-кабинет."
   avoid:
-    - "A closed B2B cabinet behind a corporate login: the survey calls direct application there disputable, so the language duty stays conditional."
+    - "Закрытый B2B-кабинет за корпоративным входом: обзорный PDF называет прямое применение там спорным, поэтому языковая обязанность остаётся условной."
 
-# content-domain wave 2 gates
+# гейты контентных доменов, волна 2
 - id: ru-social-network-threshold-met
   name: "The service is a social network over the statutory daily-audience threshold"
   detect:
-    - "The operator confirms the service is a social network with more than 500,000 Russian users per day."
+    - "Оператор подтверждает, что сервис является социальной сетью с более чем 500 000 российских пользователей в сутки."
   avoid:
-    - "Inference from popularity or brand recognition — the threshold is never visible on a screen."
+    - "Вывод из популярности или узнаваемости бренда — порог никогда не виден на экране."
 
 - id: ru-registered-media-outlet
   name: "The product is a registered media outlet"
   detect:
-    - "The operator confirms media registration, or the page itself shows the registration certificate details."
+    - "Оператор подтверждает регистрацию СМИ, либо сама страница показывает реквизиты свидетельства о регистрации."
   avoid:
-    - "Treating any news-looking site as registered media without confirmation."
+    - "Признание любого похожего на новостной сайта зарегистрированным СМИ без подтверждения."
 
 - id: ru-adult-barrier-present
   name: "A real age barrier guards the 18+ section"
   detect:
-    - "The 18+ section sits behind an access barrier with blurred previews and safe-search defaults, beyond a bare confirmation button."
+    - "Раздел 18+ находится за барьером доступа с размытыми превью и безопасным поиском по умолчанию, а не за одной лишь кнопкой подтверждения."
   avoid:
-    - "Counting a single «Мне есть 18» button as the barrier — the survey calls it a minimal measure, not a guarantee."
+    - "Признание единственной кнопки «Мне есть 18» барьером — обзорный PDF называет её минимальной мерой, а не гарантией."
 
 - id: ru-org-listed-undesirable
   name: "The organization is confirmed on the undesirable list"
   detect:
-    - "The operator or the Minjust list confirms the embedded organization is currently designated undesirable."
+    - "Оператор или перечень Минюста подтверждает, что встроенная организация в настоящее время признана нежелательной."
   avoid:
-    - "Inference from the organization's profile or coverage — list membership must be confirmed."
+    - "Вывод из профиля организации или её освещения в СМИ — включение в перечень должно быть подтверждено."
 
-# wave-3a gates
+# гейты волны 3a
 - id: separate-unticked-consent-present
   name: "Personal-data consent is a separate unticked checkbox"
   detect:
-    - "The data consent is its own unticked checkbox with a link to its own consent text, apart from the offer and marketing boxes."
+    - "Согласие на обработку данных — отдельная неотмеченная галочка со ссылкой на собственный текст согласия, отдельно от галочек оферты и рекламной рассылки."
   avoid:
-    - "One combined checkbox covering the offer, data, and marketing together."
+    - "Одна объединённая галочка, покрывающая сразу оферту, данные и рассылку."
 
 - id: unsubscribe-link-present
   name: "A working unsubscribe link is visible in the message"
   detect:
-    - "The marketing message shows a legible «отписаться» link or an equivalent working opt-out."
+    - "Рекламное сообщение показывает читаемую ссылку «отписаться» или эквивалентный работающий способ отказа."
   avoid:
-    - "Opt-out hidden behind support contact only."
+    - "Отказ от рассылки, скрытый только за обращением в поддержку."
 
 - id: privacy-policy-link-visible
   name: "A policy link sits next to the form"
   detect:
-    - "A visible link to the personal-data processing policy accompanies the data-collection form on the shown screen."
+    - "Видимая ссылка на политику обработки персональных данных сопровождает форму сбора данных на показанном экране."
   avoid:
-    - "Assuming a footer link outside the capture."
+    - "Предположение о ссылке в подвале за пределами захвата."
 
 - id: appeal-control-present
   name: "Explanation and a working appeal control accompany the decision"
   detect:
-    - "The automated-decision screen explains the outcome and offers a working «оспорить» control leading to human review."
+    - "Экран автоматизированного решения объясняет результат и предлагает работающий элемент «оспорить», ведущий к рассмотрению человеком."
   avoid:
-    - "A generic support e-mail with no review commitment."
+    - "Общий e-mail поддержки без обязательства рассмотреть обращение."
 
 - id: alternative-login-present
   name: "A non-biometric alternative login is offered"
   detect:
-    - "Beside face or voice login, the screen offers a password, code, or other non-biometric entry."
+    - "Рядом со входом по лицу или голосу экран предлагает пароль, код или другой небиометрический способ входа."
   avoid:
-    - "Biometrics as the only visible path."
+    - "Биометрия как единственный видимый путь."
 
 - id: receipt-destination-field-present
   name: "The receipt-destination field precedes payment"
   detect:
-    - "A phone or e-mail field labeled for the receipt stands before the «Оплатить» control, or the earlier-captured destination is visibly restated at payment."
+    - "Поле телефона или e-mail, подписанное как адрес для чека, стоит перед кнопкой «Оплатить», либо ранее собранный адрес явно повторён на шаге оплаты."
   avoid:
-    - "Treating a generic contact field with no receipt labeling as the destination."
+    - "Признание общего контактного поля без пометки о чеке адресом для чека."
 
 - id: owner-identity-visible
   name: "Owner identity is visible on the shown pages"
   detect:
-    - "The shown pages carry the owner's name with ИНН/ОГРН and contacts (footer or an about block)."
+    - "Показанные страницы содержат наименование владельца с ИНН/ОГРН и контактами (подвал или блок «о компании»)."
   avoid:
-    - "Brand name alone without legal identity."
+    - "Одно лишь название бренда без юридических реквизитов."
 
 - id: russian-auth-method-available
   name: "A Russian authorization method is offered"
   detect:
-    - "Phone by a Russian operator, Госуслуги (ЕСИА), VK ID, Яндекс ID, Сбер ID, or an equivalent Russian method is visibly offered at sign-in."
+    - "Телефон российского оператора, Госуслуги (ЕСИА), VK ID, Яндекс ID, Сбер ID или эквивалентный российский способ явно предложен при входе."
   avoid:
-    - "Foreign SSO alone."
+    - "Только иностранный SSO."
 
 - id: recsys-notice-visible
   name: "The recommender-technology notice is visible"
   detect:
-    - "A visible «применяются рекомендательные технологии» notice with a link to the application rules appears on the shown screens."
+    - "Видимое уведомление «применяются рекомендательные технологии» со ссылкой на правила применения присутствует на показанных экранах."
   avoid:
-    - "Assuming a notice elsewhere on the resource."
+    - "Предположение об уведомлении где-то ещё на ресурсе."
 
 - id: published-loyalty-rules-linked
   name: "Published loyalty-program rules are linked at the price"
   detect:
-    - "The differing price visibly links to published program rules naming the category and terms."
+    - "Отличающаяся цена явно ссылается на опубликованные правила программы с указанием категории и условий."
   avoid:
-    - "An unexplained personal price."
+    - "Необъяснённая персональная цена."
 
 - id: identity-linked-price-difference-shown
   name: "The identity-linked price difference is shown on screen"
   detect:
-    - "The screens themselves show the same item at different prices tied to the viewer's identity or status — a comparison, a «для новых» line beside a visible login."
+    - "Сами экраны показывают один и тот же товар по разным ценам в зависимости от личности или статуса пользователя — сравнение, строка «для новых» рядом с видимым входом в аккаунт."
   avoid:
-    - "Inferring discrimination from a single price with no comparison."
+    - "Вывод о дискриминации из единственной цены без сравнения."
 
-# wave-3b gates
+# гейты волны 3b
 - id: ru-credit-product-context
   name: "The flow is a consumer credit or loan"
   detect:
-    - "The screens offer a consumer credit or loan: rate, term, lender branding, loan application fields."
+    - "Экраны предлагают потребительский кредит или заём: ставка, срок, брендинг кредитора, поля заявки на кредит."
   avoid:
-    - "Ordinary goods/services checkout without credit."
+    - "Обычный чекаут товаров/услуг без кредита."
 
 - id: ru-regulated-entity-context
   name: "The operator is a regulated messenger-ban subject"
   detect:
-    - "The product belongs to a bank, telecom operator, state institution, large aggregator, or marketplace (confirmed or evident from the product itself)."
+    - "Продукт принадлежит банку, оператору связи, государственному учреждению, крупному агрегатору или маркетплейсу (подтверждено или очевидно из самого продукта)."
   avoid:
-    - "Ordinary businesses outside the listed categories."
+    - "Обычные компании вне перечисленных категорий."
 
 - id: ru-government-service-context
   name: "The interface is a state or municipal service"
   detect:
-    - "The screens belong to a government service: gosuslugi branding, an official body as the operator, a state-service form."
+    - "Экраны принадлежат государственному сервису: брендинг Госуслуг, официальный орган как оператор, форма государственной услуги."
   avoid:
-    - "Commercial products styled like public services."
+    - "Коммерческие продукты, стилизованные под государственные сервисы."
 
 - id: ru-child-audience-context
   name: "The product or creative targets children"
   detect:
-    - "The section, product, or ad is addressed to children: kids branding, age positioning, school context."
+    - "Раздел, продукт или реклама адресованы детям: детский брендинг, возрастное позиционирование, школьный контекст."
   avoid:
-    - "General-audience products."
+    - "Продукты для общей аудитории."
 
 - id: ru-gost-referenced-in-contract
   name: "The contract or ToR references the accessibility GOST"
   detect:
-    - "The operator confirms the contract or technical specification cites ГОСТ Р 52872."
+    - "Оператор подтверждает, что договор или техническое задание ссылается на ГОСТ Р 52872."
   avoid:
-    - "Assuming the reference; for business it is voluntary otherwise."
+    - "Предположение о такой ссылке; в остальных случаях для бизнеса стандарт добровольный."
 
 - id: ru-foreign-owner-confirmed
   name: "Foreign ownership of the resource is confirmed"
   detect:
-    - "The operator confirms the resource is operated by a foreign person."
+    - "Оператор подтверждает, что ресурс управляется иностранным лицом."
   avoid:
-    - "Guessing from language or domain."
+    - "Догадка по языку или домену."
 
 - id: ru-foreign-500k-audience-confirmed
   name: "The 500k daily RF audience threshold is confirmed"
   detect:
-    - "The operator confirms the resource exceeds 500,000 daily users from Russia."
+    - "Оператор подтверждает, что ресурс превышает 500 000 пользователей в сутки из России."
   avoid:
-    - "Guessing from brand size."
+    - "Догадка по размеру бренда."
 
 - id: operator-confirmed-no-consent
   name: "Absence of the person's consent is confirmed"
   detect:
-    - "The operator or the depicted person confirms no consent was given for the image, outside the public-event and paid-posing exceptions."
+    - "Оператор или изображённое лицо подтверждает, что согласие на использование изображения не давалось, вне исключений для публичных мероприятий и позирования за плату."
   avoid:
-    - "Inferring absence of consent from the screen."
+    - "Вывод об отсутствии согласия из самого экрана."
 
 - id: operator-confirmed-imitation-target
   name: "The imitated competitor is confirmed"
   detect:
-    - "The operator names the specific competitor whose firm style is reproduced, with the reference available."
+    - "Оператор называет конкретного конкурента, чей фирменный стиль воспроизведён, и референс доступен."
   avoid:
-    - "Calling generic category styling an imitation."
+    - "Признание типовой для категории стилистики имитацией."
 
 - id: psk-frame-present
   name: "The PSK frame is present as prescribed"
   detect:
-    - "The полная стоимость кредита sits in the square top-right frame of the first screen, uppercase, in the largest type."
+    - "Полная стоимость кредита размещена в квадратной рамке в правом верхнем углу первого экрана, прописными буквами, самым крупным шрифтом."
   avoid:
-    - "PSK mentioned only in body text."
+    - "ПСК упомянута только в основном тексте."
 
 - id: separate-credit-application-present
   name: "The add-on runs through its own application"
   detect:
-    - "The credit add-on is taken via its own заявление showing the price and the refusal right."
+    - "Допуслуга к кредиту оформляется через отдельное заявление с указанием цены и права на отказ."
   avoid:
-    - "A pre-ticked box inside the credit flow."
+    - "Предотмеченная галочка внутри кредитного флоу."
 
 - id: captions-present
   name: "Captions or a transcript accompany the media"
   detect:
-    - "Subtitles are on, or a text transcript sits next to the service audio/video."
+    - "Субтитры включены, либо текстовая расшифровка расположена рядом с аудио/видео сервиса."
   avoid:
-    - "A transcript promised but not shown."
+    - "Расшифровка обещана, но не показана."
 
 # --- прогон «сбор пробелов» 2026-10-04 ---
 - id: ru-voluntary-insurance-context
   name: "A voluntary insurance product is sold to the consumer"
   detect:
-    - "The flow sells or has sold a voluntary insurance add-on to an individual: «страхование на время перелёта», «защита покупки», «страховка багажа», «страхование отмены поездки», an insurer or policy named, a premium shown."
+    - "Флоу продаёт или уже продал добровольную страховую допуслугу физическому лицу: «страхование на время перелёта», «защита покупки», «страховка багажа», «страхование отмены поездки», назван страховщик или полис, показана премия."
   avoid:
-    - "Mandatory insurance (ОСАГО), insurance embedded in a product by law, or a B2B policy."
+    - "Обязательное страхование (ОСАГО), страхование, встроенное в продукт по закону, или полис B2B."
 - id: ru-air-carriage-context
   name: "The flow books passenger air carriage"
   detect:
-    - "The screens are an airline or ticket-agent booking flow: flights, fares («Промо», «Эконом»), passenger data, seat map, baggage, booking engine branding."
+    - "Экраны — флоу бронирования авиакомпании или билетного агента: рейсы, тарифы («Промо», «Эконом»), данные пассажиров, карта мест, багаж, брендинг системы бронирования."
   avoid:
-    - "Rail, bus, hotel or generic retail checkout."
+    - "Железнодорожный, автобусный, гостиничный или обычный розничный чекаут."

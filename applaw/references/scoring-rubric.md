@@ -1,8 +1,8 @@
-# Scoring Rubric
+# Рубрика оценки
 
-## Private Score And Public Label
+## Приватный балл и публичная метка
 
-Calculate a private legacy score from 1 to 100. Never print it, its range, its calculation, or a color alias in the public report. Convert it deterministically:
+Рассчитайте приватный унаследованный балл от 1 до 100. Никогда не печатайте в публичном отчёте сам балл, его диапазон, расчёт или цветовой алиас. Преобразуйте его детерминированно:
 
 - 1-15: `very low`
 - 16-30: `low`
@@ -10,91 +10,92 @@ Calculate a private legacy score from 1 to 100. Never print it, its range, its c
 - 61-80: `high`
 - 81-100: `very high`
 
-`very low` and `low` ordinarily indicate a transparent flow or no supported material finding. `medium` indicates at least one material ambiguity or supported moderate issue. `high` and `very high` require strong visible evidence and supported material legal mapping; `very high` is reserved for the most serious or compounded supported risks.
+`very low` и `low` обычно означают прозрачный поток или отсутствие поддерживаемой материальной находки. `medium` означает хотя бы одну материальную неоднозначность или поддерживаемую проблему умеренной тяжести. `high` и `very high` требуют сильных видимых улик и поддерживаемого материального правового сопоставления; `very high` зарезервирован для наиболее серьёзных или составных поддерживаемых рисков.
 
-## Factors
+## Факторы
 
-Increase score for:
+Повышайте балл за:
 
-- Material price, renewal, cancellation, or consent terms hidden at payment.
-- Preselection, bundled consent, or consent inferred from inaction.
-- Repeated friction across enrollment, payment, and cancellation.
-- Vulnerable audience or high-stakes product claims. This is established from the screen,
-  never assumed: the flow addresses a judgement-impairing condition of this consumer, such
-  as a named health or diagnosis worry, appearance with body or face photographs,
-  loneliness, debt or overdue bills, or a recorded age under 18, rather than treating the
-  reader as an ordinary adult buyer. Where it is present, a finding whose practice acts on
-  that condition is High severity and the label moves up one step. A general-audience offer
-  that merely mentions a sensitive topic is not this, and neither is a product that happens
-  to be about health, money or dating.
-- Strong local case/source similarity.
-- Multiple supported norms across material and procedural duties.
+- Материальные условия о цене, продлении, отмене или согласии, скрытые на этапе оплаты.
+- Предвыбор, связанное (пакетное) согласие или согласие, выводимое из бездействия.
+- Повторяющееся трение на этапах подключения, оплаты и отмены.
+- Уязвимую аудиторию или утверждения о продукте с высокими ставками. Это устанавливается по экрану,
+  а не предполагается: поток обращается к состоянию данного потребителя, ослабляющему способность
+  к суждению, — такому как названная тревога о здоровье или диагнозе, внешность с фотографиями
+  тела или лица, одиночество, долги или просроченные счета либо зафиксированный возраст до 18 лет, —
+  а не рассматривает читателя как обычного взрослого покупателя. Там, где это присутствует, находка,
+  чья практика действует на это состояние, имеет уровень High, и метка поднимается на один шаг.
+  Предложение для общей аудитории, лишь упоминающее чувствительную тему, этим не является, как и
+  продукт, который просто посвящён здоровью, деньгам или знакомствам.
+- Сильное сходство с местным делом/источником.
+- Несколько поддерживаемых норм по материальным и процедурным обязанностям.
 
-Decrease score for:
+Понижайте балл за:
 
-- Clear, proximate disclosures before payment.
-- Active, informed consent near the relevant action.
-- Easy cancellation through the same channel.
-- Evidence that the element is optional and unselected by default.
-- Missing or weak local source support.
+- Ясные раскрытия в непосредственной близости до оплаты.
+- Активное информированное согласие рядом с соответствующим действием.
+- Лёгкую отмену через тот же канал.
+- Улики того, что элемент необязателен и не выбран по умолчанию.
+- Отсутствующую или слабую поддержку местными источниками.
 
-## Patterns With No Routed Norm
+## Паттерны без маршрутизированной нормы
 
-A pattern the Examiner saw but no routed norm reaches is not a violation and never becomes
-a Material Finding. It is recorded as an observation, and it moves the label at most one
-step, never past `medium`, and only under the compounding rule below.
+Паттерн, который Экзаменатор увидел, но до которого не дотягивается ни одна маршрутизированная
+норма, не является нарушением и никогда не становится Material Finding. Он фиксируется как
+наблюдение и сдвигает метку максимум на один шаг, никогда выше `medium`, и только по правилу
+компаундирования ниже.
 
-Two reasons must be told apart, because they mean opposite things:
+Два основания нужно различать, потому что они означают противоположное:
 
-- The screen shows the trader doing the right thing, so a disqualifying fact fired and the
-  route abstained. This is evidence of compliance and belongs in Mitigating and Low-Risk
-  Elements. It does not raise the label at all.
-- No route reaches that pattern in that jurisdiction. This is silence in the knowledge
-  base, not a finding of lawfulness. Report the pattern plainly, say no mapped norm was
-  found, and leave the legal question open.
+- Экран показывает, что продавец поступает правильно, поэтому сработал дисквалифицирующий факт
+  и маршрут воздержался. Это улика соответствия, и ей место в Mitigating and Low-Risk
+  Elements. Она вовсе не поднимает метку.
+- Ни один маршрут не достигает этого паттерна в этой юрисдикции. Это молчание базы
+  знаний, а не вывод о законности. Опишите паттерн прямо, скажите, что сопоставленная норма
+  не найдена, и оставьте правовой вопрос открытым.
 
-Never write that a practice is lawful because the knowledge base has no norm for it.
+Никогда не пишите, что практика законна, потому что в базе знаний нет нормы для неё.
 
-## Compounding Small Practices
+## Компаундирование мелких практик
 
-Several individually minor practices may raise the label where they combine into one
-deceptive impression about the same matter. Read `cumulative-assessment.md` first; it sets
-out how far the sources actually go.
+Несколько по отдельности незначительных практик могут поднять метку, когда они складываются
+в одно вводящее в заблуждение впечатление об одном и том же предмете. Сначала прочитайте
+`cumulative-assessment.md`; там указано, как далеко на самом деле идут источники.
 
-Apply this deterministically:
+Применяйте это детерминированно:
 
-- Three or more observed practices that shape the same impression, about price, the
-  existence of a recurring commitment, or the ability to cancel, raise the label one step.
-- Practices that mislead about nothing in particular, or that concern unrelated matters,
-  do not combine. Count them separately and leave the label alone.
-- Compounding raises the label only. It never creates a Material Finding and never
-  supplies a citation. If the combination is to be a finding, it needs a routed norm that
-  reaches presentation as such: Section 226 in the UK, the Article 6 overall-presentation
-  limb in the EU, a Section 5(a) net-impression theory in the US.
-- Say in `Verdict` that the label rests on the combination, and name the impression.
+- Три или более наблюдаемых практик, формирующих одно и то же впечатление — о цене,
+  о существовании регулярного обязательства или о возможности отмены, — поднимают метку на один шаг.
+- Практики, которые ни о чём конкретном не вводят в заблуждение или касаются несвязанных
+  предметов, не складываются. Считайте их по отдельности и оставьте метку без изменений.
+- Компаундирование только поднимает метку. Оно никогда не создаёт Material Finding и никогда
+  не даёт цитаты. Если комбинация должна стать находкой, ей нужна маршрутизированная норма,
+  которая дотягивается до подачи как таковой: Section 226 в Великобритании, компонент общей
+  подачи (overall presentation) статьи 6 в ЕС, теория общего впечатления (net impression) по Section 5(a) в США.
+- Укажите в `Verdict`, что метка опирается на комбинацию, и назовите впечатление.
 
-## Confidence
+## Уверенность
 
-High confidence requires visible UI evidence plus local pattern, norm, and case/source anchors.
+Высокая уверенность требует видимых улик UI плюс местных якорей паттерна, нормы и дела/источника.
 
-Medium confidence can rely on visible evidence plus partial source anchors, with limitations stated.
+Средняя уверенность может опираться на видимые улики плюс частичные якоря источников с указанием ограничений.
 
-Low confidence should not produce a detailed legal-risk card unless the user asked for exploratory analysis.
+Низкая уверенность не должна порождать подробную карточку правового риска, если пользователь не запросил исследовательский анализ.
 
-## Social/Review-Platform Two-Stage Scoring
+## Двухэтапная оценка модулей социальных платформ/платформ отзывов
 
-When a material social/review-platform module is visible but authenticity evidence was not supplied, apply the normal factors and issue a provisional public risk label. Do not treat appearance as proof of fabrication. State briefly in `Verdict` or `Confidence and limitations` that review authenticity is unresolved.
+Когда материальный модуль социальной платформы/платформы отзывов виден, но улики подлинности не предоставлены, примените обычные факторы и выдайте предварительную публичную метку риска. Не считайте внешний вид доказательством фабрикации. Кратко укажите в `Verdict` или `Confidence and limitations`, что подлинность отзывов не разрешена.
 
-After the operator answers the grouped authenticity question, re-run the complete rubric and issue a final public risk label for Yes, No, or Unknown. Do not add a fixed number of points to the private score for any answer.
+После того как оператор ответит на сгруппированный вопрос о подлинности, повторно примените полную рубрику и выдайте итоговую публичную метку риска для Yes, No или Unknown. Не добавлять фиксированное число баллов к приватному баллу ни за какой ответ.
 
-- **Yes:** record operator-confirmed fabrication, not independent verification. Make the finding High severity when it materially supports conversion, then weigh all normal increase and decrease factors.
-- **No with a matching source or official-widget confirmation:** treat the module as verified for this evaluation, remove or mitigate the finding, and reassess the remaining supported issues.
-- **No without supporting source information:** record `merchant-asserted genuine; not independently verified`, keep `Unverified social proof` if it remains material, and retain that limitation.
-- **Unknown:** keep `Unverified social proof` and assess only supported evidence.
-- **No response:** preserve the provisional label; do not rescore or perform independent research.
+- **Yes:** зафиксируйте подтверждённую оператором фабрикацию, а не независимую верификацию. Присвойте находке уровень High, когда она материально поддерживает конверсию, затем взвесьте все обычные повышающие и понижающие факторы.
+- **No с совпадающим источником или подтверждением официального виджета:** считайте модуль верифицированным для данной оценки, удалите или смягчите находку и переоцените остальные поддерживаемые проблемы.
+- **No без подтверждающей информации об источнике:** зафиксируйте `merchant-asserted genuine; not independently verified`, сохраните `Unverified social proof`, если он остаётся материальным, и сохраните это ограничение.
+- **Unknown:** сохраните `Unverified social proof` и оценивайте только поддерживаемые улики.
+- **Нет ответа:** сохраните предварительную метку; не пересчитывайте и не проводите самостоятельное исследование.
 
-Comparable-authority similarity remains an ordinary rubric factor. Do not select Amazon Prime as a comparator for a review finding unless the evidence has an exact relevant pattern match.
+Сходство с сопоставимым источником права остаётся обычным фактором рубрики. Не выбирайте Amazon Prime в качестве компаратора для находки по отзывам, если у улик нет точного релевантного совпадения паттерна.
 
-## Compounding
+## Компаундирование
 
-Repeated small issues can raise risk when they reinforce the same consumer harm, such as trial framing plus small-print renewal plus hard cancellation. Do not stack unrelated weak cues into a high-risk finding.
+Повторяющиеся мелкие проблемы могут повышать риск, когда они усиливают один и тот же вред потребителю, например: подача пробного периода плюс продление мелким шрифтом плюс сложная отмена. Не складывайте несвязанные слабые сигналы в находку высокого риска.

@@ -1,21 +1,20 @@
-# Upsell Pattern Constitution
+# Конституция паттерна «Допродажа»
 
-## Scope
+## Охват
 
-Use for add-ons, post-payment offers, confusing accept/decline paths, sneaking, paid extras, or multi-step upsell flows.
+Используйте для дополнений, предложений после оплаты, запутанных путей принятия/отказа, подсовывания (sneaking), платных дополнительных опций или многошаговых потоков допродажи.
 
-## Detect
+## Обнаружение
 
-- Add-on is preselected or visually treated as part of the main purchase.
-- Decline path is less visible, ambiguous, or framed as harmful.
-- Post-payment offer obscures whether another charge or subscription is being accepted.
-- Upsell creates total-price or consent confusion.
+- Дополнение предвыбрано или визуально оформлено как часть основной покупки.
+- Путь отказа менее заметен, неоднозначен или подан как вредный.
+- Предложение после оплаты скрывает, принимается ли ещё одно списание или подписка.
+- Допродажа создаёт путаницу в полной цене или согласии.
 
-## False-Positive Guardrails
+## Защита от ложных срабатываний
 
-Do not flag optional, unselected add-ons with clear price and equal ability to decline. Do not flag an upsell merely because it is commercially persuasive.
+Не отмечайте необязательные, невыбранные дополнения с понятной ценой и равной возможностью отказаться. Не отмечайте допродажу лишь потому, что она коммерчески убедительна.
 
-## Citation
+## Цитирование
 
-Tie upsell findings to visible evidence, source-backed consumer harm, and a supported material norm for the explicitly supplied jurisdiction. Apply the full scope and source gates first; a procedural norm is companion-only and can never be the primary duty inferred from the upsell.
-
+Привязывайте находки о допродаже к видимым уликам, подтверждённому источниками потребительскому вреду и подтверждённой материальной норме для явно указанной юрисдикции. Сначала применяйте все гейты охвата и источника; процедурная норма — только компаньон и никогда не может быть основной обязанностью, выведенной из допродажи.

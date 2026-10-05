@@ -1,26 +1,26 @@
-# Security Boundary
+# Граница безопасности
 
-Version: 0.2.6  
-Scope: portable checkout-funnel compliance package
+Версия: 0.2.6  
+Охват: переносимый пакет комплаенса воронки чекаута
 
-## What This Package Enforces
+## Что обеспечивает этот пакет
 
-The package provides instruction hierarchy and evidence-integrity rules, context-aware post-ingestion OCR/token/time admission, public-output scanning, package checksum verification, and a deterministic grader for saved adversarial transcripts. Its validators can reject non-conforming local artifacts when they are actually invoked.
+Пакет предоставляет иерархию инструкций и правила целостности улик, контекстно-зависимый допуск OCR/токенов/времени после приёма, сканирование публичного вывода, проверку контрольных сумм пакета и детерминированный грейдер для сохранённых адверсариальных транскриптов. Его валидаторы могут отклонять несоответствующие локальные артефакты, когда они фактически вызваны.
 
-## What The Host Or Webapp Must Enforce
+## Что должен обеспечивать хост или веб-приложение
 
-The host or webapp owns attachment count, aggregate and per-file upload bytes, image dimensions and pixel count, PDF page count, archive expansion and decompression limits, MIME and file-signature validation, authentication, authorization, rate limits, quotas, storage isolation, secrets handling, tool permissions, network controls, and process sandboxing.
+Хост или веб-приложение отвечает за число вложений, совокупные и пофайловые байты загрузки, размеры и число пикселей изображений, число страниц PDF, лимиты распаковки и расширения архивов, валидацию MIME и сигнатур файлов, аутентификацию, авторизацию, лимиты частоты, квоты, изоляцию хранилища, обращение с секретами, права инструментов, сетевой контроль и песочницу процессов.
 
-`constitutions/RESOURCE_LIMITS.json` starts after host ingestion. It is not an upload validator and does not make the portable package a hardened runtime.
+`constitutions/RESOURCE_LIMITS.json` начинает действовать после приёма хостом. Это не валидатор загрузок, и он не делает переносимый пакет защищённым рантаймом.
 
-## Integration Contract
+## Контракт интеграции
 
-1. The host validates and safely exposes accepted evidence.
-2. Before one item or a complete screenshot batch begins, an integrated orchestration layer supplies `preflight_inputs.py` with the deployed context-window tokens; exact occupied-input tokens and their host/system, project, task, and existing-conversation components; cached input as a non-deductible subset; separately counted retrieved KB tokens; tool-output, response, and safety reserves; exact candidate evidence tokens; OCR characters; and elapsed-processing time. Standalone Claude or Codex sessions may omit this host-only step when those counters are unavailable; they must not fabricate them.
-3. The orchestration layer rejects missing, negative, non-finite, inconsistent, double-counted, or over-window accounting. It never subtracts cached tokens from occupancy, guesses the context window, or silently truncates evidence.
-4. The agent follows the constitutions and report contract.
-5. Public Report Contract v3 text is checked by `validate_output_safety.py` and `validate_report.py` before delivery. The report validator rejects public numeric scores and rejects `Evidence integrity:` by default, accepting exactly one line only with `--evidence-integrity-requested` after an explicit initial-prompt request.
-6. A release is accepted only after the composite `npm run validate` gate verifies `SHA256SUMS.txt` from the package root.
-7. Live model replay belongs to the host or evaluation harness. `run_adversarial_replay.py` grades saved transcripts; it does not invoke a model.
+1. Хост валидирует и безопасно предоставляет принятые улики.
+2. До начала обработки одного элемента или полной партии скриншотов интегрированный слой оркестрации передаёт `preflight_inputs.py` развёрнутые токены контекстного окна; точные токены занятого ввода и их компоненты — хост/система, проект, задача и существующий разговор; кэшированный ввод как невычитаемое подмножество; отдельно подсчитанные извлечённые токены KB; резервы под вывод инструментов, ответ и безопасность; точные токены кандидатных улик; символы OCR; и прошедшее время обработки. Автономные сессии Claude или Codex могут пропустить этот доступный только хосту шаг, когда такие счётчики недоступны; они не должны их фабриковать.
+3. Слой оркестрации отклоняет отсутствующий, отрицательный, неконечный, противоречивый, дважды посчитанный или превышающий окно учёт. Он никогда не вычитает кэшированные токены из занятости, не угадывает контекстное окно и не усекает улики молча.
+4. Агент следует конституциям и контракту отчёта.
+5. Текст Public Report Contract v3 проверяется `validate_output_safety.py` и `validate_report.py` перед выдачей. Валидатор отчёта отклоняет публичные числовые баллы и по умолчанию отклоняет `Evidence integrity:`, принимая ровно одну строку только с `--evidence-integrity-requested` после явного запроса в начальном промпте.
+6. Релиз принимается только после того, как составной гейт `npm run validate` проверит `SHA256SUMS.txt` из корня пакета.
+7. Живой реплей модели относится к хосту или оценочной обвязке. `run_adversarial_replay.py` оценивает сохранённые транскрипты; он не вызывает модель.
 
-If the host omits one of these calls, the corresponding package rule remains advisory rather than runtime-enforced.
+Если хост пропускает один из этих вызовов, соответствующее правило пакета остаётся рекомендательным, а не принудительно применяемым в рантайме.

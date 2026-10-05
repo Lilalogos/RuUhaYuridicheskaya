@@ -71,19 +71,19 @@ SOCIAL_PROOF_SCENARIOS = {
 }
 TRI_STATE_ROUTING_POLICY = {
     "constitutions/GLOBAL.md": {
-        "required": "A missing or unknown factual legal-applicability gate leaves the authority conditional",
-        "obsolete": "If a gate is missing, abstain",
+        "required": "Отсутствующий или неизвестный фактический гейт применимости оставляет норму условной",
+        "obsolete": "Если гейт отсутствует, воздержаться",
     },
     "references/evaluation-workflow.md": {
-        "required": "Missing or unknown factual gates leave the candidate authority conditional",
-        "obsolete": "If any required gate is missing, abstain",
+        "required": "Отсутствующие или неизвестные фактические гейты оставляют кандидатную норму условной",
+        "obsolete": "Если любой обязательный гейт отсутствует, воздержаться",
     },
 }
 REFERENCE_REQUIREMENTS = {
-    "evaluation-workflow.md": [REVIEW_QUESTION, "small or low-prominence platform mark", "one review module", "No web searches by default.", "two lightweight supplied-source checks per screenshot"],
-    "scoring-rubric.md": ["review authenticity is unresolved", "Do not add a fixed number of points", "Amazon Prime"],
-    "report-contract.md": [REVIEW_QUESTION, "complete revised report v3", "bidirectional F↔L linking", "operator-confirmed fake or fabricated social proof", "merchant-asserted genuine; not independently verified"],
-    "citation-policy.md": ["No web searches by default.", "two lightweight supplied-source checks per screenshot", "A missing visibly printed URL", "Amazon Prime"],
+    "evaluation-workflow.md": [REVIEW_QUESTION, "малозаметная или мелкая метка платформы", "один модуль отзывов", "Поиск в вебе по умолчанию не выполняется.", "две лёгкие проверки предоставленного источника на скриншот"],
+    "scoring-rubric.md": ["подлинность отзывов не разрешена", "Не добавлять фиксированное число баллов", "Amazon Prime"],
+    "report-contract.md": [REVIEW_QUESTION, "полный пересмотренный отчёт v3", "двусторонние связи F↔L", "operator-confirmed fake or fabricated social proof", "merchant-asserted genuine; not independently verified"],
+    "citation-policy.md": ["Поиск в вебе по умолчанию не выполняется.", "две лёгкие проверки предоставленного источника на скриншот", "Отсутствие видимо напечатанного URL", "Amazon Prime"],
 }
 
 
@@ -145,7 +145,7 @@ def validate_social_proof_fixture(path: Path, frontmatter: dict, body: str, root
         if "ru-38fz-5-3" not in ensure_list(patterns.get(pattern_id, {}).get("maps_to_norms")):
             issues.append(f"taxonomy/patterns.yml {pattern_id} must candidate-map to ru-38fz-5-3")
     taxonomy_text = read_text(root / "taxonomy" / "patterns.yml")
-    for phrase in ["ordinary footer social-media icons", "A missing visibly printed URL", "appearance alone", "operator-confirmed fake or fabricated social proof"]:
+    for phrase in ["обычные иконки соцсетей в подвале", "Отсутствие видимо напечатанного URL", "по одному лишь внешнему виду", "operator-confirmed fake or fabricated social proof"]:
         if phrase.lower() not in taxonomy_text.lower():
             issues.append(f"taxonomy/patterns.yml missing social-proof safeguard: {phrase}")
 
@@ -235,21 +235,21 @@ def main() -> int:
             issues.append(f"missing instruction file: {relative(path, root)}")
             continue
         text = read_text(path)
-        if "evidence" not in text.lower():
+        if "evidence" not in text.lower() and "улик" not in text.lower():
             issues.append(f"{relative(path, root)} does not describe evidence handling")
         if path.name == "SKILL.md":
             for phrase in ["evaluation-workflow.md", "report-contract.md", "build_evaluation_context.py"]:
                 if phrase not in text:
                     issues.append(f"{relative(path, root)} missing progressive-disclosure route: {phrase}")
         else:
-            for phrase in ["Default output language is English", "initial operator prompt", "RESOURCE_LIMITS.json"]:
+            for phrase in ["Язык вывода по умолчанию — английский", "начальный промпт оператора", "RESOURCE_LIMITS.json"]:
                 if phrase not in text:
                     issues.append(f"{relative(path, root)} missing output-policy phrase: {phrase}")
 
     constitution = root / "constitutions" / "GLOBAL.md"
     if constitution.is_file():
         text = read_text(constitution)
-        for phrase in ["Host system and developer instructions", "evidence only", "Statutory ceiling", "Observed enforcement benchmark", "Case-specific estimate", "Default output language is English", "initial operator prompt", "RESOURCE_LIMITS.json", "output-safety", "sub_jurisdiction", "material norm first"]:
+        for phrase in ["Инструкции хост-системы и разработчика", "только улики", "Законодательный потолок", "Observed enforcement benchmark", "Оценка по конкретному делу", "Язык вывода по умолчанию — английский", "начальный промпт оператора", "RESOURCE_LIMITS.json", "output-safety", "sub_jurisdiction", "сначала материальную норму"]:
             if phrase not in text:
                 issues.append(f"constitutions/GLOBAL.md missing required policy phrase: {phrase}")
 
@@ -273,7 +273,7 @@ def main() -> int:
         issues.append("missing SECURITY_BOUNDARY.md")
     else:
         boundary_text = read_text(security_boundary)
-        for phrase in ["host or webapp", "not an upload validator", "does not invoke a model", "context-window tokens", "--evidence-integrity-requested"]:
+        for phrase in ["хост или веб-приложение", "не валидатор загрузок", "не вызывает модель", "токены контекстного окна", "--evidence-integrity-requested"]:
             if phrase not in boundary_text:
                 issues.append(f"SECURITY_BOUNDARY.md missing boundary phrase: {phrase}")
 
@@ -325,7 +325,7 @@ def main() -> int:
     contract = codex_skill / "references" / "report-contract.md"
     if contract.is_file():
         text = read_text(contract)
-        for phrase in ["Public Report Contract v3", "RISK: <very low|low|medium|high|very high>", "Never expose the number", "Liability and Consequences", "Evidence integrity", "--evidence-integrity-requested", "Estimate status: Not estimable from the supplied interface and business data.", "Output Language And Style", "Default output language is English", "initial operator prompt", "sub_jurisdiction", "material norm first"]:
+        for phrase in ["Public Report Contract v3", "RISK: <very low|low|medium|high|very high>", "Никогда не раскрывайте в публичном отчёте число", "Liability and Consequences", "Evidence integrity", "--evidence-integrity-requested", "Estimate status: Not estimable from the supplied interface and business data.", "## Язык и стиль вывода", "Язык вывода по умолчанию — английский", "начальный промпт оператора", "sub_jurisdiction", "сначала поддерживаемую материальную норму"]:
             if phrase not in text:
                 issues.append(f"report contract missing v3 phrase: {phrase}")
 
@@ -334,7 +334,7 @@ def main() -> int:
         issues.append("missing skill reference: references/output-style.md")
     else:
         style_text = read_text(style_reference)
-        for phrase in ["Default output language is English.", "initial operator prompt", "plain, conversational"]:
+        for phrase in ["Язык вывода по умолчанию — английский.", "начальный промпт оператора", "простым разговорным языком"]:
             if phrase not in style_text:
                 issues.append(f"references/output-style.md missing required phrase: {phrase}")
 
@@ -343,18 +343,18 @@ def main() -> int:
         issues.append("missing skill reference: references/output-safety.md")
     else:
         output_safety_text = read_text(output_safety_reference)
-        for phrase in ["validate_output_safety.py", "prompt or constitution excerpts", "not a complete data-loss-prevention system"]:
+        for phrase in ["validate_output_safety.py", "выдержки из промптов или конституции", "не полная система предотвращения утечек данных"]:
             if phrase not in output_safety_text:
                 issues.append(f"references/output-safety.md missing required phrase: {phrase}")
 
     skill_text = read_text(codex_skill / "SKILL.md") if (codex_skill / "SKILL.md").is_file() else ""
     for phrase in [
-        "Report Runtime Gate",
+        "Рантайм-гейт отчёта",
         "validate_live_report.py",
         "report-contract.md",
         "output-safety.md",
-        "private numeric score",
-        "return the passing text unchanged",
+        "приватный числовой балл",
+        "вернуть прошедший текст без изменений",
     ]:
         if phrase not in skill_text:
             issues.append(f"SKILL.md missing live report-gate phrase: {phrase}")
@@ -369,7 +369,7 @@ def main() -> int:
         reference_path = codex_skill / "references" / reference_name
         if reference_path.is_file():
             reference_text = read_text(reference_path)
-            if len(reference_text.splitlines()) > 100 and "## Contents" not in reference_text:
+            if len(reference_text.splitlines()) > 100 and "## Contents" not in reference_text and "## Содержание" not in reference_text:
                 issues.append(f"references/{reference_name} exceeds 100 lines without a Contents section")
 
     layout = "flattened skill root" if portable_core else "Codex and Claude skill copies compared"

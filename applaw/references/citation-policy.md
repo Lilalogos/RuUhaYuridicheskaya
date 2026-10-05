@@ -1,113 +1,113 @@
-# Citation Policy
+# Политика цитирования
 
-## Cite Or Abstain
+## Cite-or-abstain (цитируй или воздержись)
 
-Use only local KB anchors for legal and case claims:
+Для правовых утверждений и утверждений о кейсах используйте только локальные якоря базы знаний (KB):
 
-- `taxonomy/norms.yml` for norm ids and source URLs.
-- `taxonomy/enforcement_outcomes.yml` for dated finality, amount type, benchmark eligibility, official source, and comparability limits.
-- `cases/<case-id>/_case.md` for case posture and source file.
-- `cases/<case-id>/<figure-id>.md` for screen evidence.
-- `asset` paths for visual evidence.
-- `source_id`, `source_anchor_ids`, `source_ref`, `source_page`, and `complaint_paras` for complaint, notice, judgment, or order anchors.
-- `sources/source_capsules.json` for portable provenance, reviewed pinpoint extracts/summaries, reverse references, original-document hashes, and official retrieval URLs.
-- A legacy `source_file` may resolve to an active-workspace binary or a verified capsule alias. Portable releases contain no PDFs.
+- `taxonomy/norms.yml` — идентификаторы норм и URL источников.
+- `taxonomy/enforcement_outcomes.yml` — датированная финальность, тип суммы, пригодность для ориентира, официальный источник и пределы сопоставимости.
+- `cases/<case-id>/_case.md` — процессуальная позиция кейса и файл источника.
+- `cases/<case-id>/<figure-id>.md` — улики с экранов.
+- Пути `asset` — визуальные улики.
+- `source_id`, `source_anchor_ids`, `source_ref`, `source_page` и `complaint_paras` — якоря жалобы, уведомления, судебного акта или предписания.
+- `sources/source_capsules.json` — portable-происхождение, проверенные точечные выдержки и резюме, обратные ссылки, хэши оригинальных документов и официальные URL для получения.
+- Устаревший `source_file` может разрешаться в бинарный файл активного рабочего пространства или в проверенный алиас капсулы. Portable-релизы не содержат PDF.
 
-If an anchor is absent, say what is missing and abstain from the claim.
+Если якоря нет, скажите, чего не хватает, и воздержитесь от утверждения.
 
-## Source Fields
+## Поля источника
 
-`source_id` identifies a portable source capsule. `source_anchor_ids` identifies one or more reviewed local pinpoints within it.
+`source_id` идентифицирует portable-капсулу источника. `source_anchor_ids` идентифицирует одну или несколько проверенных локальных точечных ссылок (пинов) внутри неё.
 
-`source_file` is a compatibility and provenance field. In an active workspace it may resolve to `case_law/` or `downloaded_pdfs/`; in a PDF-free release it must resolve through a capsule alias. A URL or SHA-256 alone is not a sufficient local anchor.
+`source_file` — поле совместимости и происхождения. В активном рабочем пространстве оно может разрешаться в `case_law/` или `downloaded_pdfs/`; в релизе без PDF оно должно разрешаться через алиас капсулы. Одного URL или SHA-256 недостаточно в качестве локального якоря.
 
-`source_ref` identifies an attachment, figure, exhibit, page label, or other source-local handle.
+`source_ref` идентифицирует вложение, рисунок, приложение, метку страницы или иной локальный для источника указатель.
 
-`source_page` is the PDF page or source page used by this repo. Do not silently convert it to a legal page number.
+`source_page` — страница PDF или страница источника, используемая этим репозиторием. Не преобразуйте её молча в юридический номер страницы.
 
-`complaint_paras` identifies complaint paragraphs where available. It is not a substitute for reading the case card reasoning.
+`complaint_paras` идентифицирует параграфы жалобы там, где они доступны. Это не замена чтению обоснования в карточке кейса.
 
-Every referenced capsule preserves the original filename, SHA-256, byte and page metadata, procedural posture, an official HTTPS source, reverse references, and at least one local anchor. Capsule coverage is intentionally excerpt-only. Retrieve the original and verify its hash for full-document review.
+Каждая упомянутая капсула сохраняет оригинальное имя файла, SHA-256, метаданные о байтах и страницах, процессуальную позицию, официальный HTTPS-источник, обратные ссылки и как минимум один локальный якорь. Покрытие капсул намеренно ограничено выдержками. Для проверки по полному документу получите оригинал и сверьте его хэш.
 
-## Genesis Path
+## Путь Genesis
 
-For Genesis/Growthmind cards, bridge through per-card frontmatter and extracted complaint page/paragraph mappings. `_coverage.json` is inventory support only; it is not enough for legal citation.
+Для карточек Genesis/Growthmind проходите через frontmatter каждой карточки и извлечённые сопоставления страниц и параграфов жалобы. `_coverage.json` — только инвентарная поддержка; для правового цитирования его недостаточно.
 
-## EU/UK Limits
+## Ограничения EU/UK
 
-EU and UK material may be press-release-only or administrative rather than court-adjudicated. Mark confidence and availability limits. Do not present allegations, undertakings, final notices, or press releases as the same thing.
+Материалы ЕС и Великобритании могут существовать только в виде пресс-релиза или быть административными, а не судебными. Отмечайте пределы уверенности и доступности. Не подавайте обвинения, обязательства (undertakings), финальные уведомления и пресс-релизы как одно и то же.
 
-## Liability And Consequence Claims
+## Утверждения об ответственности и последствиях
 
-Use the selected norm's `consumer_redress`, `public_enforcement`, `private_enforcement`, `penalty_basis`, `non_monetary_relief`, `limitations`, `liability_source_urls`, and `verified_as_of` fields.
+Используйте поля выбранной нормы `consumer_redress`, `public_enforcement`, `private_enforcement`, `penalty_basis`, `non_monetary_relief`, `limitations`, `liability_source_urls` и `verified_as_of`.
 
-Use an observed benchmark only when its registry record is `eligible_monetary` or `eligible_non_monetary`. Resolve it through the norm's `eligible_outcome_ids`, then verify posture, finality, amount type, source availability, pinpoint, similarity, and limitations.
+Используйте наблюдаемый ориентир только тогда, когда его запись в реестре имеет статус `eligible_monetary` или `eligible_non_monetary`. Разрешайте его через `eligible_outcome_ids` нормы, затем проверяйте процессуальную позицию, финальность, тип суммы, доступность источника, точечную ссылку, сходство и ограничения.
 
-- State the enforcement predicate, not only the maximum possible sanction.
-- Do not imply that a maximum fine is automatic or typical.
-- Do not imply a private right of action where the norm says none exists.
-- Do not turn complaint allegations into assessed liability or a final remedy.
-- Do not use a procedural norm without a supported material norm.
-- Do not map a procedural enforcement or remedy provision directly from a visual pattern or place it in the primary `Applicable norm` field. It may appear only after the material duty and only as its declared companion.
-- Do not use complaint, proposed, pending, no-finding, press-release-only, vacated, or superseded records as observed benchmarks.
-- Do not allocate an aggregate multi-breach amount to one finding unless the official source allocates it.
-- Preserve settlement discounts and suspended face/payable amounts as separate metadata.
-- Keep app-store, chargeback, processor, platform, and commercial-account consequences separate from legal liability.
-- If the liability source is stale, outside the target jurisdiction, or dependent on national implementation, state the limitation or abstain.
-- Normalize internal scope to `jurisdiction: RU` plus nullable ISO-style `sub_jurisdiction`; RU records carry no sub-jurisdiction. A regional EU source may support a named EU country, but a country-specific norm, remedy, or outcome requires that exact country to be explicit. Never use a French or Dutch record for base EU or another country by analogy.
+- Указывайте предикат правоприменения, а не только максимально возможную санкцию.
+- Не подразумевайте, что максимальный штраф автоматичен или типичен.
+- Не подразумевайте частное право на иск там, где норма говорит, что его нет.
+- Не превращайте обвинения из жалобы в установленную ответственность или окончательное средство защиты.
+- Не используйте процедурную норму без поддерживаемой материальной нормы.
+- Не сопоставляйте процедурную норму о правоприменении или средстве защиты напрямую с визуальным паттерном и не ставьте её в основное поле `Applicable norm`. Она может появиться только после материальной обязанности и только как её объявленный компаньон.
+- Не используйте в качестве наблюдаемых ориентиров записи со статусом жалобы, предложенные, ожидающие рассмотрения, без установленного нарушения, существующие только в пресс-релизе, отменённые или заменённые.
+- Не относите совокупную сумму за несколько нарушений к одной находке, если официальный источник не распределяет её так.
+- Сохраняйте скидки по мировым соглашениям и условно отложенные номинальные и подлежащие уплате суммы как отдельные метаданные.
+- Держите последствия со стороны магазинов приложений, чарджбэков, процессинга, платформ и коммерческих аккаунтов отдельно от правовой ответственности.
+- Если источник об ответственности устарел, лежит вне целевой юрисдикции или зависит от национальной имплементации, укажите ограничение или воздержитесь.
+- Нормализуйте внутренний охват в `jurisdiction: RU` плюс допускающую null `sub_jurisdiction` в стиле ISO; записи RU не несут поддюрисдикции. Региональный источник ЕС может поддерживать названную страну ЕС, но страновая норма, средство защиты или исход требуют явного указания именно этой страны. Никогда не используйте французскую или нидерландскую запись для базового EU или другой страны по аналогии.
 
-## Public Report Display
+## Отображение в публичном отчёте
 
-Keep full provenance in the KB and verification pass. In the public report:
+Полное происхождение храните в базе знаний и в проходе верификации. В публичном отчёте:
 
-- cite the instrument and provision in human-readable form;
-- name only the minimum comparable case or authority and state its posture;
-- do not expose local paths, filenames, line numbers, internal IDs, raw URLs, complaint-paragraph inventories, or source dumps;
-- do not add a separate sources appendix;
-- move an unverified or low-confidence issue to `Missing Context` instead of padding a material finding.
-- link each material finding to a separate liability block rather than repeating consequences in the finding.
+- цитируйте акт и положение в человекочитаемой форме;
+- называйте только минимально необходимый сопоставимый кейс или орган и указывайте его процессуальную позицию;
+- не раскрывайте локальные пути, имена файлов, номера строк, внутренние идентификаторы, сырые URL, перечни параграфов жалобы или дампы источников;
+- не добавляйте отдельного приложения с источниками;
+- неверифицированный вопрос или вопрос с низкой уверенностью переносите в `Missing Context`, а не раздувайте им материальную находку.
+- каждую материальную находку связывайте с отдельным блоком ответственности, а не повторяйте последствия внутри находки.
 
-## Public Wording
+## Публичные формулировки
 
-- Keep direct instrument and provision names in the citation fields.
-- Explain the practical effect, limits, routes, and consequences in plain language outside those citations.
-- Do not copy legalese from a norm, complaint, order, or case card into a narrative field.
+- Прямые названия актов и положений оставляйте в полях цитирования.
+- Практический эффект, пределы, маршруты и последствия объясняйте простым языком вне этих цитат.
+- Не копируйте канцелярит из нормы, жалобы, предписания или карточки кейса в нарративное поле.
 
-## Supplied Review-Source Checks
+## Проверки предоставленных источников отзывов
 
-No web searches by default. A screenshot's appearance, platform styling, static state, missing visibly printed URL, or inability to test a link does not prove fabrication. A missing visibly printed URL in a screenshot also does not prove that an official widget is not clickable.
+Поиск в вебе по умолчанию не выполняется. Внешний вид скриншота, оформление в стиле платформы, статичное состояние, отсутствие видимо напечатанного URL или невозможность проверить ссылку не доказывают фабрикацию. Отсутствие видимо напечатанного URL на скриншоте также не доказывает, что официальный виджет некликабелен.
 
-Check a user-supplied review source only when the operator requests that check. Permit at most two lightweight supplied-source checks per screenshot and count them against the existing external-verification budget. Treat a carousel or testimonial section as one module; do not investigate each reviewer. If a match would require serious research, stop at `Unverified social proof`.
+Проверяйте предоставленный пользователем источник отзывов только по запросу оператора. Лимит — две лёгкие проверки предоставленного источника на скриншот, не больше; учитывайте их в существующем бюджете внешней верификации. Карусель или секцию отзывов рассматривайте как один модуль; не исследуйте каждого автора. Если для сопоставления потребовалось бы серьёзное исследование, остановитесь на `Unverified social proof`.
 
-A matching source or official-widget confirmation should align on the material visible details available for comparison, such as platform, review text, rating, date, reviewer display name, review count, badge, post or platform identifier, and widget branding. Do not demand that every field be visible. When the supplied traceable source materially matches, treat the module as verified for this evaluation and remove or mitigate the finding.
+Совпадающий источник или подтверждение официального виджета должны сходиться по существенным видимым деталям, доступным для сравнения: платформа, текст отзыва, рейтинг, дата, отображаемое имя автора, число отзывов, бейдж, идентификатор поста или платформы, брендинг виджета. Не требуйте, чтобы было видно каждое поле. Когда предоставленный прослеживаемый источник существенно совпадает, считайте модуль верифицированным для данной оценки и уберите или смягчите находку.
 
-An operator Yes is evidence only of `operator-confirmed fake or fabricated social proof`; it is not independent verification. A No without supporting source information is `merchant-asserted genuine; not independently verified`. Unknown and no response remain unresolved. Do not request customer identities, orders, or transaction records during normal review; those may be requested only when the operator disputes the result or explicitly asks for stronger verification.
+Ответ оператора Yes — улика только для `operator-confirmed fake or fabricated social proof`; это не независимая верификация. Ответ No без подтверждающих сведений об источнике — это `merchant-asserted genuine; not independently verified`. Unknown и отсутствие ответа остаются неразрешёнными. В ходе обычной проверки не запрашивайте личности покупателей, заказы или записи о транзакциях; их можно запросить только когда оператор оспаривает результат или явно просит более строгую верификацию.
 
-Map a review finding to law only for explicitly supplied jurisdictions and supported local norms. The attached RU sources contain no dedicated reviews rule: a fabricated-review finding may rest only on the untrue-advertising route (38-ФЗ ст. 5 ч. 3), and only on operator-confirmed fabrication or falsity visible on the screen itself; suspicion or missing source information is insufficient. Do not use Amazon Prime as a comparable authority unless the finding has an exact relevant pattern match. If the operator does not respond, preserve the provisional report and perform no independent research.
+Сопоставляйте находку об отзывах с правом только для явно переданных юрисдикций и поддерживаемых локальных норм. Приложенные источники RU не содержат отдельного правила об отзывах: находка о сфабрикованных отзывах может опираться только на маршрут недостоверной рекламы (38-ФЗ ст. 5 ч. 3) и только на подтверждённую оператором фабрикацию или на ложность, видимую на самом экране; подозрения или отсутствия сведений об источнике недостаточно. Не используйте Amazon Prime как сопоставимый авторитет, если у находки нет точного совпадения релевантного паттерна. Если оператор не отвечает, сохраните предварительный отчёт и не проводите самостоятельного исследования.
 
-## Bad Citations
+## Недопустимые цитаты
 
-Reject:
+Отклоняйте:
 
-- Statutes not in `taxonomy/norms.yml`.
-- Cases not represented in the local KB.
-- Paragraphs or pages that are not in the source fields.
-- Legal conclusions supported only by a pattern cue.
-- Broad statements like "illegal dark pattern" without a local norm and source anchor.
-- Monetary penalties, refunds, damages, private claims, injunctions, or operational sanctions that are not supported by the norm's consequence fields.
+- Законы, отсутствующие в `taxonomy/norms.yml`.
+- Кейсы, не представленные в локальной базе знаний.
+- Параграфы или страницы, которых нет в полях источника.
+- Правовые выводы, опирающиеся только на сигнал обнаружения паттерна.
+- Широкие утверждения вроде «незаконный тёмный паттерн» без локальной нормы и якоря источника.
+- Денежные санкции, возвраты, убытки, частные иски, запреты или операционные санкции, не подтверждённые полями последствий нормы.
 
 
-## Conditional Citation
+## Условное цитирование
 
-A material norm whose jurisdiction route has unestablished required facts is
-citable as a finding's primary Applicable norm only under the conditional
-discipline, enforced by the live validator:
+Материальная норма, у маршрута юрисдикции которой обязательные факты не
+установлены, может цитироваться как основная Applicable norm находки только в
+рамках условной дисциплины, которую обеспечивает живой валидатор:
 
-- `Confidence and limitations` starts with `Medium - ` (never High), and
-- it contains an explicit `conditional on ...` clause naming the predicate
-  facts the supplied evidence does not establish.
+- `Confidence and limitations` начинается с `Medium - ` (никогда не High), и
+- содержит явную оговорку `conditional on ...`, называющую предикатные факты,
+  которые предоставленные улики не устанавливают.
 
-An unconditioned citation of such a norm is rejected. The inverse holds too:
-an on-screen pattern whose only authority is conditional still produces a
-finding, written under this discipline. Silence is reserved for patterns with
-no on-screen evidence, not for unestablished predicate facts.
+Безусловное цитирование такой нормы отклоняется. Верно и обратное: экранный
+паттерн, единственная норма для которого условна, всё равно порождает находку,
+написанную в рамках этой дисциплины. Молчание зарезервировано для паттернов
+без экранных улик, а не для неустановленных предикатных фактов.
