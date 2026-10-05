@@ -1,0 +1,576 @@
+# ru-only fork. Source of law: operator-supplied survey PDF (capsule src-0116437c998bcd82)
+# plus pravo.gov.ru verification noted per record. See docs/ru-fork-notes.md.
+
+- id: ru-prechecked-paid-addon
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [prechecked-paid-option, unauthorized-add-on, bundled-consent, missing-express-consent, hidden-upsell-subscription, one-click-upsell]
+  candidate_norms: [ru-zozpp-16]
+  required_facts: [ru-consumer-b2c-transaction, ru-additional-paid-service-preselected]
+  disqualifying_facts: [express-opt-in-action-required]
+  source_anchor_ids: [norm:ru-zozpp-16]
+  condition: "Use Article 16 only for a consumer (B2C) flow where a paid extra is preselected, defaulted on, or already in the order without a separate affirmative choice. The survey PDF (pp. 26, 30) treats a pre-ticked paid-service checkbox and an add-on or subscription already in the cart as prohibited without separate consent, and «продолжая, вы соглашаетесь приобрести…» as consent that is not proven (together with Civil Code Art. 438); the burden of proving consent is on the seller, who must keep the screen version, order contents, date, time, and the user action (p. 31). A genuinely unticked add-on with its own visible price does not activate this route."
+
+- id: ru-conditioned-purchase
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [obstruction-to-decline, hard-to-close-upsell]
+  candidate_norms: [ru-zozpp-16]
+  required_facts: [ru-consumer-b2c-transaction, ru-decline-addon-blocks-primary-purchase]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-zozpp-16]
+  condition: "Use Article 16 prohibited conditioning only when refusing an additional paid service blocks or degrades the primary purchase; the survey PDF names exactly this row: «Отказ от доп. услуги блокирует основную покупку» — «Запрещённое обусловливание» (p. 30). An upsell that is merely hard to close while the main order still completes on the same terms stays a pressure observation without this route."
+
+- id: ru-total-price-disclosure
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [mandatory-fee-drip-pricing, delayed-price-disclosure, below-fold-disclosure, payment-without-clear-disclosure, email-before-price, no-price-upsell, personalization-lure]
+  candidate_norms: [ru-zozpp-10]
+  required_facts: [ru-consumer-b2c-transaction, material-pricing-term-omitted-or-subordinated-at-invitation]
+  disqualifying_facts: [ru-total-price-displayed-before-payment]
+  source_anchor_ids: [norm:ru-zozpp-10]
+  condition: "Use Articles 8–10 for a consumer flow where the seller identity or the full price in rubles with payment, delivery, and guarantee terms is absent, below the fold, or materially subordinated before the contract step. The survey's own reading: the final price must come without last-step surprises (p. 25), and «Скрытая полная стоимость: платежи появляются на последнем шаге» breaches the duty to state price and terms before the contract (p. 30); the mandatory card-contents list sits on p. 29. A full ruble total shown before the payment action defeats this route."
+
+- id: ru-subscription-refusal-and-saved-card
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [post-cancellation-billing, hard-cancellation, cancellation-contact-channel-mismatch, asymmetric-cancellation-path]
+  candidate_norms: [ru-zozpp-16-1]
+  required_facts: [ru-consumer-b2c-transaction, ru-recurring-charge-enabled, ru-electronic-refusal-path-absent]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-zozpp-16-1]
+  condition: "Use Article 16.1 (the subscription-law wording, in force from 2026-03-01 per the survey, pp. 26, 64) only where recurring charges from saved credentials are enabled and the product offers no electronic self-service refusal: «Удалить карту» and «Отключить автопродление» must work without calling support, the refusal date and time must be recorded, and charges after an expressed refusal are prohibited (p. 26). «Отмена подписки только по телефону или письмом» is the survey's named violation — no electronic refusal (p. 31); a button that visually deletes the card while charges continue is refusal expressed by action, high risk (p. 30). Keep the four actions distinct: cancel the subscription, switch off auto-renewal, refuse the card, delete the payment method (p. 26)."
+
+- id: ru-service-cancellation-anytime
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [hard-cancellation, refund-obstruction, asymmetric-cancellation-path]
+  candidate_norms: [ru-zozpp-32]
+  required_facts: [ru-consumer-b2c-transaction, ru-paid-service-subscription-contract, post-contract-cancellation, material-cancellation-obstruction]
+  disqualifying_facts: [minor-neutral-confirmation-steps-only]
+  source_anchor_ids: [norm:ru-zozpp-32]
+  condition: "Use Article 32 with Civil Code Art. 782 for a paid consumer service where the consumer is withdrawing after contracting and the interface materially obstructs the exit. The survey states the consumer may refuse the service at any moment paying only actual costs, reads this as cancellation available at any time from the account, and marks refunds for the unused period as practice, not the letter of the norm (p. 26). A short neutral confirmation alone does not activate this route."
+- id: ru-false-advertising
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [fake-social-proof, fake-external-reviews, fake-social-media-reviews, fake-awards, before-after-social-proof, fake-installs-purchases, fake-predictive-progress-graphs, misused-scientific-evidence, fake-media-features, fake-university-endorsement, fake-promo-code-countdown, pseudo-gifts, urgency-timer, authority-claim, outcome-promise, outcome-teaser, free-claim]
+  candidate_norms: [ru-38fz-5-3]
+  required_facts: [ru-advertising-or-promo-claim-present]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-38fz-5-3]
+  condition: "Use Art. 5 pts. 3 and 7 of the Advertising Law only for a visible promotional claim and only as far as the survey PDF carries it: «Лучший», «№ 1» require substantiation and a source; material terms must not sit in small or pale print (FAS practice, p. 18); «Таймеры и „осталось 2 штуки“ без оснований» is a violation when untrue (p. 30). The supplied sources contain no dedicated reviews rule, so fabricated reviews or social proof qualify here only as an untrue advertising assertion — the finding stays limited to operator-confirmed fabrication or falsity visible on the screen itself, and the tri-state social-proof module governs authenticity; unresolved authenticity keeps the observation unverified, not a violation. B2C status is not required: the survey states the Advertising Law applies regardless of B2B or B2C (p. 17)."
+
+# ru content-domain routes (wave 1). Conditions restate the survey verbatimly
+# cited rows; practice-wider-than-letter is carried as the survey states it.
+- id: ru-state-symbols-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [state-symbol-misuse]
+  candidate_norms: [ru-state-symbols]
+  required_facts: []
+  disqualifying_facts: [official-government-service-context]
+  source_anchor_ids: [norm:ru-state-symbols]
+  condition: "Per the survey (pp. 6-7): the coat of arms is not used in a commercial UI and logos are not built on the eagle; the flag is permitted respectfully — without overlaid text, glitches, reordered stripes, or a demeaning context; the anthem is not a video background, ringtone, parody, or remix; generated PDFs must not imitate official letterheads or seals. A government body's own service operating under its own rules defeats the route."
+
+- id: ru-victory-symbols-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [victory-symbol-commercial-use]
+  candidate_norms: [ru-victory-symbols]
+  required_facts: []
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-victory-symbols]
+  condition: "Per the survey (p. 7): the St. George ribbon and the Banner of Victory are not sale decor and not game mechanics; military-glory symbols are used only respectfully. The survey names only a criminal article for this duty, so the finding carries the material norm alone and the article stays in penalty_basis."
+
+- id: ru-extremist-symbols-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [extremist-symbol-display]
+  candidate_norms: [ru-extremist-symbols]
+  required_facts: []
+  disqualifying_facts: [condemning-historical-context-present]
+  source_anchor_ids: [norm:ru-extremist-symbols]
+  condition: "Per the survey (p. 11): the swastika, SS runes, «тотенкопф», and marks confusingly similar to them are displayable only in a clearly condemning historical context (games, encyclopedias). The survey warns for the whole block that enforcement practice is wider than the letter — stylizations and context are assessed too (p. 10) — so close-similarity calls stay at the survey's wording and uncertain styling is recorded, not stretched."
+
+- id: ru-banned-platform-asset-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [banned-platform-asset]
+  candidate_norms: [ru-banned-orgs-presence]
+  required_facts: []
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-banned-orgs-presence]
+  condition: "Per the survey (pp. 11, 22): icons and links of Instagram and Facebook leave footers and share blocks — no «войти через Facebook», no «мы в Instagram», no ads, integrations, or donations in their favor; the survey records enforcement practice even for logos. A status note does not legalize an asset; it matters only for textual mentions. The designation rests on the Minjust/FSB lists and the Tverskoy court decision of 21.03.2022, and the lists change — the registry check date belongs in Missing Context."
+
+- id: ru-banned-org-mention-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [banned-org-unlabeled-mention]
+  candidate_norms: [ru-banned-orgs-presence]
+  required_facts: []
+  disqualifying_facts: [banned-org-status-note-present]
+  source_anchor_ids: [norm:ru-banned-orgs-presence]
+  condition: "Per the survey (pp. 13, 20, 22): a textual mention of a designated organization carries a status note; for registered media this is Article 4 of the Media Law, for all other sites the survey calls it settled practice — so for a non-media product the finding is framed as practice-based risk in the survey's own words, not a statutory violation."
+
+- id: ru-lgbt-symbolism-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [prohibited-lgbt-symbolism]
+  candidate_norms: [ru-lgbt-symbolism]
+  required_facts: []
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-lgbt-symbolism]
+  condition: "Carried strictly in the survey's wording (p. 10): the six-stripe rainbow flag and its stylizations are the symbolism of an organization designated extremist by the Supreme Court decision of 30.11.2023, with enforcement practice the survey records «даже за украшения»; the 478-ФЗ block separately bars the named «пропаганда» imagery in illustrations, promo, and stickers, and legally significant gender fields offer only М/Ж. The survey's own caveat applies: practice is wider than the letter, and the КоАП 6.21 figures carry the survey's «проверить» mark — findings restate the source and never go beyond it."
+
+- id: ru-territorial-maps-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [nonconforming-russia-map]
+  candidate_norms: [ru-territorial-maps]
+  required_facts: []
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-territorial-maps]
+  condition: "Per the survey (p. 11): maps, region selectors, address forms, country lists, and phone codes show Crimea, Sevastopol, the DNR, LNR, Zaporozhye and Kherson regions, and the Kurils within the Russian Federation (89 subjects), and third-party map tiles are checked the same way; a map contesting territorial integrity is an extremist material under Art. 1 of 114-ФЗ as amended in 2023."
+
+- id: ru-foreign-agent-label-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [unlabeled-foreign-agent-material]
+  candidate_norms: [ru-foreign-agent-labeling]
+  required_facts: [ru-author-listed-foreign-agent]
+  disqualifying_facts: [foreign-agent-label-compliant]
+  source_anchor_ids: [norm:ru-foreign-agent-labeling]
+  condition: "Per the survey (pp. 12, 20): material of a registry-listed foreign agent carries the prescribed label — font twice the body size, contrasting, after the heading; in audio and video at the start and after each break — and their advertising is neither placed nor bought. Registry membership is never visible on a screen, so the route requires registry confirmation; the platform's own duty for feed materials carries the survey's «проверить» mark, keeping platform-side findings conditional."
+
+- id: ru-age-marking-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [missing-age-label]
+  candidate_norms: [ru-age-marking]
+  required_facts: []
+  disqualifying_facts: [age-label-visible]
+  source_anchor_ids: [norm:ru-age-marking]
+  condition: "Per the survey (pp. 20, 34-35): the «0+»…«18+» mark or the «запрещено для детей» text sits in the visible part of an information-product card — app, game, course, video — not only in the description, event banners give it no less than 5% of the area, and advertising of such products states the category. For sites that are not registered media the survey calls the mark requirements blurred, with «18+» plus technical measures as practice — findings outside product cards stay conditional in the survey's wording."
+
+- id: ru-interface-language-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [non-russian-consumer-interface]
+  candidate_norms: [ru-interface-language]
+  required_facts: [ru-consumer-facing-public-ui]
+  disqualifying_facts: [equal-russian-duplicate-present]
+  source_anchor_ids: [norm:ru-interface-language]
+  condition: "Per the survey (pp. 8-9), from 01.03.2026 the consumer-facing public interface — buttons, menus, forms, the cookie banner, cards, the offer — is in Russian: Russian first, any duplicate equal in color, font, size, and legibility, identical voice-over, and only registered trademarks and ЕГРЮЛ company names stay untranslated. For a closed B2B cabinet the survey calls direct application disputable, so the route requires the public consumer-facing context and an unknown context stays conditional."
+
+# content-domain wave 2 routes
+- id: ru-vpn-promotion-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [vpn-promotion]
+  candidate_norms: [ru-vpn-promotion-ban]
+  required_facts: []
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-vpn-promotion-ban]
+  condition: "Per the survey (p. 13): no «откройте через VPN» hints, no VPN promos or affiliate programs; VPN advertising is its own offense with the survey-stated ceiling up to 500 тыс. ₽ for legal entities. КоАП 13.52 targets VPN-service owners, so an ordinary product's duty is not to popularize or advertise."
+
+- id: ru-drug-symbols-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [drug-symbol-display]
+  candidate_norms: [ru-drug-symbols]
+  required_facts: []
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-drug-symbols]
+  condition: "Per the survey (p. 12): no cannabis leaves in icons, patterns, or memes — the survey itself grounds this in the enforcement practice of КоАП 6.13, so the finding states the practice basis in the source's words."
+
+- id: ru-religious-promo-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [religious-symbol-in-promo]
+  candidate_norms: [ru-religious-symbols-promo]
+  required_facts: [ru-advertising-or-promo-claim-present]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-religious-symbols-promo]
+  condition: "The material prohibition is the advertising rule: promo illustrations carry no religious or state symbols in a joking context (survey pp. 12, 18), so the route requires a promo context. A meme or sticker outside advertising carries, per the survey, only КоАП 5.26 and the criminal article — such an observation is framed as offense-based risk in the source's words, not a breach of the material norm."
+
+- id: ru-undesirable-orgs-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [undesirable-org-embed]
+  candidate_norms: [ru-undesirable-orgs]
+  required_facts: [ru-org-listed-undesirable]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-undesirable-orgs]
+  condition: "Per the survey (p. 12): materials and links of undesirable organizations are not embedded. List membership is never visible on a screen, so the route requires confirmation against the Minjust list; the list changes and the check date belongs in Missing Context (pp. 62-63)."
+
+- id: ru-social-network-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [missing-complaint-control]
+  candidate_norms: [ru-social-network-duties]
+  required_facts: [ru-social-network-threshold-met]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-social-network-duties]
+  condition: "Per the survey (p. 16): a «Пожаловаться» control at every content object, published rules, self-policing of prohibited content, and monetization limits for out-of-registry pages. The duty binds social networks over 500,000 Russian daily users — the survey's own correction to the draft (p. 2) — and the threshold is never visible on a screen, so the route requires operator confirmation."
+
+- id: ru-child-barriers-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [missing-adult-gate]
+  candidate_norms: [ru-child-access-barriers]
+  required_facts: []
+  disqualifying_facts: [ru-adult-barrier-present]
+  source_anchor_ids: [norm:ru-child-access-barriers]
+  condition: "Per the survey (p. 35): child-prohibited sections sit behind an age barrier with safe search and blurred previews; a bare «Мне есть 18» button is a minimal measure, not a guarantee. The implementing order carries the survey's own «проверить актуальность» mark, so order-level specifics stay conditional until the text is attached."
+
+- id: ru-media-imprint-route
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [missing-media-imprint]
+  candidate_norms: [ru-media-imprint]
+  required_facts: [ru-registered-media-outlet]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-media-imprint]
+  condition: "Per the survey (pp. 17, 21): a registered online media outlet carries the imprint — name, founder, editor, registration certificate — and the «18+» mark on every page. The duty binds registered media only; the status is never visible on a screen, so the route requires confirmation."
+
+# wave-3a routes
+- id: ru-misleading-service-claims
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [free-claim, renewal-price-mismatch, fake-analysis, false-personalization, tailored-plan-claim, fake-dating-interlocutors, misleading-trial-period]
+  candidate_norms: [ru-zozpp-12, ru-zozpp-10]
+  required_facts: [ru-consumer-b2c-transaction]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-zozpp-12]
+  condition: "Per the survey (p. 25): inadequate information supports contract refusal, refund, and damages, and an incomplete card grounds return even of a conforming product. Fabricated analyses, false personalization, fake interlocutors, and untrue free/renewal claims are untrue information about the service under Arts. 10/12; authenticity of social-proof-style elements still runs through the tri-state module."
+
+- id: ru-distance-sale-returns
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [misleading-trial-period, trial-framing, money-back-misdirection, refund-obstruction]
+  candidate_norms: [ru-zozpp-26-1]
+  required_facts: [ru-consumer-b2c-transaction]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-zozpp-26-1]
+  condition: "Per the survey (p. 27): the return term and procedure are shown on the card and in checkout; a site 'Returns' section does not replace the written notice at delivery, and without it the 7-day return stretches to 3 months. Trial and money-back framings are checked against these visible terms."
+
+- id: ru-personalized-price
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [personalized-price-discrimination]
+  candidate_norms: [ru-gk-426]
+  required_facts: [ru-consumer-b2c-transaction, identity-linked-price-difference-shown]
+  disqualifying_facts: [published-loyalty-rules-linked]
+  source_anchor_ids: [norm:ru-gk-426]
+  condition: "Per the survey (pp. 27, 31): under a public contract price and terms are equal within a consumer category; a personal price for a 'loyal' or 'new' client is a risk of breaching it, and discounts live only under announced programs — so the finding is framed as the survey's risk, defeated by visibly linked published program rules."
+
+- id: ru-offer-acceptance
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [missing-express-consent, hidden-renewal, one-click-upsell, payment-without-renewal-disclosure]
+  candidate_norms: [ru-gk-oferta]
+  required_facts: [ru-consumer-b2c-transaction]
+  disqualifying_facts: [express-opt-in-action-required]
+  source_anchor_ids: [norm:ru-gk-oferta]
+  condition: "Per the survey (pp. 29, 50): the offer is available before payment, acceptance is a separate explicit act with its version and moment fixed, auto-renewal is described before subscription, and 'продолжая, вы соглашаетесь приобрести…' proves nothing (Arts. 437-438). The acceptance journal itself is invisible on a screen and stays in Missing Context."
+
+- id: ru-online-receipt
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [receipt-destination-missing]
+  candidate_norms: [ru-54fz-receipt]
+  required_facts: [ru-consumer-b2c-transaction]
+  disqualifying_facts: [receipt-destination-field-present]
+  source_anchor_ids: [norm:ru-54fz-receipt]
+  condition: "Per the survey (p. 28): the electronic receipt goes to a phone or e-mail named before settlement, so the «Куда прислать чек» field precedes the «Оплатить» control."
+
+- id: ru-owner-identity
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [missing-owner-identity]
+  candidate_norms: [ru-149fz-10-2, ru-zozpp-10]
+  required_facts: []
+  disqualifying_facts: [owner-identity-visible]
+  source_anchor_ids: [norm:ru-149fz-10-2]
+  condition: "Per the survey (p. 16): the footer carries the owner's name, ИНН/ОГРН, and contacts; for consumer sales the same identity duty runs through Arts. 8-10. Absence is judged only on the shown pages — an uncaptured footer keeps the fact unknown."
+
+- id: ru-separate-consent
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [bundled-consent, cookie-single-accept]
+  candidate_norms: [ru-152fz-9, ru-152fz-15]
+  required_facts: [ru-consumer-b2c-transaction]
+  disqualifying_facts: [separate-unticked-consent-present]
+  source_anchor_ids: [norm:ru-152fz-9]
+  condition: "Per the survey (pp. 13, 29-30): from 01.09.2025 the data consent is its own unticked checkbox with its own text, apart from the offer; one combined checkbox for offer, data, and marketing breaches Arts. 9 and 15 together with the mailing rule. The cookie banner with a lone «Принять» is, in the survey's own words, a risk and not a norm (p. 15) — such findings cap at risk."
+
+- id: ru-marketing-mailings
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [unsubscribe-link-missing]
+  candidate_norms: [ru-38fz-18, ru-152fz-15]
+  required_facts: []
+  disqualifying_facts: [unsubscribe-link-present]
+  source_anchor_ids: [norm:ru-38fz-18]
+  condition: "Per the survey (pp. 19, 29): marketing by SMS, e-mail, or push runs only on a separate prior consent — its own unticked «получать рекламу» box, never inside the data consent — every message carries «отписаться», processing stops immediately on demand, and consents are journaled (the journal is off-screen, Missing Context)."
+
+- id: ru-privacy-policy-link
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [privacy-policy-link-missing]
+  candidate_norms: [ru-152fz-18-1]
+  required_facts: []
+  disqualifying_facts: [privacy-policy-link-visible]
+  source_anchor_ids: [norm:ru-152fz-18-1]
+  condition: "Per the survey (p. 14): the processing policy is published with unrestricted access and a link to it stands at every form and in the footer; the finding judges only the shown screens."
+
+- id: ru-consent-withdrawal
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [consent-withdrawal-obstructed]
+  candidate_norms: [ru-152fz-withdrawal]
+  required_facts: []
+  disqualifying_facts: [minor-neutral-confirmation-steps-only]
+  source_anchor_ids: [norm:ru-152fz-withdrawal]
+  condition: "Per the survey (p. 14): settings expose 'withdraw consent' and 'delete account'; 'no harder than giving consent' is the survey's own recommendation mark, and the dark-pattern table frames a hard withdrawal as risk because the operator must stop processing on demand (p. 31) — findings cap accordingly."
+
+- id: ru-automated-decisions
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [no-automated-decision-recourse]
+  candidate_norms: [ru-152fz-16]
+  required_facts: []
+  disqualifying_facts: [appeal-control-present]
+  source_anchor_ids: [norm:ru-152fz-16]
+  condition: "Per the survey (pp. 14, 55): a purely automated decision with legal consequences needs written consent, an explanation screen, and a working «оспорить» control with human review; pure recommendations belong to the recommender-notice duty instead."
+
+- id: ru-biometric-login
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [biometric-only-login]
+  candidate_norms: [ru-152fz-11-biometric]
+  required_facts: []
+  disqualifying_facts: [alternative-login-present]
+  source_anchor_ids: [norm:ru-152fz-11-biometric]
+  condition: "Per the survey (pp. 14, 50): face or voice entry exists only beside an alternative method and under a separate written-form consent (an electronic document with a signature — Госуслуги, Госключ, ПЭП under an ЭДО agreement); a single checkbox is not enough."
+
+- id: ru-ad-marking
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [ad-disguised-as-organic]
+  candidate_norms: [ru-38fz-18-1]
+  required_facts: []
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-38fz-18-1]
+  condition: "Per the survey (pp. 18, 20-21, 31): every internet creative carries «Реклама», the advertiser (or a link), and the erid token; native integrations get an explicit mark, paid positions in search and compilations their own «Реклама» mark, and a «партнёрский материал» label without erid does not replace the marking."
+
+- id: ru-promo-terms
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [promo-rules-missing]
+  candidate_norms: [ru-38fz-9]
+  required_facts: []
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-38fz-9]
+  condition: "Per the survey (p. 19): a stimulating-promotion banner states the term, the organizer, and where the rules live — a rules link with dates. Whether the countdown or gift is real belongs to Art. 5 pt. 3."
+
+- id: ru-authorization-methods
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [foreign-sso-only]
+  candidate_norms: [ru-149fz-10-auth]
+  required_facts: []
+  disqualifying_facts: [russian-auth-method-available]
+  source_anchor_ids: [norm:ru-149fz-10-auth]
+  condition: "Per the survey (pp. 16, 31): Russian users authorize only by a Russian operator's number, ЕСИА, ЕБС, or another Russian-controlled system — «Войти через Google / Apple / Facebook» leaves the screen; phone, Госуслуги, VK ID, Яндекс ID, Сбер ID and alike stay. The companion offense's effective date carries the survey's own «проверить» mark."
+
+- id: ru-recommender-notice
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [missing-recsys-notice]
+  candidate_norms: [ru-149fz-10-2-2]
+  required_facts: []
+  disqualifying_facts: [recsys-notice-visible]
+  source_anchor_ids: [norm:ru-149fz-10-2-2]
+  condition: "Per the survey (pp. 16, 20): any personalization of content, goods, prices, or ads for Russians requires the visible recommender-technologies notice with a link to the application rules (what data, from where, how it affects output) plus the owner's name and a legal-notice e-mail; the law does not require an off switch, and absence is judged only on the shown screens."
+
+# wave-3b routes
+- id: ru-credit-psk
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [psk-frame-missing]
+  candidate_norms: [ru-353fz-psk-frame]
+  required_facts: [ru-credit-product-context]
+  disqualifying_facts: [psk-frame-present]
+  source_anchor_ids: [norm:ru-353fz-psk-frame]
+  condition: "Per the survey (pp. 21, 32): the full credit cost sits in the square top-right frame of the first screen, uppercase, in the largest type — a pixel-level duty of the credit vertical."
+
+- id: ru-credit-addons
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [credit-addon-not-separate-application, prechecked-paid-option]
+  candidate_norms: [ru-353fz-7-addons-cooling]
+  required_facts: [ru-credit-product-context, ru-consumer-b2c-transaction]
+  disqualifying_facts: [separate-credit-application-present]
+  source_anchor_ids: [norm:ru-353fz-7-addons-cooling]
+  condition: "Per the survey (p. 32): credit add-ons attach only through a separate application with the price and a refusal right; the cooling-off period returns money for an imposed service, and the issuing UI shows the self-ban status with a clear refusal. This sharpens the general Art. 16 ban inside the credit vertical."
+
+- id: ru-crypto-checkout
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [crypto-payment-offered]
+  candidate_norms: [ru-259fz-no-crypto]
+  required_facts: []
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-259fz-no-crypto]
+  condition: "Per the survey (p. 33): «оплата криптовалютой» is not offered to Russian clients, and crypto screens avoid ruble imagery."
+
+- id: ru-regulated-messengers
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [foreign-messenger-contact]
+  candidate_norms: [ru-antifraud-foreign-messengers]
+  required_facts: [ru-regulated-entity-context]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-antifraud-foreign-messengers]
+  condition: "Per the survey (p. 23): banks, telecom operators, state institutions, large aggregators and marketplaces do not inform clients through foreign messengers — no «написать нам в WhatsApp» buttons; the act's particulars carry the survey's own «номер проверить» mark (p. 53)."
+
+- id: ru-landing-feedback
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [missing-landing-feedback-form]
+  candidate_norms: [ru-236fz-landing]
+  required_facts: [ru-foreign-owner-confirmed, ru-foreign-500k-audience-confirmed]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-236fz-landing]
+  condition: "Per the survey (p. 17): a large foreign resource over 500k daily RF users carries a feedback form for Russian citizens; both applicability thresholds are invisible on a screen and must be confirmed."
+
+- id: ru-gov-eforms
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [eform-loses-input]
+  candidate_norms: [ru-pp-236-eforms]
+  required_facts: [ru-government-service-context]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-pp-236-eforms]
+  condition: "Per the survey (p. 44): state-service forms keep entered data, allow a step back, store a draft for three months, accept files and prefill from the profile; some deadlines carry the survey's «проверить» mark."
+
+- id: ru-accessibility
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [accessibility-breakage, error-color-only]
+  candidate_norms: [ru-pp-102-a11y, ru-gost-52872]
+  required_facts: []
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-pp-102-a11y]
+  condition: "Per the survey (pp. 38-39): government interfaces hold the ПП 102 baseline from 01.03.2026 — 200% scaling, screen readers, pausable motion, at most three flashes per second, GOST contrast — and ГОСТ Р 52872 binds the state sector via ПП 1546 while binding business only when a contract or ToR cites it. Outside a government context or a confirmed contract reference the finding caps at the survey's best-practice level; an error shown by color alone is the survey's own dark-table row."
+
+- id: ru-service-captions
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [missing-captions]
+  candidate_norms: [ru-181fz-15-captions]
+  required_facts: []
+  disqualifying_facts: [captions-present]
+  source_anchor_ids: [norm:ru-181fz-15-captions]
+  condition: "Per the survey (p. 39): audio and video about services to the public carry subtitles or a text transcript, and emergency information stays accessible; marketing media outside service information is a recommendation zone."
+
+- id: ru-gost-claim
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [authority-claim]
+  candidate_norms: [ru-162fz-26, ru-38fz-5-3]
+  required_facts: [ru-advertising-or-promo-claim-present]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-162fz-26]
+  condition: "Per the survey (p. 5): a public «соответствует ГОСТ…» claim is lawful only with real conformity; an unsubstantiated claim runs both as the standardization-law breach and as untrue advertising under Art. 5 pt. 3."
+
+- id: ru-ai-rights
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [ai-output-rights-missing]
+  candidate_norms: [ru-ai-generation-rights]
+  required_facts: []
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-ai-generation-rights]
+  condition: "Per the survey (pp. 48, 55): an AI service's terms carry a «кому принадлежит сгенерированное» section and the user sees rights information; the statute's particulars bear the survey's own «проверить» mark, so citations stay at the survey's wording."
+
+- id: ru-likeness
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [unconsented-person-photo]
+  candidate_norms: [ru-gk-152-1-likeness]
+  required_facts: [operator-confirmed-no-consent]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-gk-152-1-likeness]
+  condition: "Per the survey (p. 47): people's photos and videos appear only with consent, excepting public events and paid posing; consent is never visible on a screen, so the route requires confirmation of its absence."
+
+- id: ru-style-imitation
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [brand-style-imitation]
+  candidate_norms: [ru-135fz-style-imitation]
+  required_facts: [operator-confirmed-imitation-target]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-135fz-style-imitation]
+  condition: "Per the survey (p. 29): imitating a competitor's firm style and misleading about service affiliation is unfair competition; a single screenshot proves nothing without the confirmed imitated target."
+
+- id: ru-child-sections
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [child-section-unfiltered]
+  candidate_norms: [ru-436fz-child-sections]
+  required_facts: [ru-child-audience-context]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-436fz-child-sections]
+  condition: "Per the survey (p. 34): children's sections exclude the Art. 5 pt. 2 prohibited list, with moderation and filtering for children's UGC."
+
+- id: ru-child-ads
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [child-ad-pressure, urgency-timer]
+  candidate_norms: [ru-38fz-6-child-ads]
+  required_facts: [ru-child-audience-context, ru-advertising-or-promo-claim-present]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-38fz-6-child-ads]
+  condition: "Per the survey (p. 35): child-directed advertising avoids «попроси родителей купить» and inferiority framing; the no-timers-for-children point is the survey's recommendation and caps at that level."
+
+- id: ru-visible-security
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [visible-security-gap]
+  candidate_norms: [ru-fstek-ui-measures]
+  required_facts: []
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-fstek-ui-measures]
+  condition: "Per the survey (p. 52): user-visible protection measures include password masking, session timeout, a new-device sign-in notice, and a strength indicator; the measure codes carry the survey's «сверить» mark, so the finding states a visible gap against the survey's list, not a code-level breach."
+
+- id: ru-gost-contractual
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [accessibility-breakage, error-color-only]
+  candidate_norms: [ru-gost-52872]
+  required_facts: [ru-gost-referenced-in-contract]
+  disqualifying_facts: []
+  source_anchor_ids: [norm:ru-gost-52872]
+  condition: "The contractual branch of the accessibility GOST: per the survey (p. 39) the voluntary standard becomes binding when the contract, the ToR, or a public conformity claim cites it — so this route fires only on a confirmed reference and carries the AA-level expectations the survey lists."
+
+# --- прогон «сбор пробелов» 2026-10-04 ---
+- id: ru-insurance-cooling-off
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [refund-obstruction, hard-cancellation]
+  candidate_norms: [ru-cbr-3854u-cooling]
+  required_facts: [ru-consumer-b2c-transaction, ru-voluntary-insurance-context]
+  disqualifying_facts: [minor-neutral-confirmation-steps-only]
+  source_anchor_ids: [norm:ru-cbr-3854u-cooling]
+  condition: "Per Указание Банка России N 3854-У (evidence/law/cbr-3854u-2015, стр. 3–4): an individual policyholder may withdraw from a voluntary insurance contract within fourteen calendar days with a premium refund. The route fires only for a voluntary insurance add-on sold to a consumer where the post-purchase interface obstructs or denies that withdrawal («страховка не возвращается», no cancel path within 14 days). A neutral confirmation alone does not activate it."
+- id: ru-air-carriage-addons
+  jurisdiction: "RU"
+  sub_jurisdiction: null
+  pattern_ids: [prechecked-paid-option, obstruction-to-decline, unauthorized-add-on]
+  candidate_norms: [ru-fap-82-air-addons, ru-zozpp-16]
+  required_facts: [ru-consumer-b2c-transaction, ru-air-carriage-context]
+  disqualifying_facts: [express-opt-in-action-required]
+  source_anchor_ids: [norm:ru-fap-82-air-addons, norm:ru-zozpp-16]
+  condition: "Sector layer for airline tickets: the archived acts (НордСтар А33-35161/2019, стр. 5–9; Нордстар 2-917/2025, стр. 4; ИрАэро 2-339/2024; Уральские авиалинии 33-17149/2023) apply ФАП-82 and the Air Code together with Art. 16 ЗоЗПП — a mandatory paid «услуга оформления провозной ёмкости» or an auto-attached insurance contradicts the carriage rules. Fires only when the screen is an air-carriage booking flow; the general Art. 16 route still runs."

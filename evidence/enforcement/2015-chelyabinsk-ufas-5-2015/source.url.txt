@@ -1,0 +1,4 @@
+source.pdf: https://br.fas.gov.ru/to/chelyabinskoe-ufas-rossii/5-2015-b3fb1b98-4d98-4c4d-a315-39877a487700/
+  «Печать→PDF» (Chrome headless) карточки документа в Базе решений ФАС, UTC 2026-10-04T13:33:45Z
+карточка дела: https://br.fas.gov.ru/cases/2626bedf-f804-47e1-b3ff-e36d63ecd556/
+найдено поиском br.fas.gov.ru по тексту «реклама стоимость без учета сборов» (type=2)

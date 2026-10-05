@@ -1,0 +1,2 @@
+https://mos-gorsud.ru/mgs/services/cases/appeal-civil/details/d2804200-45b6-11ef-936e-6d69561850c9
+  снимок карточки дела: curl → текст страницы → PDF (PyMuPDF), UTC 2026-10-04T19:49:10Z; исходный HTML рядом (card.html)

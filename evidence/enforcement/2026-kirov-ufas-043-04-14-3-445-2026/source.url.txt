@@ -1,0 +1,3 @@
+source.pdf: https://br.fas.gov.ru/to/kirovskoe-ufas-rossii/21fd25b9-12c6-41f1-8262-e173013d1d48/
+  «Печать→PDF» (Chrome headless) карточки документа в Базе решений ФАС, UTC 2026-10-04T13:49:17Z
+найдено поиском br.fas.gov.ru (type=2) «Триведа клиника №1»

@@ -1,0 +1,63 @@
+{
+  "scenario": "G1",
+  "site": "pobeda.aero",
+  "enforcement_ref": "2024-mosgorsud-33-35439",
+  "viewport": "1708x832 (окно не изменило размер на 1440x900; DPR 2)",
+  "locale": "ru-RU",
+  "started_utc": "2026-10-04T10:28:20Z",
+  "steps": [
+    {
+      "n": 1,
+      "label": "главная",
+      "url": "https://www.flypobeda.ru/",
+      "utc": "2026-10-04T10:28:20Z",
+      "title": "Купить авиабилеты онлайн, дешёвые билеты на самолёт - Авиакомпания «Победа»",
+      "files": {
+        "png": "01-главная.png",
+        "pdf": null
+      },
+      "sha256": {
+        "png": "0640b68b1f6065ceedc43f5f9f32e8be05d8be8f3d97393485433ab65c00d4a2",
+        "pdf": null
+      },
+      "agent_note": "Открыт https://www.pobeda.aero/ — переадресация на https://www.flypobeda.ru/. Видны баннер «Где билеты за 1₽?» и строка о файлах Cookie."
+    },
+    {
+      "n": 2,
+      "label": "после поиска — исходная вкладка",
+      "url": "https://ostrovok.ru/hotel/russia/sochi/?…partner_slug=pobedaaero.affiliate…",
+      "utc": "2026-10-04T10:29:24Z",
+      "title": "Отели в Сочи — забронировать гостиницу в Сочи…",
+      "files": {
+        "png": "02-поиск-вкладка-островок.png",
+        "pdf": null
+      },
+      "sha256": {
+        "png": "d9d136da212515549fb3d8f4349eb8a8806fdad50a3f86ddbaa26e2d137b6955",
+        "pdf": null
+      },
+      "agent_note": "Заполнено: Москва → Сочи, 21.10.2026, в одну сторону, 1 клиент; нажато «Поиск». Исходная вкладка перешла на ostrovok.ru (отели Сочи), поиск рейсов открылся в новой вкладке."
+    },
+    {
+      "n": 3,
+      "label": "поиск рейсов — 403",
+      "url": "https://ticket.flypobeda.ru/websky/?origin-city-code[0]=MOW&destination-city-code[0]=AER&date[0]=21.10.2026…",
+      "utc": "2026-10-04T10:29:24Z",
+      "title": "403",
+      "files": {
+        "png": "03-поиск-403.png",
+        "pdf": null
+      },
+      "sha256": {
+        "png": "25eb1c8fa86490b9af151dacb40e03dd9a0f7dc2fd5a691e3827ac3a13318f34",
+        "pdf": null
+      },
+      "agent_note": "Новая вкладка ticket.flypobeda.ru: «Упс! 403 Доступ к сайту ограничен. К сожалению, ваш IP-адрес не прошёл проверку.» Маршрут дальше не пройден."
+    }
+  ],
+  "pattern_visible": "unknown",
+  "stops": [
+    "03 — сайт бронирования вернул 403 по IP; маршрут прерван"
+  ],
+  "notes": "Скриншоты — снимки видимой области (JPEG от расширения, сконвертированы в PNG). utc — время сохранения файла, несколько секунд после снимка. GIF-запись начата на pobeda, экспорт не делался."
+}

@@ -1,0 +1,3 @@
+source.pdf: https://kad.arbitr.ru/Kad/PdfDocument/2bcdfab5-436c-4b74-835f-7b99744e87d4/11f4da62-4d03-4113-bc36-275b523ec906/A40-284009-2021_20220318_Reshenija_i_postanovlenija.pdf
+  скачан Виталием из просмотрщика PDF (~/Downloads/FireShot/), перенесён агентом 2026-10-04T13:26:03Z UTC
+карточка дела: https://kad.arbitr.ru/Card/2bcdfab5-436c-4b74-835f-7b99744e87d4

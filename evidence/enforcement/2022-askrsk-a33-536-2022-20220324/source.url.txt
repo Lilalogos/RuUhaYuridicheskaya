@@ -1,0 +1,3 @@
+source.pdf: https://kad.arbitr.ru/Kad/PdfDocument/e6c55098-9e64-4400-80db-79f6b967415f/7aff061e-aecf-4827-925f-ba74432eb3ae/A33-536-2022_20220324_Reshenie.pdf
+  скачан Виталием из просмотрщика PDF kad.arbitr.ru (~/Downloads/FireShot/A33-536-2022_20220324_Reshenie.pdf), перенесён агентом 2026-10-04T20:58:26Z UTC
+карточка дела: https://kad.arbitr.ru/Card/e6c55098-9e64-4400-80db-79f6b967415f

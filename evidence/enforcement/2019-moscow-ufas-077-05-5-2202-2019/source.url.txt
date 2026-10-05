@@ -1,0 +1,3 @@
+source.pdf: https://br.fas.gov.ru/media/document_files/c56de801-222a-49e4-bd26-4c22ea83ef53/086-077-05-5-2202_%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5_%D0%A0.pdf
+  (приложение «086-077-05-5-2202_решение_Р.pdf» к документу в Базе решений ФАС), скачан curl, UTC 2026-10-04T13:34:59Z
+source.page.pdf: https://br.fas.gov.ru/to/moskovskoe-ufas-rossii/c56de801-222a-49e4-bd26-4c22ea83ef53/ — «Печать→PDF» карточки, UTC 2026-10-04T13:34:59Z

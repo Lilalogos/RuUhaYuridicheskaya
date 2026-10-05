@@ -1,0 +1,47 @@
+{
+  "scenario": "G1",
+  "site": "iraero.ru",
+  "enforcement_ref": "2024-kuibyshevsky-irk-2-339-2024",
+  "viewport": "1708x832 (окно не изменило размер на 1440x900; DPR 2)",
+  "locale": "ru-RU",
+  "started_utc": "2026-10-04T10:31:23Z",
+  "steps": [
+    {
+      "n": 1,
+      "label": "главная",
+      "url": "https://iraero.ru/",
+      "utc": "2026-10-04T10:31:23Z",
+      "title": "Официальный сайт Авиакомпании \"ИрАэро\"",
+      "files": {
+        "png": "01-главная.png",
+        "pdf": null
+      },
+      "sha256": {
+        "png": "44cc4c72bc6448e61753e17edd9102a12dd8ff5e31bd487fa4376908a2355459",
+        "pdf": null
+      },
+      "agent_note": "Открыт https://www.iraero.ru/ → https://iraero.ru/. Окно о cookie с кнопкой «ОК» не закрывалось."
+    },
+    {
+      "n": 2,
+      "label": "бронирование — пусто",
+      "url": "https://iraero.ru/booking/#/search/IKTMOW20261015ADT1RUB",
+      "utc": "2026-10-04T10:35:22Z",
+      "title": "Бронирование",
+      "files": {
+        "png": "02-бронирование-пусто.png",
+        "pdf": null
+      },
+      "sha256": {
+        "png": "0c8359e569d5ba5892e584fb878a7d7b20f26b62d0d3a5bef906de15acafe310",
+        "pdf": null
+      },
+      "agent_note": "Поиск Иркутск → Москва, 15.10.2026, 1 пассажир. Страница бронирования без списка рейсов (виден только подвал); запрос https://cdn.webskyx.com/content/IO/i18n/dict.js вернул 503. Перезагрузка — то же. Маршрут дальше не пройден."
+    }
+  ],
+  "pattern_visible": "unknown",
+  "stops": [
+    "02 — модуль бронирования не загрузился (503 dict.js); маршрут прерван"
+  ],
+  "notes": "Скриншоты — снимки видимой области (JPEG от расширения, сконвертированы в PNG). utc — время сохранения файла, несколько секунд после снимка. GIF-запись начата на pobeda, экспорт не делался."
+}

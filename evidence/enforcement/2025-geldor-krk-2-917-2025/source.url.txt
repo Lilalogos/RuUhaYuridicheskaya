@@ -1,0 +1,4 @@
+source.pdf: https://geldor.krk.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=doc&number=521774994&delo_id=1540005&new=0&text_number=1
+  «Печать→PDF» (Chrome headless) страницы текста решения на сайте Железнодорожного районного суда г. Красноярска, UTC 2026-10-04T10:23:10Z
+карточка дела: https://geldor.krk.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=572021233&case_uid=6c724aaf-34e3-46dd-8a81-c0b0148beb21&delo_id=1540005
+найдено поиском по номеру 2-917/2025 (капчу прошёл Виталий)

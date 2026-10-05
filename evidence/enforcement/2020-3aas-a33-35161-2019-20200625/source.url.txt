@@ -1,0 +1,3 @@
+source.pdf: https://kad.arbitr.ru/Kad/PdfDocument/1982ab5f-d916-4b11-be5d-ee26555288ff/31ea5c01-822c-4778-bf2c-de5c9550cf74/A33-35161-2019_20200625_Postanovlenie_apelljacionnoj_instancii.pdf
+  скачан Виталием из просмотрщика PDF kad.arbitr.ru (~/Downloads/FireShot/A33-35161-2019_20200625_Postanovlenie_apelljacionnoj_instancii.pdf), перенесён агентом 2026-10-04T20:58:26Z UTC
+карточка дела: https://kad.arbitr.ru/Card/1982ab5f-d916-4b11-be5d-ee26555288ff

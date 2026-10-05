@@ -1,0 +1,2 @@
+https://8kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=39501241&case_uid=4b30fb99-3d46-4d3a-a7da-a64bef731a25&new=2800001&delo_id=2800001
+  снимок карточки дела: curl → текст страницы → PDF (PyMuPDF), UTC 2026-10-04T19:49:14Z; исходный HTML рядом (card.html)

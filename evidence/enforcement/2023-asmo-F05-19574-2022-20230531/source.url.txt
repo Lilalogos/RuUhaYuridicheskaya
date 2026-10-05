@@ -1,0 +1,3 @@
+source.pdf: https://kad.arbitr.ru/Kad/PdfDocument/2bcdfab5-436c-4b74-835f-7b99744e87d4/bf4a80e5-f554-4d11-9c56-d87248c91df9/A40-284009-2021_20230531_Postanovlenie_kassacii.pdf
+  скачан Виталием из просмотрщика PDF (~/Downloads/FireShot/), перенесён агентом 2026-10-04T13:28:01Z UTC
+карточка дела: https://kad.arbitr.ru/Card/2bcdfab5-436c-4b74-835f-7b99744e87d4

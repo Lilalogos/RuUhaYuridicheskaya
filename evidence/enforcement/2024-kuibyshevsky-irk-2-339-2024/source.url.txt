@@ -1,0 +1,5 @@
+source.pdf: https://zpp.rospotrebnadzor.ru/adjudications/regional/38RS0033-01-2023-005608-88
+  (переход с https://zpp.rospotrebnadzor.ru/Core/Content/ShowContentById/550805); «Печать→PDF» страницы ГИС ЗПП (Chrome headless), UTC 2026-10-04T10:04:19Z
+source.docx: https://zpp.rospotrebnadzor.ru/Show/File/61688 (вложение «РЕШЕНИЕ по ИрАэро», DOCX), UTC 2026-10-04T10:04:19Z
+Карточка суда, указанная на странице как «Источник» (не открывалась, поиск sudrf — капча):
+  https://kuibyshevsky--irk.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=482419029&case_uid=ac403c11-411d45c8-81aa-2c06c0d8c05c&delo_id=1540005&new=

@@ -1,0 +1,5 @@
+source.pdf: https://8kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=doc&number=32539017&delo_id=2800001&new=2800001&text_number=1
+  «Печать→PDF» (Chrome headless) страницы текста определения на сайте Восьмого кассационного суда общей юрисдикции, UTC 2026-10-04T10:23:21Z
+  карточка дела: https://8kas.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=39501241&case_uid=4b30fb99-3d46-4d3a-a7da-a64bef731a25&new=2800001&delo_id=2800001
+  найдено поиском по номеру 88-2897/2025 (капчу прошёл Виталий)
+source.scan.pdf: https://zpp.rospotrebnadzor.ru/Show/File/61689 (вложение «Определение ИРАэро» на странице ГИС ЗПП), UTC 2026-10-04T10:04:56Z — скан, без текстового слоя

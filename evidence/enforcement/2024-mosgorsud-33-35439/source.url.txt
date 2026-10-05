@@ -1,0 +1,5 @@
+source.doc: https://mos-gorsud.ru/mgs/cases/docs/content/b76e10f0-6087-11ef-865b-f3130b53e267
+  (ссылка «Скачать файл» у документа «Определение суда апелляционной инстанции» от 22.08.2024)
+  карточка дела: https://mos-gorsud.ru/mgs/services/cases/appeal-civil/details/d2804200-45b6-11ef-936e-6d69561850c9
+  сохранено UTC: 2026-10-04T10:00:03Z
+source.pdf: производный файл — source.doc → textutil (HTML) → Chrome headless «Печать в PDF», 2026-10-04T10:00:03Z. Оригинал суда — source.doc.

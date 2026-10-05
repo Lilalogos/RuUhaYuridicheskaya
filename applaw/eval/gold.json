@@ -1,0 +1,14 @@
+{
+ "artifact_storage": "compact-json-v1",
+ "logical_path_index": {},
+ "record_count": 0,
+ "records": [],
+ "release_version": "0.5.0",
+ "schema_version": "1.0",
+ "summary": {
+  "by_case": {},
+  "card_count": 0,
+  "review_status_counts": {},
+  "semantic_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+ }
+}

@@ -1,0 +1,4 @@
+source.pdf: https://oblsud.svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=doc&number=9262400&delo_id=5&new=5&text_number=1
+  «Печать→PDF» (Chrome headless) страницы текста акта на сайте Свердловского областного суда, UTC 2026-10-04T10:22:59Z
+карточка дела: https://oblsud.svd.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=12250268&case_uid=850aeb35-7937-450e-9593-3a415d55a29f&delo_id=5&new=5
+найдено через поиск по сторонам «Уральские авиалинии», апелляция, 2023 (капчу прошёл Виталий)

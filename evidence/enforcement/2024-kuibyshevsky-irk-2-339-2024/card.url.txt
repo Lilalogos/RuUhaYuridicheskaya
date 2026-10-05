@@ -1,0 +1,2 @@
+https://kuibyshevsky--irk.sudrf.ru/modules.php?name=sud_delo&srv_num=1&name_op=case&case_id=482419029&case_uid=ac403c11-411d45c8-81aa-2c06c0d8c05c&delo_id=1540005&new=
+  снимок карточки дела: curl → текст страницы → PDF (PyMuPDF), UTC 2026-10-04T19:49:18Z; исходный HTML рядом (card.html)

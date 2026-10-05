@@ -1,0 +1,110 @@
+[
+ {
+  "id": "ru-prechecked-supported",
+  "pattern_id": "prechecked-paid-option",
+  "target_jurisdictions": [
+   "RU"
+  ],
+  "confirmed_facts": [
+   "ru-consumer-b2c-transaction",
+   "ru-additional-paid-service-preselected"
+  ],
+  "expected_status": "candidates",
+  "expected_material_norms": [
+   "ru-zozpp-16",
+   "ru-353fz-7-addons-cooling",
+   "ru-fap-82-air-addons"
+  ],
+  "expected_supported_material_norms": [
+   "ru-zozpp-16"
+  ],
+  "must_not_use_analogue": true
+ },
+ {
+  "id": "ru-prechecked-disqualified",
+  "pattern_id": "prechecked-paid-option",
+  "target_jurisdictions": [
+   "RU"
+  ],
+  "confirmed_facts": [
+   "ru-consumer-b2c-transaction",
+   "ru-additional-paid-service-preselected",
+   "express-opt-in-action-required"
+  ],
+  "expected_status": "candidates",
+  "expected_material_norms": [
+   "ru-353fz-7-addons-cooling"
+  ],
+  "expected_supported_material_norms": [],
+  "must_not_use_analogue": true
+ },
+ {
+  "id": "ru-post-cancellation-conditional",
+  "pattern_id": "post-cancellation-billing",
+  "target_jurisdictions": [
+   "RU"
+  ],
+  "expected_status": "candidates",
+  "expected_material_norms": [
+   "ru-zozpp-16-1"
+  ],
+  "expected_supported_material_norms": [],
+  "must_not_use_analogue": true
+ },
+ {
+  "id": "ru-subscription-refusal-supported",
+  "pattern_id": "post-cancellation-billing",
+  "target_jurisdictions": [
+   "RU"
+  ],
+  "confirmed_facts": [
+   "ru-consumer-b2c-transaction",
+   "ru-recurring-charge-enabled",
+   "ru-electronic-refusal-path-absent"
+  ],
+  "expected_status": "candidates",
+  "expected_material_norms": [
+   "ru-zozpp-16-1"
+  ],
+  "expected_supported_material_norms": [
+   "ru-zozpp-16-1"
+  ],
+  "must_not_use_analogue": true
+ },
+ {
+  "id": "ru-price-disclosure-conditional",
+  "pattern_id": "mandatory-fee-drip-pricing",
+  "target_jurisdictions": [
+   "RU"
+  ],
+  "expected_status": "candidates",
+  "expected_material_norms": [
+   "ru-zozpp-10"
+  ],
+  "expected_supported_material_norms": [],
+  "must_not_use_analogue": true
+ },
+ {
+  "id": "ru-false-advertising-conditional",
+  "pattern_id": "urgency-timer",
+  "target_jurisdictions": [
+   "RU"
+  ],
+  "expected_status": "candidates",
+  "expected_material_norms": [
+   "ru-38fz-5-3",
+   "ru-38fz-6-child-ads"
+  ],
+  "expected_supported_material_norms": [],
+  "must_not_use_analogue": true
+ },
+ {
+  "id": "ru-unsupported-target-us",
+  "pattern_id": "prechecked-paid-option",
+  "target_jurisdictions": [
+   "US"
+  ],
+  "expected_error_contains": "unsupported jurisdiction",
+  "must_not_use_analogue": true
+ }
+]

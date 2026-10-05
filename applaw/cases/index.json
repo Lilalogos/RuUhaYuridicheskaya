@@ -1,0 +1,15 @@
+{
+ "artifact_storage": "compact-json-v1",
+ "cases": [],
+ "release_version": "0.5.0",
+ "schema_version": "1.0",
+ "totals": {
+  "anchor_count": 0,
+  "anchor_reference_count": 0,
+  "case_cards": 0,
+  "case_headers": 0,
+  "cases": 0,
+  "coverage_records": 0,
+  "semantic_records": 0
+ }
+}
