@@ -5,7 +5,8 @@
     и с original_document.sha256 капсулы в applaw/sources/source_capsules.json;
   * у каждого акта есть meta.yml, quotes.md, source.url.txt и текстовый слой (pdffonts);
   * каждая запись enforcement_outcomes.yml указывает на существующую папку и капсулу;
-  * SHA256SUMS.txt каждой серии captures/ сходится с файлами.
+  * SHA256SUMS.txt каждой серии captures/ сходится с файлами;
+  * evidence/practice: sha256 исходной таблицы и снимков карточек (card.pdf) сходятся.
 
     python3 -B scripts/evidence_check.py          # отчёт, код 1 при расхождениях
 """
@@ -97,7 +98,22 @@ def main() -> int:
                 issues.append(f"{s.name}: файл {name.strip()} из SHA256SUMS отсутствует")
             elif sha256_file(target) != digest.strip():
                 issues.append(f"{s.name}: sha256 {name.strip()} не совпадает")
-    print(f"актов: {len(folders)}; капсул актов: {len(capsules)}; записей исходов: {len(outcomes)}; серий экранов: {len(series)}; текстов законов: {len(law_dirs)}")
+    practice = EV / "practice"
+    practice_cards = 0
+    if practice.is_dir():
+        src = practice / "source" / "sudebnaya-praktika-2026-10-13.xlsx"
+        sha = (practice / "source" / "source.sha256").read_text(encoding="utf-8").split()[0] if (practice / "source" / "source.sha256").is_file() else ""
+        if not src.is_file() or sha != sha256_file(src):
+            issues.append("practice/source: xlsx отсутствует или sha256 не совпадает")
+        for d in sorted(p for p in (practice / "cards").iterdir() if p.is_dir()) if (practice / "cards").is_dir() else []:
+            practice_cards += 1
+            for name in ("card.html", "card.pdf", "card.sha256", "card.url.txt"):
+                if not (d / name).is_file():
+                    issues.append(f"practice/cards/{d.name}: нет {name}")
+            if (d / "card.pdf").is_file() and (d / "card.sha256").is_file():
+                if sha256_file(d / "card.pdf") not in (d / "card.sha256").read_text(encoding="utf-8"):
+                    issues.append(f"practice/cards/{d.name}: sha256 card.pdf не совпадает")
+    print(f"актов: {len(folders)}; капсул актов: {len(capsules)}; записей исходов: {len(outcomes)}; серий экранов: {len(series)}; текстов законов: {len(law_dirs)}; карточек практики: {practice_cards}")
     if issues:
         print("РАСХОЖДЕНИЯ:")
         for item in issues:

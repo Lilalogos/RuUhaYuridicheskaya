@@ -1,0 +1,2 @@
+https://mos-gorsud.ru/rs/taganskij/services/cases/admin/details/787b6690-89f5-11ee-9d91-5943f2d95c61
+  снимок карточки дела: curl → текст страницы → PDF (PyMuPDF), UTC 2026-10-13T14:40:04Z; исходный HTML рядом (card.html)
