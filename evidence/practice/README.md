@@ -23,8 +23,10 @@
 Сводный справочник — [`references/practice-registry.md`](../../references/practice-registry.md): покрытие по разделам, сценариям и нормам базы, нормы без записи в базе, лист «не найдено», пересечения с архивом актов. Всё производное пересобирается командой:
 
 ```bash
-python3 -B scripts/import_practice_xlsx.py && python3 -B scripts/build_practice_registry.py
+python3 -B scripts/import_practice_xlsx.py && python3 -B scripts/build_practice_registry.py && python3 -B scripts/build_practice_leads.py --clean
 ```
+
+Каждая строка таблицы продублирована карточкой наводки `evidence/leads/<папка>/<дата>-<домен>-P-NNN.md` (`scripts/build_practice_leads.py`), чтобы фаза A по сценарию шла по обычным папкам `leads/`.
 
 Привязка `norm_ids` и `scenario` — автоматическая, правила в `scripts/import_practice_xlsx.py` (пересоздаёт `cases.tsv`, `not-found.tsv`, `practice.json` из xlsx); строки без привязки — нормы, которых в базе нет (ИС, кадровый ЭДО, антимонопольное право, электронная подпись, УК). Целостность (sha256 таблицы и карточек) проверяет `scripts/evidence_check.py`.
 
