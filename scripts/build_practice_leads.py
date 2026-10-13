@@ -64,8 +64,9 @@ def main() -> None:
             p.unlink()
     manual_marks = set()
     for p in LEADS.rglob("*.md"):
-        if not re.search(r"-P-\d{3}\.md$", p.name):
-            manual_marks |= set(re.findall(r"\bP-\d{3}\b", p.read_text(encoding="utf-8")))
+        if p.name.lower() == "readme.md" or re.search(r"-P-\d{3}\.md$", p.name):
+            continue  # README и сгенерированные карточки не считаются ручными пометками
+        manual_marks |= set(re.findall(r"\bP-\d{3}\b", p.read_text(encoding="utf-8")))
     with (PR / "cases.tsv").open(encoding="utf-8", newline="") as f:
         rows = list(csv.DictReader(f, delimiter="\t"))
     written = skipped = 0
