@@ -1,18 +1,18 @@
-# Clean Benchmarks
+# Clean-бенчмарки
 
-This folder is for lawful or low-risk checkout examples used to reduce false positives.
+Эта папка предназначена для законных или низкорисковых примеров чекаута, используемых для снижения числа ложных срабатываний.
 
-Do not add invented examples. Each benchmark should be tied to visible evidence, a local asset or documented source, and a specific reason the flow should not be flagged.
+Не добавляйте выдуманные примеры. Каждый бенчмарк должен быть привязан к видимым уликам, локальному ассету или задокументированному источнику и к конкретной причине, по которой поток не должен помечаться.
 
-Current status: scaffold only. The v0.1 target is 15 real clean benchmark cards.
+Текущий статус: только каркас. Цель для v0.1 — 15 реальных карточек clean-бенчмарков.
 
-Use `_template.md` for new cards and run:
+Для новых карточек используйте `_template.md` и запускайте:
 
 ```bash
 python -B skills/checkout-funnel-compliance/scripts/validate_benchmarks.py --kb .
 ```
 
-For v0.1 readiness:
+Для готовности v0.1:
 
 ```bash
 python -B skills/checkout-funnel-compliance/scripts/validate_benchmarks.py --kb . --min-count 15

@@ -1,32 +1,32 @@
-# Scope Gate (A0)
+# Гейт охвата (A0)
 
-Run this before A1 Intake, on every supplied screenshot. The gate decides which
-pattern families apply — it never decides whether the legal analysis runs.
-Every screen, checkout or not, goes through the full A1-A8 flow against the
-registered Russian norms.
+Выполняйте его до A1 Intake (приём) на каждом предоставленном скриншоте. Гейт решает,
+какие семейства паттернов применяются — он никогда не решает, выполняется ли правовой анализ.
+Каждый экран, чекаут это или нет, проходит полный конвейер A1-A8 против
+зарегистрированных российских норм.
 
-## Classify
+## Классификация
 
-- `checkout_or_pricing`: the screen shows a specific price tied to a plan or item, a payment control (pay now, place order, an express-pay button, a card-entry field), a plan/subscription selector, or a negative-option consent step (a checkbox or toggle that adds a recurring charge).
-- `non_checkout`: any other screen — a landing, feed, catalog, article, settings, admin, sign-in, map, form, or marketing page with no price, payment control, plan selector, or negative-option step anywhere on the page.
+- `checkout_or_pricing`: на экране показана конкретная цена, привязанная к тарифу или товару, платёжный элемент управления (оплатить, оформить заказ, кнопка экспресс-оплаты, поле ввода карты), селектор тарифа/подписки или шаг согласия с негативным опционом (чекбокс или переключатель, добавляющий регулярное списание).
+- `non_checkout`: любой другой экран — лендинг, лента, каталог, статья, настройки, админка, вход, карта, форма или маркетинговая страница без цены, платёжного элемента, селектора тарифа или шага негативного опциона где-либо на странице.
 
-A page that only names a "Pricing" nav link without showing a price is `non_checkout`. A page with a visible price table plus a "cancel anytime" or "no subscription" line is `checkout_or_pricing`, even without a payment form, because it is still a plan-selection or pricing step in the funnel.
+Страница, которая лишь называет пункт навигации «Pricing», не показывая цену, — `non_checkout`. Страница с видимой таблицей цен плюс строкой «отмена в любой момент» или «без подписки» — `checkout_or_pricing`, даже без платёжной формы, потому что это по-прежнему шаг выбора тарифа или ценообразования в воронке.
 
-## What the classification changes
+## Что меняет классификация
 
-The label switches the checkout-family specialists on or off — nothing else:
+Метка включает или выключает специалистов семейства чекаута — и ничего больше:
 
-- `checkout_or_pricing`: run the full A1-A8 flow with every family — disclosure, consent, pressure, upsell, cancellation, and content.
-- `non_checkout`: run the same full A1-A8 flow; the content, consent, disclosure, and access duties apply exactly as on any screen (symbols, banned-organization assets, maps, labels, interface language, cookie and data-consent elements, authorization methods, recommender notices). Only the checkout-family specialists stand down: never manufacture a checkout finding — a hidden fee, a preselected add-on, a renewal trap — from marketing copy, a logo strip, or a testimonial alone merely because the page is persuasive. A logo strip or testimonial without a platform-review attribution stays in `Mitigating and Low-Risk Elements` or `Missing Context`, per `references/evaluation-workflow.md`.
+- `checkout_or_pricing`: выполнить полный конвейер A1-A8 со всеми семействами — раскрытие, согласие, давление, допродажа, отмена и контент.
+- `non_checkout`: выполнить тот же полный конвейер A1-A8; обязанности по контенту, согласию, раскрытию и доступу применяются точно так же, как на любом экране (символика, материалы запрещённых организаций, карты, маркировка, язык интерфейса, элементы согласия на cookie и обработку данных, способы авторизации, уведомления о рекомендательных системах). Отключаются только специалисты семейства чекаута: никогда не фабрикуйте чекаут-находку — скрытую комиссию, предвыбранную допуслугу, ловушку продления — из маркетингового текста, полосы логотипов или отзыва-свидетельства лишь потому, что страница убедительна. Полоса логотипов или отзыв без атрибуции к платформе отзывов остаётся в `Mitigating and Low-Risk Elements` или `Missing Context`, согласно `references/evaluation-workflow.md`.
 
-Never skip the legal analysis for a `non_checkout` screen, and never auto-stamp its risk: the verdict comes from the rubric over the actual findings — a clean marketing page scores low because nothing was found, not because of its page type. The absence of a transactional step is an ordinary `Missing Context` note, not a reason to demand a checkout screen before analyzing what was supplied.
+Никогда не пропускать правовой анализ для экрана `non_checkout` и никогда не проставлять его риск автоматически: вердикт выводится рубрикой из фактических находок — чистая маркетинговая страница получает низкую оценку, потому что ничего не найдено, а не из-за типа страницы. Отсутствие транзакционного шага — обычная заметка в `Missing Context`, а не повод требовать экран чекаута, прежде чем анализировать то, что предоставлено.
 
-A `non_checkout` classification does not by itself raise a review-authenticity question. Ask that question only when an unresolved social/review-platform module is actually visible, per `references/report-contract.md`.
+Классификация `non_checkout` сама по себе не поднимает вопрос о подлинности отзывов. Задавайте этот вопрос только тогда, когда неразрешённый модуль социальной платформы/платформы отзывов действительно виден, согласно `references/report-contract.md`.
 
-## If checkout_or_pricing
+## Если checkout_or_pricing
 
-Continue the ordinary A1-A8 flow in `references/evaluation-workflow.md`. A visible price or plan table without a final payment form is still in scope; treat the absent payment step as an ordinary `Missing Context` limitation, not a reason to skip the pattern specialists.
+Продолжайте обычный конвейер A1-A8 по `references/evaluation-workflow.md`. Видимая таблица цен или тарифов без итоговой платёжной формы по-прежнему в охвате; рассматривайте отсутствующий платёжный шаг как обычное ограничение в `Missing Context`, а не как повод пропустить специалистов по паттернам.
 
-## Ambiguous Cases
+## Неоднозначные случаи
 
-If a screen mixes both, for example a pricing table embedded inside a longer marketing page, classify as `checkout_or_pricing` and run the full flow, scoped to the pricing or plan module for the checkout-family specialists while the content and consent duties cover the whole page.
+Если экран смешивает оба типа, например таблица цен встроена в длинную маркетинговую страницу, классифицируйте как `checkout_or_pricing` и выполните полный конвейер, ограничив специалистов семейства чекаута модулем цен или тарифов, тогда как обязанности по контенту и согласию покрывают всю страницу.

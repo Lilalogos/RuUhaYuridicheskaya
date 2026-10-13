@@ -25,8 +25,8 @@
 
 | Путь | Что |
 |---|---|
-| [`kb/applaw`](kb/applaw/) | Скилл: SKILL.md, таксономии, конституции (`ru.md`, GLOBAL), капсула источника, eval-корпус, Python-валидаторы |
-| [`docs/ru-*.md`](docs/) | Инвентаризация PDF, shopping list первоисточников, маппинг паттернов, предложения P-01…P-05, спека gold/clean-скриншотов, журналы форка и зачистки |
+| [`kb/applaw`](../applaw/) | Скилл: SKILL.md, таксономии, конституции (`ru.md`, GLOBAL), капсула источника, eval-корпус, Python-валидаторы |
+| [`docs/ru-*.md`](./) | Инвентаризация PDF, shopping list первоисточников, маппинг паттернов, предложения P-01…P-05, спека gold/clean-скриншотов, журналы форка и зачистки |
 | `app` `council` `lib` `config` `supabase` | Веб-приложение + движок Council (стаб и реальный режим) |
 | [`design/`](design/) | Прототип и дизайн-система — только справочно |
 
@@ -57,11 +57,11 @@ npm run lint && npm run typecheck && npm run build
 
 ## Что прислать, чтобы улучшить скилл
 
-Приоритетный список с форматами — в **[CONTRIBUTING.md](CONTRIBUTING.md)**.
-Коротко: (1) скриншоты gold/clean по [спецификации](docs/ru-gold-clean-spec.md),
-(2) решения по предложениям паттернов [P-01…P-05](docs/ru-pattern-proposals.md)
+Приоритетный список с форматами — в **[CONTRIBUTING.md](CONTRIBUTING.upstream.md)**.
+Коротко: (1) скриншоты gold/clean по [спецификации](ru-gold-clean-spec.md),
+(2) решения по предложениям паттернов [P-01…P-05](ru-pattern-proposals.md)
 — P-04 разблокирует 289-ФЗ, (3) официальные тексты из
-[shopping list](docs/ru-norms-shopping-list.md), (4) решения
+[shopping list](ru-norms-shopping-list.md), (4) решения
 Роспотребнадзора/ФАС/судов для реестра enforcement-outcomes.
 
 ## Правила форка
@@ -70,7 +70,7 @@ npm run lint && npm run typecheck && npm run build
 той же строгости (леак-детектор внутренних id расширен на `ru-`; упоминание
 российских властей без RU в преамбуле отчёта — reject). Защитные маркеры
 FTC/CMA/CNIL в `validate_report.py` оставлены сознательно как негативные
-тесты — подробности в [docs/ru-purge-report.md](docs/ru-purge-report.md).
+тесты — подробности в [docs/ru-purge-report.md](ru-purge-report.md).
 
 ## Лицензия
 

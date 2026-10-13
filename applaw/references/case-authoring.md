@@ -1,43 +1,42 @@
-# Case Authoring
+# Авторинг кейсов
 
-## Add A Case
+## Добавление кейса
 
-1. Create `cases/<case-folder>/`.
-2. Add `_case.md` with case posture, source id, source anchors, legal counts, outcome, and availability.
-3. Add maintenance evidence assets to `assets/<case-folder>/`; they remain regeneration and review inputs and are not bundled in portable-core.
-4. Add one card per screen or figure.
-5. Add `_coverage.json` with card, asset, figure, norm, and provisional pattern inventory.
-6. Add or update the source record in `sources/source_capsules.json`; keep the binary PDF outside portable releases.
-7. Run reference and case validators.
+1. Создайте `cases/<case-folder>/`.
+2. Добавьте `_case.md` с процессуальной позицией кейса, id источника, якорями источника, правовыми составами, результатом и доступностью.
+3. Добавьте активы улик для сопровождения в `assets/<case-folder>/`; они остаются входами для регенерации и проверки и не включаются в portable-core.
+4. Добавьте по одной карточке на экран или рисунок.
+5. Добавьте `_coverage.json` с инвентарём карточек, активов, рисунков, норм и предварительных паттернов.
+6. Добавьте или обновите запись источника в `sources/source_capsules.json`; бинарный PDF держите вне портативных релизов.
+7. Запустите валидаторы справочников и кейсов.
 
-## Card Rules
+## Правила карточки
 
-A card is evidence plus reasoning, not just a label. It must explain:
+Карточка — это улики плюс рассуждение, а не просто метка. Она должна объяснять:
 
-- What is visible in the UI.
-- Which pattern id is supported.
-- Which norm id may apply.
-- Why the source treats the behavior as material.
-- What citation fields support the claim.
-- What limitations remain.
+- Что видно в UI.
+- Какой id паттерна поддержан.
+- Какой id нормы может применяться.
+- Почему источник считает поведение существенным.
+- Какие поля цитирования поддерживают утверждение.
+- Какие ограничения остаются.
 
-Use existing ids where possible. Add a new pattern only when existing ids cannot capture a supported, recurring behavior.
+По возможности используйте существующие id. Добавляйте новый паттерн только тогда, когда существующие id не могут охватить поддержанное, повторяющееся поведение.
 
-Select at least one supported material norm for the explicit jurisdiction before recording any procedural norm. A procedural norm must declare that material norm in `companion_to_material_norm_ids`; it is an enforcement or remedy companion, never the duty inferred directly from the screen. Do not mix jurisdictions or country-specific norms without matching canonical `jurisdiction` and `sub_jurisdiction` scope.
+Выберите хотя бы одну поддержанную материальную норму для явной юрисдикции, прежде чем записывать какую-либо процедурную норму. Процедурная норма должна объявлять эту материальную норму в `companion_to_material_norm_ids`; это компаньон по принуждению или средству защиты, никогда не обязанность, выведенная напрямую из экрана. Не смешивайте юрисдикции или нормы конкретной страны без соответствующего канонического охвата `jurisdiction` и `sub_jurisdiction`.
 
-## Naming
+## Именование
 
-Use stable case folders such as `amazon_prime`. Use stable card ids matching source figures or screen handles. Keep canonical maintenance `asset` paths repo-relative.
+Используйте стабильные папки кейсов, например `amazon_prime`. Используйте стабильные id карточек, соответствующие рисункам источника или идентификаторам экранов. Канонические пути `asset` для сопровождения держите относительными к репозиторию.
 
-For legacy records, `source_file` may retain the original PDF filename as an alias. It must resolve to a verified capsule. New records should use `source_id` plus `source_anchor_ids`; a URL or digest alone is not a citation.
+Для унаследованных записей `source_file` может сохранять исходное имя файла PDF как алиас. Оно должно разрешаться в верифицированную капсулу. Новые записи должны использовать `source_id` плюс `source_anchor_ids`; URL или дайджест сами по себе не являются цитатой.
 
-Portable copies are builder outputs, not canonical authoring targets. The builder adds direct source fields, removes `asset` frontmatter and local image paths, preserves the card body, and requires symmetric reverse references. Historical visual anchors must retain the existing `EVIDENCE.` summary and an explicit limitation that capsule text does not preserve pixel-level visual properties. Missing optional visuals fall back to capsule evidence; an optional image identifier never replaces a local anchor.
+Портативные копии — это выходы сборщика, а не канонические цели авторинга. Сборщик добавляет прямые поля источника, удаляет frontmatter `asset` и локальные пути к изображениям, сохраняет тело карточки и требует симметричных обратных ссылок. Исторические визуальные якоря должны сохранять существующую сводку `EVIDENCE.` и явное ограничение о том, что текст капсулы не сохраняет визуальные свойства на уровне пикселей. При отсутствии необязательных визуальных материалов используются улики капсулы; идентификатор необязательного изображения никогда не заменяет локальный якорь.
 
-## Do Not
+## Запрещено
 
-- Do not infer legal violations from aesthetics alone.
-- Do not cite `_coverage.json` as legal evidence.
-- Do not create dangling pattern or norm ids.
-- Do not rename existing ids without updating all references.
-- Do not add PDFs to a portable release.
-
+- Не выводите правовые нарушения из одной лишь эстетики.
+- Не цитируйте `_coverage.json` как юридические улики.
+- Не создавайте висячие id паттернов или норм.
+- Не переименовывайте существующие id без обновления всех ссылок.
+- Не добавляйте PDF в портативный релиз.

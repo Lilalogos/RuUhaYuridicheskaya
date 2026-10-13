@@ -1,33 +1,35 @@
-# Gold Authoring
+# Авторинг gold-карточек
 
-Gold cards are eval answers for known screens. They are stricter than ordinary notes because they teach the harness what counts as a correct answer.
+Gold-карточки — это эталонные ответы для известных экранов. Они строже обычных заметок, потому что учат тестовую обвязку (harness) тому, что считается правильным ответом.
 
-## Required Qualities
+## Обязательные качества
 
-- Expected internal score band and derived public five-level risk label. Keep the numeric score private in public reports.
-- Expected patterns and norms.
-- Expected citations with source id, source anchor ids, page, and paragraph anchors where available.
-- Acceptable variants that preserve the legal/evidence meaning.
-- Rejection criteria for hallucinated sources, missing citations, unsupported patterns, or overstated posture.
+- Ожидаемый внутренний диапазон баллов и производная от него публичная пятиуровневая метка риска. Числовой балл в публичных отчётах не раскрывается.
+- Ожидаемые паттерны и нормы.
+- Ожидаемые цитаты с id источника, id якорей источника, страницей и якорями абзацев, где доступны.
+- Допустимые варианты, сохраняющие правовой смысл и смысл улик.
+- Критерии отклонения для галлюцинированных источников, отсутствующих цитат, неподдержанных паттернов или завышенной процессуальной позиции.
 
-Store `jurisdiction` as `US`, `UK`, or `EU`; use nullable `sub_jurisdiction` with an ISO-style code for country-specific cards. Expected norms must include a supported material norm for that scope before any declared procedural companion. Reject procedural-only answers, direct pattern-to-procedure mapping, unstated-jurisdiction mapping, and country analogues.
+Названия обязательных секций тела карточки остаются английскими, их матчит валидатор: `EXPECTED ANSWER` (ожидаемый ответ), `EXPECTED FLAGS` (ожидаемые флаги), `EXPECTED CITATIONS` (ожидаемые цитаты), `ACCEPTABLE VARIANTS` (допустимые варианты), `REJECTION CRITERIA` (критерии отклонения).
 
-Acceptable variants should preserve the evidence and legal meaning in plain language; legalistic wording is not a correctness requirement.
+Храните `jurisdiction` как `US`, `UK` или `EU`; для карточек конкретной страны используйте допускающий null `sub_jurisdiction` с кодом в стиле ISO. Ожидаемые нормы должны включать поддержанную материальную норму для этого охвата перед любым объявленным процедурным компаньоном. Отклоняйте ответы только с процедурными нормами, прямое сопоставление паттерна с процедурой, сопоставление без указанной юрисдикции и аналоги из других стран.
 
-## Review Status
+Допустимые варианты должны сохранять смысл улик и правовой смысл простым языком; канцелярская формулировка не является требованием правильности.
 
-Use:
+## Статус проверки
 
-- `source_mapped` when source fields are checked.
-- `converted_from_case_card` when derived from a case card but not separately reviewed.
-- `needs_paragraph_anchor_review` when paragraph/source anchors still need verification.
+Используйте:
 
-Use `validate_gold.py --strict-review` when unresolved statuses should fail the run.
+- `source_mapped` — когда поля источника проверены.
+- `converted_from_case_card` — когда карточка получена из карточки кейса, но отдельно не проверена.
+- `needs_paragraph_anchor_review` — когда якоря абзацев/источника ещё требуют верификации.
 
-## Avoid Leakage
+Используйте `validate_gold.py --strict-review`, когда неразрешённые статусы должны приводить к провалу прогона.
 
-Gold cards should not reward memorized wording. They should specify evidence and anchors, while allowing equivalent explanations that cite the same local sources.
+## Избегайте утечки
 
-Legacy `source_file` values may remain when they resolve through `sources/source_capsules.json`. New gold records should prefer `source_id` and `source_anchor_ids`. Never require a PDF to ship with the evaluation package.
+Gold-карточки не должны вознаграждать заученные формулировки. Они должны задавать улики и якоря, допуская при этом эквивалентные объяснения, цитирующие те же локальные источники.
 
-Portable-core gold copies require direct capsule fields and symmetric reverse references, but no `asset` frontmatter or bundled image. A historical visual anchor must provide a semantic summary or link through `linked_case_anchor_ids` to the corresponding case-card `EVIDENCE.` anchor. Missing optional visual evidence must not fail strict review when that capsule evidence resolves. A page, digest, URL, filename, or optional image identifier alone is not sufficient, and capsule text must not be treated as preserving pixel-level visual properties.
+Унаследованные значения `source_file` могут оставаться, когда они разрешаются через `sources/source_capsules.json`. Новые gold-записи должны предпочитать `source_id` и `source_anchor_ids`. Никогда не требуйте поставки PDF вместе с пакетом оценки.
+
+Portable-core gold-копии требуют прямых полей капсулы и симметричных обратных ссылок, но не frontmatter `asset` и не встроенного изображения. Исторический визуальный якорь должен давать семантическую сводку или ссылаться через `linked_case_anchor_ids` на соответствующий якорь `EVIDENCE.` карточки кейса. Отсутствие необязательных визуальных улик не должно проваливать строгую проверку, когда улики этой капсулы разрешаются. Страница, дайджест, URL, имя файла или идентификатор необязательного изображения сами по себе недостаточны, и текст капсулы не должен считаться сохраняющим визуальные свойства на уровне пикселей.

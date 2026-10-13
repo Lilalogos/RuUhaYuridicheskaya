@@ -1,70 +1,69 @@
-# Liability Model
+# Модель ответственности
 
-Read this reference whenever a task adds, reviews, or reports liability, remedies, penalties, redress, damages, enforcement outcomes, or case-specific estimates.
+Читайте этот справочник всякий раз, когда задача добавляет, проверяет или излагает в отчёте ответственность, средства защиты, штрафы, возмещение, убытки, результаты правоприменения или оценки по конкретному делу.
 
-## Public Wording
+## Публичные формулировки
 
-Keep direct legal citations and required posture labels accurate. Describe the route, limits, uncertainty, and practical consequence in plain language. Do not copy source-file legalese into the report narrative.
+Сохраняйте точность прямых правовых цитат и обязательных меток процессуальной позиции. Описывайте маршрут, пределы, неопределённость и практические последствия простым языком. Не копируйте канцелярит исходных файлов в повествование отчёта.
 
-## Evidence Chain
+## Цепочка улик
 
-Resolve in this order:
+Разрешайте в следующем порядке:
 
-1. visible finding;
-2. explicitly supplied canonical jurisdiction/country and a supported material norm;
-3. actor, transaction, factual-trigger, effective-date, availability, and source-anchor gates;
-4. an optional procedural enforcement or remedy companion declared for that material norm;
-5. consumer, public, private, monetary, and non-monetary routes;
-6. eligible final outcome matching the explicit country scope, if a comparator is useful;
-7. estimate gate.
+1. видимая находка;
+2. явно предоставленная каноническая юрисдикция/страна и поддержанная материальная норма;
+3. гейты субъекта, сделки, фактического триггера, даты вступления в силу, доступности и якоря источника;
+4. необязательный процедурный компаньон (маршрут принуждения или средство защиты), объявленный для этой материальной нормы;
+5. потребительские, публичные, частные, денежные и неденежные маршруты;
+6. пригодный финальный результат, соответствующий явному охвату страны, если компаратор полезен;
+7. гейт оценки.
 
-A pattern label is never a liability conclusion. A procedural norm is never the primary duty derived from a visual pattern and cannot support liability without a surviving material norm.
+Метка паттерна никогда не является выводом об ответственности. Процедурная норма никогда не является первичной обязанностью, выведенной из визуального паттерна, и не может поддерживать ответственность без выжившей материальной нормы.
 
-## Three Monetary Layers
+## Три денежных слоя
 
-### Statutory ceiling
+### Законодательный потолок
 
-State the exact maximum or formula, unit, legal predicate, and adjustment/effective date. Label it `not an expected outcome`.
+Укажите точный максимум или формулу, единицу, правовую предпосылку и дату корректировки/вступления в силу. Пометьте его как `not an expected outcome`.
 
-### Observed enforcement benchmark
+### Наблюдаемый ориентир правоприменения (`Observed enforcement benchmark`)
 
-Use only `eligible_monetary` or `eligible_non_monetary` records from `taxonomy/enforcement_outcomes.yml`. State the matter, date, posture, amount type, legal basis, similarity, and non-predictive limits. Do not use complaints, pending matters, proposed orders, no-finding commitments, press-release-only records, or superseded routes.
+Используйте только записи `eligible_monetary` или `eligible_non_monetary` из `taxonomy/enforcement_outcomes.yml`. Укажите дело, дату, процессуальную позицию, тип суммы, правовое основание, сходство и непрогнозные пределы. Не используйте жалобы, незавершённые дела, проекты предписаний, обязательства без установления нарушения, записи только по пресс-релизам и утратившие силу маршруты.
 
-### Case-specific estimate
+### Оценка по конкретному делу
 
-Require jurisdiction, actor, relevant turnover, affected consumers, charges, duration, conduct, knowledge, prior orders, injury, redress already paid, defenses, and methodology. If those inputs are insufficient, use exactly:
+Требуются юрисдикция, субъект, релевантный оборот, затронутые потребители, списания, длительность, поведение, осведомлённость, предыдущие предписания, вред, уже выплаченное возмещение, возражения и методология. Если этих входных данных недостаточно, используйте ровно:
 
 `Estimate status: Not estimable from the supplied interface and business data.`
 
-## Posture Ladder
+## Лестница процессуальных позиций
 
-- allegation or complaint: theory only;
-- pending proceeding: unresolved;
-- undertaking or commitment: corrective conduct, usually no finding;
-- consent order: final within its terms, not judicial precedent;
-- settlement: enforcement outcome, not precedent;
-- final administrative notice or decision: final regulator outcome, subject to appeal metadata;
-- court order: binding relief within its terms;
-- judgment: precedential only to the extent the legal system gives it precedential weight.
+- обвинение или жалоба: только теория;
+- незавершённое производство: не разрешено;
+- обязательство или добровольное принятие мер: корректирующее поведение, обычно без установления нарушения;
+- предписание по соглашению (consent order): финально в своих пределах, не судебный прецедент;
+- мировое соглашение: результат правоприменения, не прецедент;
+- финальное административное уведомление или решение: финальный результат регулятора с учётом метаданных об обжаловании;
+- судебный приказ или определение: обязательные меры в своих пределах;
+- судебное решение: прецедентно лишь в той мере, в какой правовая система придаёт ему прецедентное значение.
 
-## Amount Types
+## Типы сумм
 
-Keep public penalty, consumer redress, refund, damages, settlement payment, suspended judgment, turnover ceiling, per-day amount, and aggregate multi-breach amount separate. Never sum a suspended face judgment with its payable amount. Never allocate an aggregate amount without an official allocation.
+Разделяйте публичный штраф, возмещение потребителю, возврат, убытки, выплату по мировому соглашению, приостановленное судебное решение, потолок от оборота, сумму за день и совокупную сумму по нескольким нарушениям. Никогда не суммируйте номинал приостановленного решения с подлежащей выплате суммой. Никогда не распределяйте совокупную сумму без официального распределения.
 
-## Scope Traps
+## Ловушки охвата
 
-- КоАП amounts are never stated: the attached survey deliberately stores the article, not a figure, because sums change almost yearly.
-- КоАП 14.8 is a procedural companion only; consumer money flows through the material routes (Art. 12; the three-day refund of п. 3.1 Art. 16; actual costs under Art. 32).
-- A refund for the unused subscription period is marked by the survey as practice, not the letter of the norm.
-- 289-ФЗ reaches only registry-listed intermediary platforms, and registry membership is never visible on a screen.
-- There is no dedicated reviews rule in the attached sources; fabricated social proof qualifies only as an untrue advertising assertion under Art. 5 pt. 3.
-- The enforcement-outcome registry holds the archived RU acts from `evidence/enforcement` (court and FAS decisions, sha256-verified). Only records marked `eligible_*` may populate `Observed enforcement benchmark`: `eligible_monetary` — НордСтар А33-35161/2019 (решение 29.01.2020, кассация АС ВСО 23.10.2020 не подлежит обжалованию) and А33-536/2022 (решение 24.03.2022, апелляция 14.06.2022): 10 000 ₽ each by ч. 2 ст. 14.8 for a mandatory 550 ₽ booking fee — one matter, one amount, never summed with its appellate/cassation twins (`ineligible_source_only`); `eligible_non_monetary` — the ИрАэро pair (Куйбышевский районный суд г. Иркутска, 24.01.2024; 8КСОЮ, 18.02.2025) and Нордстар (Железнодорожный районный суд г. Красноярска, 26.03.2025; апелляционное определение Красноярского краевого суда 33-10269/2025 от 03.09.2025) under ст. 16 ЗоЗПП — a non-monetary outcome (признание противоправности, публикация решения), never a fine figure. Every other record is `ineligible_non_final` (finality not stated in the attached act, reversed, or pending) or `ineligible_no_finding` (the Delivery Club «сервисный сбор» chain: no violation found — a false-positive counterexample, cite it only as a limit on the mandatory-fee pattern, never as a benchmark). Observed administrative fines (10 000 ₽ by ч. 2 ст. 14.8 in the НордСтар and first-round Delivery Club acts; 4 000 / 100 000 ₽ by ч. 1 ст. 14.3 in the Челябинск «Победа» orders; 400 000 ₽ by ч. 4.1 ст. 14.3 in the Россельхозбанк and Агроторг mailing orders) are recorded as metadata on ineligible records and must not be quoted as expected outcomes.
+- Суммы по КоАП никогда не указываются: приложенный обзор намеренно хранит статью, а не цифру, поскольку суммы меняются почти ежегодно.
+- КоАП 14.8 — только процедурный компаньон; деньги потребителю идут через материальные маршруты (ст. 12; трёхдневный возврат по п. 3.1 ст. 16; фактические расходы по ст. 32).
+- Возврат за неиспользованный период подписки отмечен в обзоре как практика, а не буква нормы.
+- 289-ФЗ распространяется только на платформы-посредники, включённые в реестр, а включение в реестр никогда не видно на экране.
+- В приложенных источниках нет специального правила об отзывах; сфабрикованное социальное доказательство квалифицируется только как недостоверное рекламное утверждение по п. 3 ст. 5.
+- Реестр результатов правоприменения содержит архивные акты РФ из `evidence/enforcement` (решения судов и ФАС, проверены по sha256). Только записи с пометкой `eligible_*` могут наполнять `Observed enforcement benchmark`: `eligible_monetary` — НордСтар А33-35161/2019 (решение 29.01.2020, кассация АС ВСО 23.10.2020 не подлежит обжалованию) и А33-536/2022 (решение 24.03.2022, апелляция 14.06.2022): по 10 000 ₽ в каждом по ч. 2 ст. 14.8 за обязательный сбор 550 ₽ за бронирование — одно дело, одна сумма, никогда не суммируется со своими апелляционными/кассационными двойниками (`ineligible_source_only`); `eligible_non_monetary` — пара ИрАэро (Куйбышевский районный суд г. Иркутска, 24.01.2024; 8КСОЮ, 18.02.2025) и Нордстар (Железнодорожный районный суд г. Красноярска, 26.03.2025; апелляционное определение Красноярского краевого суда 33-10269/2025 от 03.09.2025) по ст. 16 ЗоЗПП — неденежный результат (признание противоправности, публикация решения), никогда не цифра штрафа. Все остальные записи — `ineligible_non_final` (финальность не указана в приложенном акте, акт отменён или дело не завершено) или `ineligible_no_finding` (цепочка Delivery Club «сервисный сбор»: нарушение не установлено — контрпример ложного срабатывания, цитируйте его только как ограничение паттерна обязательного сбора, никогда как ориентир). Наблюдаемые административные штрафы (10 000 ₽ по ч. 2 ст. 14.8 в актах НордСтар и первого круга Delivery Club; 4 000 / 100 000 ₽ по ч. 1 ст. 14.3 в челябинских постановлениях по «Победе»; 400 000 ₽ по ч. 4.1 ст. 14.3 в постановлениях по рассылкам Россельхозбанка и Агроторга) записаны как метаданные непригодных записей и не должны приводиться как ожидаемые результаты.
 
-## Authoring And Validation
+## Авторинг и валидация
 
-- Keep duties and ceilings in `taxonomy/norms.yml`.
-- Keep dated outcomes in `taxonomy/enforcement_outcomes.yml`.
-- Link eligible records in both directions through norm and outcome ids.
-- Store official URLs and pinpoints in the KB; show short citations in public reports.
-- Run `validate_enforcement_outcomes.py` and `validate_report.py` after changes.
-
+- Держите обязанности и потолки в `taxonomy/norms.yml`.
+- Держите датированные результаты в `taxonomy/enforcement_outcomes.yml`.
+- Связывайте пригодные записи в обе стороны через id нормы и результата.
+- Храните официальные URL и точечные ссылки (пины) в KB; в публичных отчётах показывайте короткие цитаты.
+- После изменений запускайте `validate_enforcement_outcomes.py` и `validate_report.py`.

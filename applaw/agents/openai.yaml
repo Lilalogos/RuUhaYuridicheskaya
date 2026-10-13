@@ -1,6 +1,6 @@
 interface:
   display_name: "AppLaw"
-  short_description: "Evaluate checkout risk and legal liability"
-  default_prompt: "Use $applaw to review this checkout and return a validated Report Contract v3 assessment with only the public risk label."
+  short_description: "Оценка риска чекаута и юридической ответственности"
+  default_prompt: "Используй $applaw, чтобы проверить этот чекаут и вернуть валидированную оценку Report Contract v3 только с публичной меткой риска."
 policy:
   allow_implicit_invocation: true

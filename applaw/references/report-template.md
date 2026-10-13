@@ -1,65 +1,65 @@
-# Interface Risk Assessment: <Product or flow>
+# Interface Risk Assessment: <Продукт или поток>
 
-Use plain, conversational language in the values. Keep formal legal wording inside direct citations or exact contract strings only. The headings and field labels are fixed English schema tokens; see `output-style.md` for the language and field rules.
+Используйте в значениях простой разговорный язык. Формальные юридические формулировки держите только внутри прямых цитат или точных строк контракта. Заголовки и метки полей — фиксированные английские токены схемы; правила языка и полей см. в `output-style.md`.
 
-Start with this title and add no introductory prose. Retain every level-two section. If no Medium/High finding is supported, replace the example F and L blocks with literal `None.` in their respective sections. Validate the complete final text with `validate_live_report.py`, correct all failures, and return it unchanged.
+Начинайте с этого заголовка и не добавляйте вводной прозы. Сохраняйте каждую секцию второго уровня. Если ни одна находка уровня Medium/High не поддерживается, замените примерные блоки F и L литералом `None.` в соответствующих секциях. Провалидируйте полный итоговый текст с помощью `validate_live_report.py`, исправьте все ошибки и верните его без изменений.
 
-Omit the `Evidence integrity:` line by default. Only when the initial operator prompt explicitly requests disclosure, add exactly one line of no more than 30 words immediately after `Verdict` and validate with `--evidence-integrity-requested`. Calculate the legacy score privately and never expose it.
+По умолчанию опускайте строку `Evidence integrity:`. Только когда начальный промпт оператора явно требует раскрытия, добавьте ровно одну строку не более 30 слов сразу после `Verdict` и провалидируйте с `--evidence-integrity-requested`. Рассчитайте унаследованный балл приватно и никогда его не раскрывайте.
 
 Assessment date: YYYY-MM-DD
-Jurisdictions assessed: <Explicit target scope and material limits, or Not established; no jurisdiction-specific legal conclusion was made.>
+Jurisdictions assessed: <Явный целевой охват и материальные ограничения, или Not established; no jurisdiction-specific legal conclusion was made.>
 
 ## Assessment Summary
 
 RISK: <very low|low|medium|high|very high>
-Verdict: <Maximum 80 words>
+Verdict: <Максимум 80 слов>
 
 ## Material Findings
 
-### F1 - <Finding title>
+### F1 - <Заголовок находки>
 
 Severity: <Medium|High>
-Observed evidence: <What is visibly on the screen>
-Pattern: <Human-readable pattern names>
-Risk explanation: <What could go wrong for the shopper, in plain language>
-Applicable norm: <Direct norm citation followed by a plain-language explanation>
-Comparable KB authority: <Case or authority and procedural posture>
+Observed evidence: <Что видимо на экране>
+Pattern: <Человекочитаемые имена паттернов>
+Risk explanation: <Что может пойти не так для покупателя, простым языком>
+Applicable norm: <Прямая цитата нормы, за которой следует объяснение простым языком>
+Comparable KB authority: <Дело или источник права и процессуальная позиция>
 Linked liability blocks: <L1>
-Confidence and limitations: <High|Medium> - <Material limitations>
-Recommended correction: <Specific product, UX, checkout, or process change>
+Confidence and limitations: <High|Medium> - <Материальные ограничения>
+Recommended correction: <Конкретное изменение продукта, UX, чекаута или процесса>
 
 ## Liability and Consequences
 
-### L1 - <Jurisdiction and exposure category>
+### L1 - <Юрисдикция и категория экспозиции>
 
 Linked findings: <F1>
-Liability trigger: <In plain English, what would make the rule apply>
-Consumer or contract remedies: <In plain English, what help may be available, or none identified>
-Public enforcement: <Who may act and what they may do, in plain English>
-Private exposure: <In plain English, what other claims may exist, or why none are identified>
-Monetary exposure: Statutory ceiling - not an expected outcome: <Formula, predicate, unit, and date>
-Observed enforcement benchmark: <Eligible final outcome described plainly, with posture and limits, or None identified.>
-Non-monetary orders: <Plain-language description of eligible orders, or None identified>
-Authority citations: <Short direct citations>
-Estimate status and limitations: Estimate status: Not estimable from the supplied interface and business data. <Other limits>
+Liability trigger: <Простым языком: что заставит правило применяться>
+Consumer or contract remedies: <Простым языком: какая помощь может быть доступна, или none identified>
+Public enforcement: <Кто может действовать и что может сделать, простым языком>
+Private exposure: <Простым языком: какие ещё требования могут существовать, или почему ничего не выявлено>
+Monetary exposure: Statutory ceiling - not an expected outcome: <Формула, предикат, единица и дата>
+Observed enforcement benchmark: <Допустимый финальный исход, описанный просто, с процессуальной позицией и ограничениями, или None identified.>
+Non-monetary orders: <Описание допустимых предписаний простым языком, или None identified>
+Authority citations: <Краткие прямые цитаты>
+Estimate status and limitations: Estimate status: Not estimable from the supplied interface and business data. <Прочие ограничения>
 
 ## Mitigating and Low-Risk Elements
 
-- <Compact mitigating fact written plainly>
+- <Компактный смягчающий факт, изложенный просто>
 
 ## Observed Without a Mapped Norm
 
-- <Pattern name in plain language>: <what is on screen>. No mapped norm or enforcement example was found for this in the supplied material.
+- <Имя паттерна простым языком>: <что на экране>. Сопоставленная норма или пример правоприменения для этого в предоставленном материале не найдены.
 
 ## Missing Context
 
-- <Plain-language fact that could materially change the result>
+- <Факт простым языком, который мог бы материально изменить результат>
 
 ## Priority Actions
 
-- <Concrete product or process action>
-- <Second concrete action>
-- <Third concrete action>
+- <Конкретное действие по продукту или процессу>
+- <Второе конкретное действие>
+- <Третье конкретное действие>
 
 ## Disclaimer
 

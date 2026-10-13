@@ -1,14 +1,14 @@
-# Resource-Limit Fixtures
+# Фикстуры лимитов ресурсов
 
-`cases.json` exercises context-aware, post-ingestion admission before one evidence item or a complete screenshot batch begins.
+`cases.json` проверяет контекстно-зависимый допуск после загрузки — до того, как начнётся обработка одной улики или целой пачки скриншотов.
 
-Each valid accounting record supplies the deployed context window; four non-overlapping occupied-input components; the occupied-input total; cached input as an informational subset; retrieved KB tokens; tool-output, response, and safety reserves; candidate evidence tokens; OCR characters; and elapsed processing time. Retrieved KB and candidate evidence are excluded from occupied input and subtracted exactly once. Cached tokens remain in occupied input.
+Каждая корректная учётная запись содержит: развёрнутое контекстное окно; четыре непересекающихся компонента занятого ввода; итог занятого ввода; кэшированный ввод как информационное подмножество; токены извлечённой базы знаний (KB); резервы под вывод инструментов, ответ и безопасность; токены улики-кандидата; число символов OCR; и затраченное время обработки. Извлечённая KB и улика-кандидат не входят в занятый ввод и вычитаются ровно один раз. Кэшированные токены остаются в занятом вводе.
 
-The fixture set covers evidence below capacity, exact warning and hard boundaries, evidence above hard, a 24k evidence payload that cannot fit a 32k context, a 64k fit with reserves, cached-token accounting, zero remaining capacity, missing metadata, inconsistent and declared-overlap counters, over-window reservations, negative and non-finite inputs, byte-estimate rejection, and screenshot-batch admission.
+Набор фикстур покрывает: улики ниже ёмкости; точные границы предупреждения и жёсткого лимита; улики выше жёсткого лимита; полезную нагрузку улик на 24k, которая не помещается в контекст 32k; размещение в 64k с учётом резервов; учёт кэшированных токенов; нулевую оставшуюся ёмкость; отсутствующие метаданные; несогласованные счётчики и счётчики с объявленным пересечением; резервы сверх окна; отрицательные и неконечные значения; отклонение оценки по байтам; и допуск пачки скриншотов.
 
-The configured 24k/32k values remain absolute evidence ceilings. The runtime-effective warning and hard thresholds can be lower. Attachment, file-size, image, PDF, archive, and transport controls remain host or webapp responsibilities.
+Настроенные значения 24k/32k остаются абсолютными потолками для улик. Эффективные во время выполнения пороги предупреждения и жёсткого лимита могут быть ниже. Контроль вложений, размера файлов, изображений, PDF, архивов и транспорта остаётся ответственностью хоста или веб-приложения.
 
-Single-item admission uses `--evidence-tokens`; batch admission uses `--batch-evidence-tokens` plus `--batch-item-count`. Both modes also require:
+Допуск одной улики использует `--evidence-tokens`; допуск пачки — `--batch-evidence-tokens` плюс `--batch-item-count`. Оба режима также требуют:
 
 ```text
 --context-window-tokens
@@ -26,4 +26,4 @@ Single-item admission uses `--evidence-tokens`; batch admission uses `--batch-ev
 --elapsed-seconds
 ```
 
-`--evidence-bytes` remains an estimate-only compatibility input and always rejects admission until an exact host token count is supplied.
+`--evidence-bytes` остаётся входом совместимости, дающим только оценку, и всегда отклоняет допуск, пока хост не передаст точное число токенов.

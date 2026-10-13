@@ -1,6 +1,6 @@
 ---
 id: clean-example-id
-product: "Example product"
+product: "Пример продукта"
 jurisdiction: US
 benchmark_type: clean
 checkout_stage: payment
@@ -9,14 +9,14 @@ expected_risk_band: green
 expected_score_band: 1-30
 lawful_features: [clear-renewal-disclosure-before-payment, active-consent, same-channel-cancellation]
 false_positive_traps_covered: [clear-renewal-disclosure-before-payment]
-evidence_source: "Describe local asset, source URL, or review record"
+evidence_source: "Опишите локальный ассет, URL источника или запись о проверке"
 asset: none
 review_status: draft
 ---
-VISIBLE EVIDENCE. Replace with the visible checkout facts.
+VISIBLE EVIDENCE. Замените на видимые факты чекаута.
 
-WHY LOW RISK. Explain why price, renewal, cancellation, and consent are transparent.
+WHY LOW RISK. Объясните, почему цена, продление, отмена и согласие прозрачны.
 
-NOT A VIOLATION BECAUSE. Tie the example to false-positive traps, not to invented legal conclusions.
+NOT A VIOLATION BECAUSE. Привяжите пример к ловушкам ложного срабатывания, а не к выдуманным правовым выводам.
 
-LIMITATIONS. State source, jurisdiction, date, or evidence limits.
+LIMITATIONS. Укажите ограничения по источнику, юрисдикции, дате или уликам.

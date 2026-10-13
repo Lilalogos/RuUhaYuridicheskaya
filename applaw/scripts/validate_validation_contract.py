@@ -255,7 +255,7 @@ def main() -> int:
         issues.append("missing constitutions/SESSION_LIMITS.md")
     else:
         session_text = read_text(session_path)
-        for phrase in ("npm run validate:core", "npm run validate", "complete composite release validation"):
+        for phrase in ("npm run validate:core", "npm run validate", "полная составная релизная валидация"):
             if phrase not in session_text:
                 issues.append(f"SESSION_LIMITS.md missing validation phrase: {phrase}")
 
@@ -264,7 +264,7 @@ def main() -> int:
         issues.append("missing active SKILL.md")
     else:
         skill_text = read_text(skill_path)
-        for phrase in ("validate_live_report.py", "return the passing text unchanged", "npm run validate:core"):
+        for phrase in ("validate_live_report.py", "вернуть прошедший текст без изменений", "npm run validate:core"):
             if phrase not in skill_text:
                 issues.append(f"SKILL.md missing runtime-validation phrase: {phrase}")
 

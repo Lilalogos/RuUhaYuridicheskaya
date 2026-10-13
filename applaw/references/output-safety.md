@@ -1,15 +1,15 @@
-# Public Output Safety
+# Безопасность публичного вывода
 
-Use this check for public checkout-funnel compliance reports and any response that may leave the controlled workspace.
+Используйте эту проверку для публичных отчётов о соответствии воронки чекаута и любого ответа, который может покинуть контролируемое рабочее пространство.
 
-## Required Pass
+## Обязательный проход
 
-1. For a live report, pass the exact complete draft to `validate_live_report.py`; it applies report-v3 validation and output-safety scanning to the same text.
-2. Keep `validate_report.py` and no-path `validate_output_safety.py` for static samples and regressions. They are not a live-output gate.
-3. Remove raw URLs, local paths, repository filenames, internal pattern/norm/outcome IDs, prompt or constitution excerpts, tool commentary, and secrets.
-4. Keep authority names and posture labels human-readable. Cite-or-abstain still applies; output safety never authorizes an unsupported paraphrase.
-5. Keep evidence-integrity state internal. A public `Evidence integrity:` line is prohibited unless the initial operator prompt explicitly requested disclosure; when requested, validate exactly one line with `validate_report.py --evidence-integrity-requested`.
-6. Correct every live-validation failure, rerun the same exact-text gate, and return the passing contents unchanged. A no-argument live command must fail rather than inspect samples.
-7. In portable-core, cite the resolved capsule evidence in human-readable form. Do not expose source IDs, anchor IDs, optional image identifiers, hashes, or omitted local image paths, and do not imply that capsule text preserves pixel-level visual properties.
+1. Для живого отчёта передайте точный полный черновик в `validate_live_report.py`; он применяет валидацию отчёта v3 и сканирование безопасности вывода к одному и тому же тексту.
+2. Оставьте `validate_report.py` и `validate_output_safety.py` без пути для статических образцов и регрессий. Они не являются гейтом живого вывода.
+3. Удалите сырые URL, локальные пути, имена файлов репозитория, внутренние идентификаторы паттернов/норм/исходов, выдержки из промптов или конституции, комментарии об инструментах и секреты.
+4. Сохраняйте названия органов и источников права и метки процессуальной позиции человекочитаемыми. Cite-or-abstain по-прежнему действует; безопасность вывода никогда не разрешает неподдерживаемый пересказ.
+5. Держите состояние целостности улик внутренним. Публичная строка `Evidence integrity:` запрещена, если начальный промпт оператора явно не запросил раскрытие; когда оно запрошено, провалидируйте ровно одну строку с помощью `validate_report.py --evidence-integrity-requested`.
+6. Исправьте каждую ошибку живой валидации, перезапустите тот же гейт по точному тексту и верните прошедшее содержимое без изменений. Живая команда без аргументов должна завершаться ошибкой, а не проверять образцы.
+7. В portable-core цитируйте разрешённые улики из капсул в человекочитаемой форме. Не раскрывайте идентификаторы источников, идентификаторы якорей, необязательные идентификаторы изображений, хеши или опущенные локальные пути к изображениям и не подразумевайте, что текст капсулы сохраняет визуальные свойства на уровне пикселей.
 
-The scanner is a release gate, not a complete data-loss-prevention system. Host-side secrets handling, access control, and egress controls remain outside this package.
+Сканер — это релизный гейт, а не полная система предотвращения утечек данных. Обработка секретов на стороне хоста, контроль доступа и контроль исходящего трафика остаются вне этого пакета.

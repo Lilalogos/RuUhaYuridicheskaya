@@ -4,6 +4,7 @@
   references/laws-registry.md      — 72 нормы из applaw/taxonomy/norms.yml, по доменам
   references/evidence-registry.md  — 15 актов из evidence/enforcement (meta.yml + quotes.md + реестр исходов)
   references/captures-registry.md  — серии экранов из evidence/captures
+  references/practice-registry.md  — реестр практики из evidence/practice (через build_practice_registry.py)
 
 Справочники — производные: правьте данные, не их. Запуск:
     python3 -B scripts/build_references.py
@@ -261,6 +262,8 @@ def main() -> None:
     (REFS / "captures-registry.md").write_text(build_captures() + "\n", encoding="utf-8")
     for name in ("laws-registry.md", "evidence-registry.md", "captures-registry.md"):
         print(name, (REFS / name).stat().st_size, "bytes")
+    import build_practice_registry  # noqa: E402
+    build_practice_registry.main()
 
 
 if __name__ == "__main__":

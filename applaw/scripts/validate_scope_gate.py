@@ -32,7 +32,7 @@ CASES = [
 # ru fork port: the gate only toggles checkout-family specialists. Every
 # screen runs the full A1-A8 legal flow against the Russian norms, and the
 # old non_checkout short-circuit ("Skip A2-A6", auto "very low") is forbidden.
-REQUIRED_PHRASES = ["checkout_or_pricing", "non_checkout", "full A1-A8", "Never skip the legal analysis"]
+REQUIRED_PHRASES = ["checkout_or_pricing", "non_checkout", "полный конвейер A1-A8", "Никогда не пропускать правовой анализ"]
 FORBIDDEN_PHRASES = ["Score`: 1-10", "Risk band", "Skip A2-A6", "`very low`"]
 
 

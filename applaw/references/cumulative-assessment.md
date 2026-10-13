@@ -1,57 +1,60 @@
-# Cumulative Assessment
+# Совокупная оценка
 
-Read this whenever a submission shows several small practices rather than one obvious
-violation, and whenever a risk label is being set.
+Читайте это всякий раз, когда поданный материал показывает несколько мелких практик, а не
+одно очевидное нарушение, и всякий раз, когда устанавливается метка риска.
 
-## The question
+## Вопрос
 
-May several individually minor interface practices be treated together as one more
-serious matter? For the risk assessment, yes. For a Material Finding, only where a
-registered RU norm itself reaches the combined impression.
+Можно ли рассматривать несколько по отдельности незначительных практик интерфейса вместе
+как одно более серьёзное дело? Для оценки риска — да. Для материальной находки (раздел
+`Material Findings`) — только там, где зарегистрированная норма РФ сама охватывает
+совокупное впечатление.
 
-## What the attached sources actually support
+## Что в действительности поддерживают приложенные источники
 
-**Price as one impression.** The survey reads Articles 8-10 of the Consumer Protection
-Law as a duty to present the final price "without last-step surprises": the pre-contract
-information duty is about the total commercial impression of price and terms, so a daily
-figure, a subordinated recurring amount, and a late mandatory fee are assessed together
-against the same duty rather than tile by tile.
+**Цена как единое впечатление.** Обзор читает статьи 8-10 Закона о защите прав
+потребителей как обязанность представить итоговую цену «без сюрпризов на последнем шаге»:
+преддоговорная информационная обязанность касается общего коммерческого впечатления о цене
+и условиях, поэтому суточная цифра, подчинённая периодическая сумма и поздно показанный
+обязательный сбор оцениваются вместе против одной и той же обязанности, а не плитка за
+плиткой.
 
-**Untrue or omitted terms.** Art. 5 pts. 3 and 7 of the Advertising Law reach an
-assertion that is untrue and the omission of material terms, including terms hidden in
-small or pale print. A countdown, a scarcity counter, and a superlative shown together
-are read against the truthfulness of the combined promotional message.
+**Недостоверные или опущенные условия.** П. 3 и 7 ст. 5 Закона о рекламе охватывают
+недостоверное утверждение и опущение существенных условий, включая условия, скрытые мелким
+или бледным шрифтом. Обратный отсчёт, счётчик дефицита и превосходная степень, показанные
+вместе, читаются против достоверности совокупного рекламного сообщения.
 
-**Imposed consent.** Art. 16 with Civil Code Art. 438 treats the combination of a
-pre-ticked extra, a bundled consent line, and a conditioned pay control as the absence
-of a separate expression of will; the seller carries the burden of proving consent.
+**Навязанное согласие.** Ст. 16 вместе со ст. 438 ГК трактует сочетание предвыбранной
+допуслуги, объединённой строки согласия и обусловленной кнопки оплаты как отсутствие
+отдельного волеизъявления; бремя доказывания согласия несёт продавец.
 
-Nothing in the attached sources codifies a general "overall presentation" head of
-liability. The combination is therefore assessed inside the specific registered duty it
-concerns, never as a free-standing theory.
+Ничто в приложенных источниках не кодифицирует общее основание ответственности за «общее
+представление». Поэтому совокупность оценивается внутри конкретной зарегистрированной
+обязанности, которой она касается, и никогда — как самостоятельная теория.
 
-## Where the support stops
+## Где поддержка заканчивается
 
-- Permitted: several practices that together shape one deceptive impression of the same
-  matter (the real price, the real commitment, the real ease of leaving) are assessed
-  together inside the registered duty that reaches that matter.
-- Not permitted: adding up practices that mislead about nothing in particular, or that no
-  registered norm reaches, in order to manufacture a violation.
+- Допустимо: несколько практик, которые вместе формируют одно вводящее в заблуждение
+  впечатление об одном и том же предмете (реальная цена, реальное обязательство, реальная
+  лёгкость ухода), оцениваются вместе внутри зарегистрированной обязанности, охватывающей
+  этот предмет.
+- Недопустимо: складывать практики, которые не вводят в заблуждение ни о чём конкретном или
+  которых не достигает ни одна зарегистрированная норма, чтобы сфабриковать нарушение.
 
-A pattern that no routed norm reaches contributes to the risk label at most as context. It
-never becomes a Material Finding and it never acquires a citation by being counted
-alongside others.
+Паттерн, которого не достигает ни одна маршрутизированная норма, влияет на метку риска самое
+большее как контекст. Он никогда не становится материальной находкой и никогда не получает
+цитату за счёт того, что подсчитан вместе с другими.
 
-## Applying it
+## Применение
 
-1. Decide what impression the combination creates, and about which matter relevant to a
-   transactional decision. Name it. If no single matter emerges, there is no cumulative
-   case and the practices stay separate.
-2. Cite the combination only where a routed RU norm supports it: the pre-contract price
-   duty (Arts. 8-10), the untrue-advertising route (Art. 5 pts. 3, 7), or the imposed
-   consent rules (Art. 16 with Civil Code Art. 438).
-3. Say plainly in the finding that the conclusion rests on the combination rather than on
-   any single element, so a reader can disagree with the aggregation on its own terms.
-4. Where the parts are individually minor and the combination is the point, the finding
-   carries at most Medium severity unless the combined impression concerns price, the
-   existence of a recurring commitment, or the ability to cancel.
+1. Определите, какое впечатление создаёт совокупность и о каком предмете, значимом для
+   решения о сделке. Назовите его. Если единый предмет не выявляется, совокупного дела нет,
+   и практики остаются раздельными.
+2. Цитируйте совокупность только там, где её поддерживает маршрутизированная норма РФ:
+   преддоговорная обязанность по цене (ст. 8-10), маршрут недостоверной рекламы (п. 3, 7
+   ст. 5) или правила о навязанном согласии (ст. 16 вместе со ст. 438 ГК).
+3. Прямо скажите в находке, что вывод опирается на совокупность, а не на какой-либо
+   отдельный элемент, чтобы читатель мог не согласиться с агрегированием как таковым.
+4. Там, где части по отдельности незначительны и суть именно в совокупности, находка
+   получает серьёзность не выше Medium, если только совокупное впечатление не касается цены,
+   существования периодического обязательства или возможности отмены.

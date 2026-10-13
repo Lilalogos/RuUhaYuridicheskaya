@@ -1,23 +1,23 @@
-# KB Schema
+# Схема базы знаний (KB)
 
-## Contents
+## Содержание
 
-- [Directory Map](#directory-map)
-- [Allowed Values](#allowed-values)
-- [Source Capsule Fields](#source-capsule-fields)
-- [Pattern Fields](#pattern-fields)
-- [Jurisdiction Route Fields](#jurisdiction-route-fields)
-- [Norm Fields](#norm-fields)
-- [Enforcement Outcome Registry](#enforcement-outcome-registry)
-- [Case Header](#case-header)
-- [Case Card](#case-card)
-- [Gold Card](#gold-card)
-- [Clean Benchmark](#clean-benchmark)
-- [Report Sample](#report-sample)
+- [Карта каталогов](#карта-каталогов)
+- [Допустимые значения](#допустимые-значения)
+- [Поля капсулы источника](#поля-капсулы-источника)
+- [Поля паттерна](#поля-паттерна)
+- [Поля маршрутов юрисдикции](#поля-маршрутов-юрисдикции)
+- [Поля нормы](#поля-нормы)
+- [Реестр результатов правоприменения](#реестр-результатов-правоприменения)
+- [Заголовок кейса](#заголовок-кейса)
+- [Карточка кейса](#карточка-кейса)
+- [Gold-карточка](#gold-карточка)
+- [Clean-бенчмарк](#clean-бенчмарк)
+- [Образец отчёта](#образец-отчёта)
 
-## Directory Map
+## Карта каталогов
 
-Canonical KB:
+Каноническая база знаний (KB):
 
 ```text
 constitutions/
@@ -48,18 +48,18 @@ benchmarks/clean/<id>.md
 sources/source_capsules.json
 ```
 
-Active-workspace binary archive:
+Бинарный архив активного рабочего пространства:
 
 ```text
 case_law/          # optional maintenance and regeneration input
 downloaded_pdfs/   # optional raw-ingestion archive
 ```
 
-Portable-core releases omit both binary archives, the canonical `assets/` tree, and every historical image or `*.pdf` file. They carry `RELEASE_PROFILE.json`, `sources/source_capsules.json`, case cards, taxonomy, fixtures, and outcome records instead. Current evaluations use operator-supplied screenshots; historical comparisons use semantic case-card evidence and capsule anchors. Optional visual evidence may be mounted separately but is never required or sufficient as a citation anchor by itself.
+Релизы portable-core не включают оба бинарных архива, канонический каталог `assets/` и все исторические изображения и файлы `*.pdf`. Вместо них они содержат `RELEASE_PROFILE.json`, `sources/source_capsules.json`, карточки кейсов, таксономию, фикстуры и записи результатов. Текущие оценки используют скриншоты, предоставленные оператором; исторические сравнения опираются на семантические улики карточек кейсов и якоря капсул. Необязательные визуальные улики могут монтироваться отдельно, но сами по себе никогда не требуются и не достаточны в качестве якоря цитирования.
 
-`RELEASE_PROFILE.json` declares schema and release versions, `profile: portable-core`, `bundled_visual_assets: false`, `evidence_mode: capsule`, `optional_evidence_pack_required: false`, zero PDF and bundled-image counts, and exact package file/byte totals before the checksum manifest.
+`RELEASE_PROFILE.json` объявляет версии схемы и релиза, `profile: portable-core`, `bundled_visual_assets: false`, `evidence_mode: capsule`, `optional_evidence_pack_required: false`, нулевые счётчики PDF и встроенных изображений, а также точные итоги по числу файлов и байтов пакета перед манифестом контрольных сумм.
 
-Working materials:
+Рабочие материалы:
 
 ```text
 generated/
@@ -68,41 +68,41 @@ new/
 tmp/
 ```
 
-Do not treat working materials as stronger evidence than canonical case, taxonomy, norm, and source files.
+Не считайте рабочие материалы более сильными уликами, чем канонические файлы кейсов, таксономии, норм и источников.
 
-## Allowed Values
+## Допустимые значения
 
-Pattern families: `disclosure`, `consent`, `pressure`, `upsell`, `cancellation`.
+Семейства паттернов: `disclosure`, `consent`, `pressure`, `upsell`, `cancellation`.
 
-Pattern stages: `lure`, `commit`, `hide`, `charge`, `block`.
+Стадии паттернов: `lure`, `commit`, `hide`, `charge`, `block`.
 
-Severity: `low`, `medium`, `high`.
+Серьёзность: `low`, `medium`, `high`.
 
-Canonical jurisdictions: `US`, `EU`, `UK`.
+Канонические юрисдикции: `US`, `EU`, `UK`.
 
-Canonical sub-jurisdiction: null or a supported ISO-style EU country code (`FR`, `NL`). External aliases such as `EU:France`, `EU:FR`, `EU-France`, and `EU-FR` are normalized at input and must not be stored as a combined jurisdiction value. Base-only records use `sub_jurisdiction: null`.
+Каноническая субъюрисдикция: null или поддерживаемый код страны ЕС в стиле ISO (`FR`, `NL`). Внешние алиасы вроде `EU:France`, `EU:FR`, `EU-France` и `EU-FR` нормализуются на входе и не должны храниться как составное значение юрисдикции. Записи только базового уровня используют `sub_jurisdiction: null`.
 
-Norm type: `material`, `procedural`.
+Тип нормы: `material`, `procedural`.
 
-Availability: `full`, `press_release_only`, `partial`, `unknown`.
+Доступность: `full`, `press_release_only`, `partial`, `unknown`.
 
-Legacy gold-fixture risk bands: `green`, `yellow`, `red`. These are internal regression labels, not Report Contract v3 public risk labels.
+Унаследованные диапазоны риска gold-фикстур: `green`, `yellow`, `red`. Это внутренние регрессионные метки, а не публичные метки риска Report Contract v3.
 
-Legacy gold-fixture score bands: `1-30`, `31-60`, `61-100`. These preserve historical test semantics and are not the five-level public mapping.
+Унаследованные диапазоны баллов gold-фикстур: `1-30`, `31-60`, `61-100`. Они сохраняют историческую семантику тестов и не являются публичным пятиуровневым отображением.
 
-## Source Capsule Fields
+## Поля капсулы источника
 
-`sources/source_capsules.json` contains one record per original legal/source document. Each record includes `source_id`, title, authority, jurisdiction, procedural posture, official URL where referenced, verification date, coverage, package status, review status, `original_document`, aliases, reverse references, page extracts, anchors, and limitations.
+`sources/source_capsules.json` содержит одну запись на каждый исходный правовой/первичный документ. Каждая запись включает `source_id`, название, орган, юрисдикцию, процессуальную позицию, официальный URL (где он упомянут), дату верификации, покрытие, статус в пакете, статус проверки, `original_document`, алиасы, обратные ссылки, выдержки по страницам, якоря и ограничения.
 
-`original_document` preserves filename, SHA-256, byte size, page count, and media type. An anchor contains a stable `anchor_id`, source ref/page/paragraph fields, local evidence or law summary, optional maintenance asset links, reverse references, and review status. A hash or URL without a local anchor never satisfies cite-or-abstain.
+`original_document` сохраняет имя файла, SHA-256, размер в байтах, число страниц и тип носителя. Якорь содержит стабильный `anchor_id`, поля ссылки на источник/страницу/абзац, локальную сводку улик или закона, необязательные ссылки на активы для сопровождения, обратные ссылки и статус проверки. Хеш или URL без локального якоря никогда не удовлетворяет cite-or-abstain.
 
-Legacy `source_file` values remain valid only when they resolve to a current workspace binary or a referenced capsule alias. Portable case, gold, and benchmark records require direct `source_id` and `source_anchor_ids`, symmetric capsule reverse references, and at least one local anchor. A URL, filename, digest, page number, or optional image identifier alone is not sufficient.
+Унаследованные значения `source_file` остаются действительными только тогда, когда они разрешаются в текущий бинарный файл рабочего пространства или в алиас упомянутой капсулы. Портативные записи кейсов, gold и бенчмарков требуют прямых `source_id` и `source_anchor_ids`, симметричных обратных ссылок капсулы и как минимум одного локального якоря. URL, имя файла, дайджест, номер страницы или идентификатор необязательного изображения сами по себе недостаточны.
 
-Maintenance anchors may carry `asset_refs`. Portable-core anchors do not: a historical visual anchor instead carries a nonempty semantic `evidence_summary`, `historical_visual_evidence: true`, and an omitted-raster limitation. Gold-only anchors may link to existing case-card anchors through `linked_case_anchor_ids`. Extracted text and semantic summaries do not preserve pixel-level color, contrast, relative prominence, spacing, or location.
+Якоря для сопровождения могут нести `asset_refs`. Якоря portable-core — нет: исторический визуальный якорь вместо этого несёт непустую семантическую `evidence_summary`, `historical_visual_evidence: true` и ограничение об отсутствующем растре. Якоря только для gold могут ссылаться на существующие якоря карточек кейсов через `linked_case_anchor_ids`. Извлечённый текст и семантические сводки не сохраняют цвет, контраст, относительную заметность, интервалы и расположение на уровне пикселей.
 
-## Pattern Fields
+## Поля паттерна
 
-`taxonomy/patterns.yml` entries should include:
+Записи `taxonomy/patterns.yml` должны включать:
 
 ```yaml
 - id: hidden-renewal
@@ -116,11 +116,11 @@ Maintenance anchors may carry `asset_refs`. Portable-core anchors do not: a hist
   example_cases: []
 ```
 
-Keep it a detection registry. Do not turn it into a legal memo.
+Это реестр обнаружения — и только. Не превращайте его в юридический меморандум.
 
-## Jurisdiction Route Fields
+## Поля маршрутов юрисдикции
 
-`taxonomy/jurisdiction_routes.yml` is the jurisdiction-first candidate bridge between a detected pattern and `taxonomy/norms.yml`. Each route group should include:
+`taxonomy/jurisdiction_routes.yml` — это кандидатный мост «сначала юрисдикция» между обнаруженным паттерном и `taxonomy/norms.yml`. Каждая группа маршрутов должна включать:
 
 ```yaml
 - id: ru-total-price-disclosure
@@ -131,11 +131,11 @@ Keep it a detection registry. Do not turn it into a legal memo.
   condition: "Candidate only; verify the consumer (B2C) scope and the factual trigger."
 ```
 
-Route candidates must resolve to material norms in the same canonical jurisdiction scope. RU records carry no sub-jurisdiction. Route candidates are not automatic legal conclusions. A target jurisdiction is required; the router must abstain rather than fall back to another jurisdiction.
+Кандидаты маршрута должны разрешаться в материальные нормы того же канонического охвата юрисдикции. Записи RU не несут субъюрисдикции. Кандидаты маршрута не являются автоматическими правовыми выводами. Целевая юрисдикция обязательна; маршрутизатор должен воздержаться, а не откатываться к другой юрисдикции.
 
-## Norm Fields
+## Поля нормы
 
-`taxonomy/norms.yml` entries should include:
+Записи `taxonomy/norms.yml` должны включать:
 
 ```yaml
 - id: ru-zozpp-16-1
@@ -159,19 +159,19 @@ Route candidates must resolve to material norms in the same canonical jurisdicti
   verified_as_of: "YYYY-MM-DD"
 ```
 
-Keep the liability model flat and backward-compatible with the repository's deterministic parser. `remedy` is only a concise display summary; consequence claims must be supported by the more specific liability fields. `liability_source_urls` must contain official or primary sources. Do not place app-store refunds, card chargebacks, processor reserves, delisting, or other commercial consequences in these legal-liability fields.
+Держите модель ответственности плоской и обратно совместимой с детерминированным парсером репозитория. `remedy` — лишь краткая сводка для отображения; утверждения о последствиях должны подкрепляться более конкретными полями ответственности. `liability_source_urls` должен содержать официальные или первичные источники. Не помещайте в эти поля юридической ответственности возвраты через магазины приложений, чарджбэки по картам, резервы процессинга, снятие с витрины и прочие коммерческие последствия.
 
-`eligible_outcome_ids` contains only registry records that passed the finality, source-availability, and benchmark-eligibility gate.
+`eligible_outcome_ids` содержит только те записи реестра, которые прошли гейт финальности, доступности источника и пригодности для бенчмарка.
 
-Material norms state the underlying duty. Procedural norms state an enforcement or remedy route. A procedural norm may accompany a supported material norm in the legal dossier, but it should not be mapped directly from a visual pattern as though it were a UI duty.
+Материальные нормы формулируют базовую обязанность. Процедурные нормы формулируют маршрут принуждения или средство защиты. Процедурная норма может сопровождать поддержанную материальную норму в правовом досье, но её не следует сопоставлять напрямую с визуальным паттерном, как если бы это была обязанность в отношении интерфейса.
 
-Every procedural norm declares `companion_to_material_norm_ids`. A procedural norm is valid only after at least one declared material companion survives all jurisdiction and factual gates. Pattern registries and jurisdiction routes may map only material norms as primary candidates.
+Каждая процедурная норма объявляет `companion_to_material_norm_ids`. Процедурная норма действительна только после того, как хотя бы один объявленный материальный компаньон прошёл все гейты юрисдикции и фактические гейты. Реестры паттернов и маршруты юрисдикций могут сопоставлять в качестве первичных кандидатов только материальные нормы.
 
-## Enforcement Outcome Registry
+## Реестр результатов правоприменения
 
-`taxonomy/enforcement_outcomes.yml` is a one-to-many dated outcome layer. Each record includes stable id, canonical `jurisdiction`, nullable canonical `sub_jurisdiction`, authority, matter, date, posture, finality, linked norms/practices, legal basis, typed monetary object or null, consumer redress, non-monetary relief, official URL, pinpoint, source availability, benchmark eligibility, comparability notes, limitations, and verified date.
+`taxonomy/enforcement_outcomes.yml` — датированный слой результатов «один ко многим». Каждая запись включает стабильный id, каноническую `jurisdiction`, допускающую null каноническую `sub_jurisdiction`, орган, дело, дату, процессуальную позицию, финальность, связанные нормы/практики, правовое основание, типизированный денежный объект или null, возмещение потребителю, неденежные меры, официальный URL, точечную ссылку (пин), доступность источника, пригодность для бенчмарка, примечания о сопоставимости, ограничения и дату верификации.
 
-Allowed benchmark eligibility values:
+Допустимые значения пригодности для бенчмарка:
 
 - `eligible_monetary`
 - `eligible_non_monetary`
@@ -179,21 +179,21 @@ Allowed benchmark eligibility values:
 - `ineligible_no_finding`
 - `ineligible_source_only`
 
-Norms state law; outcomes state what happened in one matter. Do not copy observed amounts into a norm's ceiling text, and do not treat an outcome as precedent unless it is a precedential judgment.
+Нормы формулируют закон; результаты формулируют то, что произошло в одном деле. Не копируйте наблюдаемые суммы в текст потолка нормы и не считайте результат прецедентом, если это не прецедентное судебное решение.
 
-## Case Header
+## Заголовок кейса
 
-`cases/<case-folder>/_case.md` should carry frontmatter for:
+`cases/<case-folder>/_case.md` должен нести frontmatter с полями:
 
-`case_id`, `title`, `court`, `filed`, `counts`, `outcome`, `penalty`, `procedural_posture`, `odds_notes`, `source_id` or legacy `source_file`, `availability`.
+`case_id`, `title`, `court`, `filed`, `counts`, `outcome`, `penalty`, `procedural_posture`, `odds_notes`, `source_id` или унаследованное `source_file`, `availability`.
 
-## Case Card
+## Карточка кейса
 
-Maintenance `cases/<case-folder>/<figure-id>.md` should carry:
+Карточка для сопровождения `cases/<case-folder>/<figure-id>.md` должна нести:
 
-`case_id`, `figure_id`, `product`, `screen_type`, `patterns`, `norms`, `source_id` and `source_anchor_ids` or legacy `source_file`, `source_ref`, `source_page`, `asset`, `availability`.
+`case_id`, `figure_id`, `product`, `screen_type`, `patterns`, `norms`, `source_id` и `source_anchor_ids` или унаследованное `source_file`, `source_ref`, `source_page`, `asset`, `availability`.
 
-`complaint_paras` is expected for complaint-backed US cards and should be filled where available. The body should include:
+`complaint_paras` ожидается для карточек US, подкреплённых исковым заявлением, и должно заполняться там, где доступно. Тело должно включать:
 
 ```text
 EVIDENCE. ...
@@ -201,38 +201,38 @@ LEGAL REASONING. ...
 STATED LAW. ...
 ```
 
-The release builder creates portable copies only: it adds direct `source_id` and `source_anchor_ids`, removes `asset` frontmatter, and preserves the body text and stable IDs. Portable `_coverage.json` files report card count, evidence-anchor count, zero bundled assets, and optional visual-evidence count.
+Релизный сборщик создаёт только портативные копии: он добавляет прямые `source_id` и `source_anchor_ids`, удаляет frontmatter `asset` и сохраняет текст тела и стабильные ID. Портативные файлы `_coverage.json` сообщают число карточек, число якорей улик, нулевое число встроенных активов и число необязательных визуальных улик.
 
-## Gold Card
+## Gold-карточка
 
-Maintenance `eval/gold/<id>.md` should carry:
+Gold-карточка для сопровождения `eval/gold/<id>.md` должна нести:
 
-`id`, `case_id`, `source_title`, `screen_id`, `screen_title`, `jurisdiction`, optional `sub_jurisdiction`, `source_kind`, `source_id` and `source_anchor_ids` or legacy `source_file`, `source_ref`, `source_page`, `asset`, `expected_risk_band`, `expected_score_band`, `expected_patterns`, `expected_norms`, `complaint_paras`, `review_status`.
+`id`, `case_id`, `source_title`, `screen_id`, `screen_title`, `jurisdiction`, необязательное `sub_jurisdiction`, `source_kind`, `source_id` и `source_anchor_ids` или унаследованное `source_file`, `source_ref`, `source_page`, `asset`, `expected_risk_band`, `expected_score_band`, `expected_patterns`, `expected_norms`, `complaint_paras`, `review_status`.
 
-Base-only legacy gold cards without `sub_jurisdiction` normalize to null on read. New country-specific gold cards must store the ISO-style code explicitly. `expected_norms` must contain a material norm before any declared procedural companion and must match the gold scope.
+Унаследованные gold-карточки только базового уровня без `sub_jurisdiction` нормализуются в null при чтении. Новые gold-карточки для конкретной страны должны хранить код в стиле ISO явно. `expected_norms` должен содержать материальную норму перед любым объявленным процедурным компаньоном и соответствовать охвату gold-карточки.
 
-The body should include expected answer, expected flags, expected citations, acceptable variants, and rejection criteria.
+Тело должно включать секции `EXPECTED ANSWER` (ожидаемый ответ), `EXPECTED FLAGS` (ожидаемые флаги), `EXPECTED CITATIONS` (ожидаемые цитаты), `ACCEPTABLE VARIANTS` (допустимые варианты) и `REJECTION CRITERIA` (критерии отклонения).
 
-Portable gold copies require direct capsule fields and no `asset` frontmatter. Strict review remains mandatory. A missing optional image is not an error when capsule evidence or a linked case-card evidence anchor resolves locally.
+Портативные gold-копии требуют прямых полей капсулы и отсутствия frontmatter `asset`. Строгая проверка остаётся обязательной. Отсутствие необязательного изображения не является ошибкой, когда улики капсулы или якорь улик связанной карточки кейса разрешаются локально.
 
-## Clean Benchmark
+## Clean-бенчмарк
 
-`benchmarks/clean/<id>.md` should describe a lawful or low-risk checkout example, not a fake violation. It should carry:
+`benchmarks/clean/<id>.md` должен описывать законный или низкорисковый пример чекаута, а не выдуманное нарушение. Он должен нести:
 
 `id`, `product`, `jurisdiction`, `benchmark_type`, `checkout_stage`, `monetization_model`, `expected_risk_band`, `expected_score_band`, `lawful_features`, `false_positive_traps_covered`, `evidence_source`, `asset`, `review_status`.
 
-Every clean benchmark must resolve one source capsule and at least one local anchor; multi-page examples may resolve multiple anchors. Portable copies require direct capsule fields and do not require a shareable image. If optional visual evidence is absent, state that limitation and use the semantic capsule evidence without claiming pixel-level equivalence.
+Каждый clean-бенчмарк должен разрешать одну капсулу источника и как минимум один локальный якорь; многостраничные примеры могут разрешать несколько якорей. Портативные копии требуют прямых полей капсулы и не требуют изображения, пригодного для распространения. Если необязательные визуальные улики отсутствуют, укажите это ограничение и используйте семантические улики капсулы, не заявляя эквивалентности на уровне пикселей.
 
-## Report Sample
+## Образец отчёта
 
-`eval/report_samples/<id>.md` is a regression fixture for the strict public output contract. It must follow `references/report-contract.md` and pass `scripts/validate_report.py`. It is not a source of law or case evidence and must not be cited as authority.
+`eval/report_samples/<id>.md` — регрессионная фикстура строгого публичного контракта вывода. Она должна следовать `references/report-contract.md` и проходить `scripts/validate_report.py`. Она не является источником права или улик по кейсу и не должна цитироваться как авторитетный источник.
 
-Report samples also model the default-English, plain-language style policy. They should preserve direct citations and required contract strings while explaining the practical point in ordinary language.
+Образцы отчётов также моделируют политику стиля: английский язык вывода по умолчанию и простой язык. Они должны сохранять прямые цитаты и обязательные контрактные строки, объясняя практический смысл обычным языком.
 
-Ordinary report samples omit the public `Evidence integrity:` line. `eval/report_validation_cases.json` supplies positive and negative validator regressions for default omission and the explicit `--evidence-integrity-requested` mode.
+Обычные образцы отчётов опускают публичную строку `Evidence integrity:`. `eval/report_validation_cases.json` предоставляет положительные и отрицательные регрессии валидатора для опускания по умолчанию и для явного режима `--evidence-integrity-requested`.
 
-`eval/policy_fixtures/<id>.md` tests evidence-integrity and false-positive behavior. It is not legal evidence. It must state the evidence text, expected handling, expected risk effect, and prohibited behavior and pass `scripts/validate_policy_fixtures.py`.
+`eval/policy_fixtures/<id>.md` проверяет поведение в части целостности улик и ложных срабатываний. Это не юридические улики. Фикстура должна указывать текст улик, ожидаемую обработку, ожидаемое влияние на риск и запрещённое поведение и проходить `scripts/validate_policy_fixtures.py`.
 
-`eval/adversarial/<id>.md` is a manual-replay robustness specification. It must carry `id`, `category`, `attack_vector`, `targets`, `severity_if_failed`, and `review_status`, then contain prompt, expected-behavior, failure-mode, and pass-criteria sections. It is not legal evidence and must pass `scripts/validate_adversarial.py`.
+`eval/adversarial/<id>.md` — спецификация устойчивости для ручного воспроизведения. Она должна нести `id`, `category`, `attack_vector`, `targets`, `severity_if_failed` и `review_status`, а затем содержать секции `PROMPT / INJECTED EVIDENCE`, `EXPECTED BEHAVIOR`, `FAILURE MODE` и `PASS CRITERIA`. Это не юридические улики; файл должен проходить `scripts/validate_adversarial.py`.
 
-`eval/resource_limits/cases.json` tests context-aware post-ingestion admission: deployed context window, exact occupied-input components and total, cached-input subset, retrieved KB tokens, tool/response/safety reserves, candidate evidence, OCR, elapsed time, and screenshot-batch admission. `eval/output_safety/cases.json` tests public-output leakage detection. `eval/adversarial_replays/` contains deterministic safe/unsafe transcript pairs and rules; it grades saved text and never invokes a model.
+`eval/resource_limits/cases.json` проверяет контекстно-зависимый допуск после загрузки: развёрнутое контекстное окно, точные компоненты занятого ввода и их итог, кэшированное подмножество ввода, извлечённые токены KB, резервы на инструменты/ответ/безопасность, кандидатные улики, OCR, затраченное время и допуск пакета скриншотов. `eval/output_safety/cases.json` проверяет обнаружение утечек в публичном выводе. `eval/adversarial_replays/` содержит детерминированные пары безопасных/небезопасных транскриптов и правила; он оценивает сохранённый текст и никогда не вызывает модель.

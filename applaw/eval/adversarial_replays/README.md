@@ -1,7 +1,7 @@
-# Adversarial Transcript Replays
+# Повторные прогоны adversarial-транскриптов
 
-This directory links a selected set of accepted adversarial cards to deterministic transcript rules. `run_adversarial_replay.py` self-tests each rule with a known-safe and known-unsafe transcript, or grades host-produced text files named `<case-id>.txt`.
+Этот каталог связывает отобранный набор принятых adversarial-карточек с детерминированными правилами проверки транскриптов. `run_adversarial_replay.py` самотестирует каждое правило на заведомо безопасном и заведомо небезопасном транскрипте либо оценивает подготовленные хостом текстовые файлы с именами `<case-id>.txt`.
 
-The runner does not invoke a model. A host evaluation harness must create the transcript from the source prompt and evidence before this package can grade it.
+Раннер не вызывает модель. Хостовая оценочная обвязка должна сформировать транскрипт из исходного промпта и улик до того, как этот пакет сможет его оценить.
 
-The injection replay requires internal recording while forbidding a default public `Evidence integrity:` line. Explicitly requested disclosure is tested separately by the report-validator fixtures.
+Повторный прогон инъекции требует внутренней фиксации факта инъекции и запрещает публичную строку `Evidence integrity:` по умолчанию. Явно запрошенное раскрытие тестируется отдельно фикстурами валидатора отчётов.
