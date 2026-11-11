@@ -8,6 +8,8 @@ The skill follows a **cite-or-abstain** rule: every finding must name the articl
 
 > A report is a risk assessment based on the supplied interface. It is not legal advice.
 
+Most of the repository content, including the skill instructions, is in Russian.
+
 ## What it does
 
 | Mode | What happens | Example request |
@@ -135,11 +137,3 @@ scripts/                 build and verification tooling
 - Registry membership, whether a placement is paid, and the buyer's status cannot be established from a screenshot. Such findings are issued as conditional.
 
 The full gap list: [`references/gaps.md`](references/gaps.md).
-
-## Maintenance
-
-The legal content of the knowledge base is maintained by Misha; UX patterns and capture labelling by Vitaly. The skill is a fork of the multi-jurisdiction AppLaw; the change history is in [`docs/ru-fork-notes.md`](docs/ru-fork-notes.md).
-
-Most of the repository content, including the skill instructions, is in Russian.
-
-Repository mirror: [UhaYuridicheskaya](https://github.com/Lilalogos/UhaYuridicheskaya). No license is specified.
